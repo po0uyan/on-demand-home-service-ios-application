@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.7.2)
+  - lottie-ios (2.0.3)
+  - MaterialComponents/AnimationTiming (55.2.0)
+  - MaterialComponents/Palettes (55.2.0)
+  - MaterialComponents/private/Application (55.2.0)
+  - MaterialComponents/private/Math (55.2.0)
+  - MaterialComponents/TextFields (55.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - MaterialComponents/Typography (55.2.0):
+    - MaterialComponents/private/Application
+  - MDFInternationalization (1.0.4)
+  - ReachabilitySwift (4.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - lottie-ios (= 2.0.3)
+  - MaterialComponents/TextFields
+  - ReachabilitySwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - lottie-ios
+    - MaterialComponents
+    - MDFInternationalization
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  lottie-ios: 445f77c7f661f95587e49095a1ac7de43f0da896
+  MaterialComponents: b321a90d9746ac7be2e5da3f8497c5aa15b1f761
+  MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
+
+PODFILE CHECKSUM: 06ca0eb8e5ccd5eccddba38dfd38fda4135d9167
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,909 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		351FA0A0831AC23E72C59CAA /* Pods_pinworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4F084297A6C73ED9ED5BEA /* Pods_pinworkTests.framework */; };
+		88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3620BC0714007D6363 /* IRANSansMobile.ttf */; };
+		88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */; };
+		88240F3E20BC0715007D6363 /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */; };
+		88240F3F20BC0715007D6363 /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3920BC0714007D6363 /* IRANSansMobile_Light.ttf */; };
+		88240F4020BC0715007D6363 /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3A20BC0715007D6363 /* IRANSansMobile_Medium.ttf */; };
+		88240F4120BC0715007D6363 /* IRANSansMobile_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3B20BC0715007D6363 /* IRANSansMobile_Black.ttf */; };
+		88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4320BC086C007D6363 /* IRANSansMobile(NoEn)_Bold.ttf */; };
+		88240F4A20BC086D007D6363 /* IRANSansMobile(NoEn)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4420BC086C007D6363 /* IRANSansMobile(NoEn)_Medium.ttf */; };
+		88240F4B20BC086D007D6363 /* IRANSansMobile(NoEn)_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4520BC086C007D6363 /* IRANSansMobile(NoEn)_Black.ttf */; };
+		88240F4C20BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4620BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf */; };
+		88240F4D20BC086D007D6363 /* IRAN SansMobile(NoEn).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4720BC086D007D6363 /* IRAN SansMobile(NoEn).ttf */; };
+		88240F4E20BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4820BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf */; };
+		88240F5420BC7286007D6363 /* pro_trained.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5320BC7285007D6363 /* pro_trained.png */; };
+		88240F5620BC7294007D6363 /* pro_trusted.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5520BC7294007D6363 /* pro_trusted.png */; };
+		88240F5820BC72A5007D6363 /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5720BC72A4007D6363 /* calculator.png */; };
+		88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5920BC72B7007D6363 /* customer_service_icon.png */; };
+		88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5B20BD9055007D6363 /* FirstScrollView.xib */; };
+		8841B5A520C73E5600C80383 /* retry_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 8841B5A420C73E5500C80383 /* retry_error.png */; };
+		8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841B5A620C743E000C80383 /* RetryViewController.swift */; };
+		8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */; };
+		8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8849CAF820C6CF4200E2A5A8 /* no-wifi.png */; };
+		88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2A20BA705E004CE674 /* AppDelegate.swift */; };
+		88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2C20BA705E004CE674 /* ViewController.swift */; };
+		88B15C3020BA705E004CE674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C2E20BA705E004CE674 /* Main.storyboard */; };
+		88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */; };
+		88B15C3520BA705F004CE674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3420BA705F004CE674 /* Assets.xcassets */; };
+		88B15C3820BA705F004CE674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */; };
+		88B15C4320BA705F004CE674 /* pinworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C4220BA705F004CE674 /* pinworkTests.swift */; };
+		88B15C4E20BA705F004CE674 /* pinworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C4D20BA705F004CE674 /* pinworkUITests.swift */; };
+		88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */; };
+		88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */; };
+		88B2062120BAE97D00C0A81D /* load2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062020BAE97D00C0A81D /* load2.json */; };
+		88B2062320BB381D00C0A81D /* load3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062220BB381D00C0A81D /* load3.json */; };
+		88B2062520BB382500C0A81D /* dem3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062420BB382500C0A81D /* dem3.json */; };
+		88CD084220C412410047D568 /* update_available.svg in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084420C412410047D568 /* update_available.svg */; };
+		88CD084620C413830047D568 /* update_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084520C413830047D568 /* update_available.png */; };
+		88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD084B20C571080047D568 /* ReachabilityManager.swift */; };
+		88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */; };
+		88E3F61120C019D400BA6516 /* trail_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 88E3F61020C019D400BA6516 /* trail_loading.json */; };
+		88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F61220C1ABA600BA6516 /* APIClient.swift */; };
+		88E3F61520C1B57600BA6516 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3F61420C1B57600BA6516 /* Alamofire.framework */; };
+		88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3F61620C1B57D00BA6516 /* Lottie.framework */; };
+		88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */; };
+		88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */; };
+		A2D2A062CDA955FE96655320 /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */; };
+		F1F299016B525EB22C541F8C /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C319DAB3E83ED464BE7AEB8E /* Pods_pinworkUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88B15C3F20BA705F004CE674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88B15C1F20BA705E004CE674 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88B15C2620BA705E004CE674;
+			remoteInfo = pinwork;
+		};
+		88B15C4A20BA705F004CE674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88B15C1F20BA705E004CE674 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88B15C2620BA705E004CE674;
+			remoteInfo = pinwork;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pinwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		255E68992B18D5AE8CC79142 /* Pods-pinworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkTests/Pods-pinworkTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinwork/Pods-pinwork.release.xcconfig"; sourceTree = "<group>"; };
+		85E4AA82A9F38503ABBEEDC4 /* Pods-pinworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkUITests/Pods-pinworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88240F3620BC0714007D6363 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
+		88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_UltraLight.ttf; sourceTree = "<group>"; };
+		88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Bold.ttf; sourceTree = "<group>"; };
+		88240F3920BC0714007D6363 /* IRANSansMobile_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Light.ttf; sourceTree = "<group>"; };
+		88240F3A20BC0715007D6363 /* IRANSansMobile_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Medium.ttf; sourceTree = "<group>"; };
+		88240F3B20BC0715007D6363 /* IRANSansMobile_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Black.ttf; sourceTree = "<group>"; };
+		88240F4320BC086C007D6363 /* IRANSansMobile(NoEn)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_Bold.ttf"; sourceTree = "<group>"; };
+		88240F4420BC086C007D6363 /* IRANSansMobile(NoEn)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_Medium.ttf"; sourceTree = "<group>"; };
+		88240F4520BC086C007D6363 /* IRANSansMobile(NoEn)_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_Black.ttf"; sourceTree = "<group>"; };
+		88240F4620BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_ultralight.ttf"; sourceTree = "<group>"; };
+		88240F4720BC086D007D6363 /* IRAN SansMobile(NoEn).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRAN SansMobile(NoEn).ttf"; sourceTree = "<group>"; };
+		88240F4820BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_Light.ttf"; sourceTree = "<group>"; };
+		88240F5320BC7285007D6363 /* pro_trained.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro_trained.png; sourceTree = "<group>"; };
+		88240F5520BC7294007D6363 /* pro_trusted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro_trusted.png; sourceTree = "<group>"; };
+		88240F5720BC72A4007D6363 /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
+		88240F5920BC72B7007D6363 /* customer_service_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customer_service_icon.png; sourceTree = "<group>"; };
+		88240F5B20BD9055007D6363 /* FirstScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstScrollView.xib; sourceTree = "<group>"; };
+		8841B5A420C73E5500C80383 /* retry_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry_error.png; sourceTree = "<group>"; };
+		8841B5A620C743E000C80383 /* RetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryViewController.swift; sourceTree = "<group>"; };
+		8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPopUpViewController.swift; sourceTree = "<group>"; };
+		8849CAF820C6CF4200E2A5A8 /* no-wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-wifi.png"; sourceTree = "<group>"; };
+		88B15C2720BA705E004CE674 /* pinwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B15C2A20BA705E004CE674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88B15C2C20BA705E004CE674 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88B15C2F20BA705E004CE674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88B15C3220BA705E004CE674 /* pinwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pinwork.xcdatamodel; sourceTree = "<group>"; };
+		88B15C3420BA705F004CE674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88B15C3720BA705F004CE674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88B15C3920BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88B15C3E20BA705F004CE674 /* pinworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B15C4220BA705F004CE674 /* pinworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinworkTests.swift; sourceTree = "<group>"; };
+		88B15C4420BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88B15C4920BA705F004CE674 /* pinworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B15C4D20BA705F004CE674 /* pinworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinworkUITests.swift; sourceTree = "<group>"; };
+		88B15C4F20BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinwork-logo-fa.png"; sourceTree = "<group>"; };
+		88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		88B2062020BAE97D00C0A81D /* load2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load2.json; sourceTree = "<group>"; };
+		88B2062220BB381D00C0A81D /* load3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load3.json; sourceTree = "<group>"; };
+		88B2062420BB382500C0A81D /* dem3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dem3.json; sourceTree = "<group>"; };
+		88CD084320C412410047D568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/update_available.svg; sourceTree = "<group>"; };
+		88CD084520C413830047D568 /* update_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_available.png; sourceTree = "<group>"; };
+		88CD084B20C571080047D568 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCodeDemandViewController.swift; sourceTree = "<group>"; };
+		88E3F61020C019D400BA6516 /* trail_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trail_loading.json; sourceTree = "<group>"; };
+		88E3F61220C1ABA600BA6516 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		88E3F61420C1B57600BA6516 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E3F61620C1B57D00BA6516 /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScrollView.swift; sourceTree = "<group>"; };
+		88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePopUpViewController.swift; sourceTree = "<group>"; };
+		8F4F084297A6C73ED9ED5BEA /* Pods_pinworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pinworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F22CC510F451E15FA5B30A /* Pods-pinworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkUITests/Pods-pinworkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A298F43D341076F4A18D1798 /* Pods-pinworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkTests/Pods-pinworkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C319DAB3E83ED464BE7AEB8E /* Pods_pinworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pinworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAEBDFB3E6D0F6C0B674F300 /* Pods-pinwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pinwork/Pods-pinwork.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88B15C2420BA705E004CE674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */,
+				88E3F61520C1B57600BA6516 /* Alamofire.framework in Frameworks */,
+				A2D2A062CDA955FE96655320 /* Pods_pinwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C3B20BA705F004CE674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351FA0A0831AC23E72C59CAA /* Pods_pinworkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C4620BA705F004CE674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F299016B525EB22C541F8C /* Pods_pinworkUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88240F4220BC0720007D6363 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				88240F4720BC086D007D6363 /* IRAN SansMobile(NoEn).ttf */,
+				88240F4520BC086C007D6363 /* IRANSansMobile(NoEn)_Black.ttf */,
+				88240F4320BC086C007D6363 /* IRANSansMobile(NoEn)_Bold.ttf */,
+				88240F4820BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf */,
+				88240F4420BC086C007D6363 /* IRANSansMobile(NoEn)_Medium.ttf */,
+				88240F4620BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf */,
+				88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */,
+				88240F3B20BC0715007D6363 /* IRANSansMobile_Black.ttf */,
+				88240F3920BC0714007D6363 /* IRANSansMobile_Light.ttf */,
+				88240F3A20BC0715007D6363 /* IRANSansMobile_Medium.ttf */,
+				88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */,
+				88240F3620BC0714007D6363 /* IRANSansMobile.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		88B15C1E20BA705E004CE674 = {
+			isa = PBXGroup;
+			children = (
+				88240F4220BC0720007D6363 /* fonts */,
+				88B15C5B20BA8A12004CE674 /* Assets */,
+				88B15C2920BA705E004CE674 /* pinwork */,
+				88B15C4120BA705F004CE674 /* pinworkTests */,
+				88B15C4C20BA705F004CE674 /* pinworkUITests */,
+				88B15C2820BA705E004CE674 /* Products */,
+				CC9131704EC5296B6B097976 /* Pods */,
+				B4A845875E96C41329632214 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		88B15C2820BA705E004CE674 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88B15C2720BA705E004CE674 /* pinwork.app */,
+				88B15C3E20BA705F004CE674 /* pinworkTests.xctest */,
+				88B15C4920BA705F004CE674 /* pinworkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88B15C2920BA705E004CE674 /* pinwork */ = {
+			isa = PBXGroup;
+			children = (
+				88B15C2A20BA705E004CE674 /* AppDelegate.swift */,
+				88B15C2C20BA705E004CE674 /* ViewController.swift */,
+				88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */,
+				88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */,
+				88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */,
+				88E3F61220C1ABA600BA6516 /* APIClient.swift */,
+				88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */,
+				8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */,
+				8841B5A620C743E000C80383 /* RetryViewController.swift */,
+				88240F5B20BD9055007D6363 /* FirstScrollView.xib */,
+				88B15C2E20BA705E004CE674 /* Main.storyboard */,
+				88B15C3420BA705F004CE674 /* Assets.xcassets */,
+				88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */,
+				88B15C3920BA705F004CE674 /* Info.plist */,
+				88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */,
+				88CD084B20C571080047D568 /* ReachabilityManager.swift */,
+			);
+			path = pinwork;
+			sourceTree = "<group>";
+		};
+		88B15C4120BA705F004CE674 /* pinworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				88B15C4220BA705F004CE674 /* pinworkTests.swift */,
+				88B15C4420BA705F004CE674 /* Info.plist */,
+			);
+			path = pinworkTests;
+			sourceTree = "<group>";
+		};
+		88B15C4C20BA705F004CE674 /* pinworkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				88B15C4D20BA705F004CE674 /* pinworkUITests.swift */,
+				88B15C4F20BA705F004CE674 /* Info.plist */,
+			);
+			path = pinworkUITests;
+			sourceTree = "<group>";
+		};
+		88B15C5B20BA8A12004CE674 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8849CAF820C6CF4200E2A5A8 /* no-wifi.png */,
+				88240F5320BC7285007D6363 /* pro_trained.png */,
+				88B2062420BB382500C0A81D /* dem3.json */,
+				88240F5520BC7294007D6363 /* pro_trusted.png */,
+				88240F5720BC72A4007D6363 /* calculator.png */,
+				8841B5A420C73E5500C80383 /* retry_error.png */,
+				88240F5920BC72B7007D6363 /* customer_service_icon.png */,
+				88CD084420C412410047D568 /* update_available.svg */,
+				88CD084520C413830047D568 /* update_available.png */,
+				88E3F61020C019D400BA6516 /* trail_loading.json */,
+				88B2062220BB381D00C0A81D /* load3.json */,
+				88B2062020BAE97D00C0A81D /* load2.json */,
+				88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B4A845875E96C41329632214 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88E3F61620C1B57D00BA6516 /* Lottie.framework */,
+				88E3F61420C1B57600BA6516 /* Alamofire.framework */,
+				0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */,
+				8F4F084297A6C73ED9ED5BEA /* Pods_pinworkTests.framework */,
+				C319DAB3E83ED464BE7AEB8E /* Pods_pinworkUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC9131704EC5296B6B097976 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAEBDFB3E6D0F6C0B674F300 /* Pods-pinwork.debug.xcconfig */,
+				6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */,
+				A298F43D341076F4A18D1798 /* Pods-pinworkTests.debug.xcconfig */,
+				255E68992B18D5AE8CC79142 /* Pods-pinworkTests.release.xcconfig */,
+				85E4AA82A9F38503ABBEEDC4 /* Pods-pinworkUITests.debug.xcconfig */,
+				90F22CC510F451E15FA5B30A /* Pods-pinworkUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88B15C2620BA705E004CE674 /* pinwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B15C5220BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinwork" */;
+			buildPhases = (
+				2DAFAF341CAB2A3C9B402C42 /* [CP] Check Pods Manifest.lock */,
+				88B15C2320BA705E004CE674 /* Sources */,
+				88B15C2420BA705E004CE674 /* Frameworks */,
+				88B15C2520BA705E004CE674 /* Resources */,
+				0605AB45D493CDF63871F6BE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pinwork;
+			productName = pinwork;
+			productReference = 88B15C2720BA705E004CE674 /* pinwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88B15C3D20BA705F004CE674 /* pinworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B15C5520BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinworkTests" */;
+			buildPhases = (
+				66ED380870ABBE9548F233CA /* [CP] Check Pods Manifest.lock */,
+				88B15C3A20BA705F004CE674 /* Sources */,
+				88B15C3B20BA705F004CE674 /* Frameworks */,
+				88B15C3C20BA705F004CE674 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88B15C4020BA705F004CE674 /* PBXTargetDependency */,
+			);
+			name = pinworkTests;
+			productName = pinworkTests;
+			productReference = 88B15C3E20BA705F004CE674 /* pinworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		88B15C4820BA705F004CE674 /* pinworkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B15C5820BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinworkUITests" */;
+			buildPhases = (
+				EE967EE842CD021568B2D9CD /* [CP] Check Pods Manifest.lock */,
+				88B15C4520BA705F004CE674 /* Sources */,
+				88B15C4620BA705F004CE674 /* Frameworks */,
+				88B15C4720BA705F004CE674 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88B15C4B20BA705F004CE674 /* PBXTargetDependency */,
+			);
+			name = pinworkUITests;
+			productName = pinworkUITests;
+			productReference = 88B15C4920BA705F004CE674 /* pinworkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88B15C1F20BA705E004CE674 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Pouyan;
+				TargetAttributes = {
+					88B15C2620BA705E004CE674 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					88B15C3D20BA705F004CE674 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 88B15C2620BA705E004CE674;
+					};
+					88B15C4820BA705F004CE674 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 88B15C2620BA705E004CE674;
+					};
+				};
+			};
+			buildConfigurationList = 88B15C2220BA705E004CE674 /* Build configuration list for PBXProject "pinwork" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88B15C1E20BA705E004CE674;
+			productRefGroup = 88B15C2820BA705E004CE674 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88B15C2620BA705E004CE674 /* pinwork */,
+				88B15C3D20BA705F004CE674 /* pinworkTests */,
+				88B15C4820BA705F004CE674 /* pinworkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88B15C2520BA705E004CE674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88240F4020BC0715007D6363 /* IRANSansMobile_Medium.ttf in Resources */,
+				88CD084620C413830047D568 /* update_available.png in Resources */,
+				88240F4E20BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf in Resources */,
+				8841B5A520C73E5600C80383 /* retry_error.png in Resources */,
+				88240F3E20BC0715007D6363 /* IRANSansMobile_Bold.ttf in Resources */,
+				88B15C3820BA705F004CE674 /* LaunchScreen.storyboard in Resources */,
+				88E3F61120C019D400BA6516 /* trail_loading.json in Resources */,
+				88B2062320BB381D00C0A81D /* load3.json in Resources */,
+				88B15C3520BA705F004CE674 /* Assets.xcassets in Resources */,
+				88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */,
+				88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */,
+				88240F5420BC7286007D6363 /* pro_trained.png in Resources */,
+				88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */,
+				88240F5620BC7294007D6363 /* pro_trusted.png in Resources */,
+				88240F5820BC72A5007D6363 /* calculator.png in Resources */,
+				88B2062120BAE97D00C0A81D /* load2.json in Resources */,
+				88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */,
+				88240F4A20BC086D007D6363 /* IRANSansMobile(NoEn)_Medium.ttf in Resources */,
+				88240F4C20BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf in Resources */,
+				88CD084220C412410047D568 /* update_available.svg in Resources */,
+				88B15C3020BA705E004CE674 /* Main.storyboard in Resources */,
+				88240F4120BC0715007D6363 /* IRANSansMobile_Black.ttf in Resources */,
+				88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */,
+				88B2062520BB382500C0A81D /* dem3.json in Resources */,
+				8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */,
+				88240F4B20BC086D007D6363 /* IRANSansMobile(NoEn)_Black.ttf in Resources */,
+				88240F3F20BC0715007D6363 /* IRANSansMobile_Light.ttf in Resources */,
+				88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */,
+				88240F4D20BC086D007D6363 /* IRAN SansMobile(NoEn).ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C3C20BA705F004CE674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C4720BA705F004CE674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0605AB45D493CDF63871F6BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pinwork/Pods-pinwork-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pinwork/Pods-pinwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DAFAF341CAB2A3C9B402C42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pinwork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66ED380870ABBE9548F233CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pinworkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE967EE842CD021568B2D9CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pinworkUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88B15C2320BA705E004CE674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */,
+				88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */,
+				88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */,
+				88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */,
+				88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */,
+				8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */,
+				88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */,
+				8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */,
+				88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */,
+				88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */,
+				88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C3A20BA705F004CE674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B15C4320BA705F004CE674 /* pinworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88B15C4520BA705F004CE674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88B15C4E20BA705F004CE674 /* pinworkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88B15C4020BA705F004CE674 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88B15C2620BA705E004CE674 /* pinwork */;
+			targetProxy = 88B15C3F20BA705F004CE674 /* PBXContainerItemProxy */;
+		};
+		88B15C4B20BA705F004CE674 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88B15C2620BA705E004CE674 /* pinwork */;
+			targetProxy = 88B15C4A20BA705F004CE674 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88B15C2E20BA705E004CE674 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88B15C2F20BA705E004CE674 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88B15C3720BA705F004CE674 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		88CD084420C412410047D568 /* update_available.svg */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88CD084320C412410047D568 /* Base */,
+			);
+			name = update_available.svg;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88B15C5020BA705F004CE674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		88B15C5120BA705F004CE674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88B15C5320BA705F004CE674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAEBDFB3E6D0F6C0B674F300 /* Pods-pinwork.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88B15C5420BA705F004CE674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		88B15C5620BA705F004CE674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A298F43D341076F4A18D1798 /* Pods-pinworkTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pinwork.app/pinwork";
+			};
+			name = Debug;
+		};
+		88B15C5720BA705F004CE674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 255E68992B18D5AE8CC79142 /* Pods-pinworkTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pinwork.app/pinwork";
+			};
+			name = Release;
+		};
+		88B15C5920BA705F004CE674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85E4AA82A9F38503ABBEEDC4 /* Pods-pinworkUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinworkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinworkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = pinwork;
+			};
+			name = Debug;
+		};
+		88B15C5A20BA705F004CE674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90F22CC510F451E15FA5B30A /* Pods-pinworkUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZD8838NNV;
+				INFOPLIST_FILE = pinworkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinworkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = pinwork;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88B15C2220BA705E004CE674 /* Build configuration list for PBXProject "pinwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B15C5020BA705F004CE674 /* Debug */,
+				88B15C5120BA705F004CE674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88B15C5220BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B15C5320BA705F004CE674 /* Debug */,
+				88B15C5420BA705F004CE674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88B15C5520BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B15C5620BA705F004CE674 /* Debug */,
+				88B15C5720BA705F004CE674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88B15C5820BA705F004CE674 /* Build configuration list for PBXNativeTarget "pinworkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88B15C5920BA705F004CE674 /* Debug */,
+				88B15C5A20BA705F004CE674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				88B15C3220BA705E004CE674 /* pinwork.xcdatamodel */,
+			);
+			currentVersion = 88B15C3220BA705E004CE674 /* pinwork.xcdatamodel */;
+			path = pinwork.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 88B15C1F20BA705E004CE674 /* Project object */;
+}
