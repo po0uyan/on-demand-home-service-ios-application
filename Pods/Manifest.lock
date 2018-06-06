@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - BRYXBanner (0.8.0)
   - lottie-ios (2.0.3)
   - MaterialComponents/AnimationTiming (55.2.0)
   - MaterialComponents/Palettes (55.2.0)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - BRYXBanner
   - lottie-ios (= 2.0.3)
   - MaterialComponents/TextFields
   - ReachabilitySwift
@@ -25,6 +27,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - BRYXBanner
     - lottie-ios
     - MaterialComponents
     - MDFInternationalization
@@ -32,11 +35,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  BRYXBanner: 406c3775789136531da6f3c98058be2f16e08a34
   lottie-ios: 445f77c7f661f95587e49095a1ac7de43f0da896
   MaterialComponents: b321a90d9746ac7be2e5da3f8497c5aa15b1f761
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
 
-PODFILE CHECKSUM: 06ca0eb8e5ccd5eccddba38dfd38fda4135d9167
+PODFILE CHECKSUM: c3973ea1154a649d15b474196476f4babdc8897c
 
 COCOAPODS: 1.5.3

@@ -15,8 +15,8 @@ class APIClient{
     struct APIManager {
         static let sharedManager: SessionManager = {
             let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForResource = 10
-            configuration.timeoutIntervalForRequest = 10
+            configuration.timeoutIntervalForResource = 2
+            configuration.timeoutIntervalForRequest = 2
             return Alamofire.SessionManager(configuration: configuration)
         }()
     }

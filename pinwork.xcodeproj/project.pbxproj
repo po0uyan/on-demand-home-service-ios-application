@@ -29,6 +29,7 @@
 		8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841B5A620C743E000C80383 /* RetryViewController.swift */; };
 		8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */; };
 		8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8849CAF820C6CF4200E2A5A8 /* no-wifi.png */; };
+		8899B0DE20C7EC2B00D1F8F1 /* login_register.png in Resources */ = {isa = PBXBuildFile; fileRef = 8899B0DD20C7EC2B00D1F8F1 /* login_register.png */; };
 		88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2A20BA705E004CE674 /* AppDelegate.swift */; };
 		88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2C20BA705E004CE674 /* ViewController.swift */; };
 		88B15C3020BA705E004CE674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C2E20BA705E004CE674 /* Main.storyboard */; };
@@ -45,6 +46,13 @@
 		88CD084220C412410047D568 /* update_available.svg in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084420C412410047D568 /* update_available.svg */; };
 		88CD084620C413830047D568 /* update_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084520C413830047D568 /* update_available.png */; };
 		88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD084B20C571080047D568 /* ReachabilityManager.swift */; };
+		88DE4AFF20C7763F00575640 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4AFE20C7763F00575640 /* BRYXBanner.framework */; };
+		88DE4B0120C7763F00575640 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0020C7763F00575640 /* MaterialComponents.framework */; };
+		88DE4B0320C7763F00575640 /* MDFInternationalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0220C7763F00575640 /* MDFInternationalization.framework */; };
+		88DE4B0720C7763F00575640 /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0620C7763F00575640 /* Pods_pinworkUITests.framework */; };
+		88DE4B0920C7763F00575640 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0820C7763F00575640 /* Reachability.framework */; };
+		88DE4B1920C7765900575640 /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */; };
+		88DE4B1B20C7765900575640 /* Pods_pinworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0420C7763F00575640 /* Pods_pinworkTests.framework */; };
 		88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */; };
 		88E3F61120C019D400BA6516 /* trail_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 88E3F61020C019D400BA6516 /* trail_loading.json */; };
 		88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F61220C1ABA600BA6516 /* APIClient.swift */; };
@@ -52,7 +60,6 @@
 		88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3F61620C1B57D00BA6516 /* Lottie.framework */; };
 		88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */; };
 		88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */; };
-		A2D2A062CDA955FE96655320 /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */; };
 		F1F299016B525EB22C541F8C /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C319DAB3E83ED464BE7AEB8E /* Pods_pinworkUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +106,7 @@
 		8841B5A620C743E000C80383 /* RetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryViewController.swift; sourceTree = "<group>"; };
 		8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPopUpViewController.swift; sourceTree = "<group>"; };
 		8849CAF820C6CF4200E2A5A8 /* no-wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-wifi.png"; sourceTree = "<group>"; };
+		8899B0DD20C7EC2B00D1F8F1 /* login_register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_register.png; sourceTree = "<group>"; };
 		88B15C2720BA705E004CE674 /* pinwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B15C2A20BA705E004CE674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B15C2C20BA705E004CE674 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +129,12 @@
 		88CD084320C412410047D568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/update_available.svg; sourceTree = "<group>"; };
 		88CD084520C413830047D568 /* update_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_available.png; sourceTree = "<group>"; };
 		88CD084B20C571080047D568 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		88DE4AFE20C7763F00575640 /* BRYXBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BRYXBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DE4B0020C7763F00575640 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DE4B0220C7763F00575640 /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DE4B0420C7763F00575640 /* Pods_pinworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_pinworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DE4B0620C7763F00575640 /* Pods_pinworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_pinworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DE4B0820C7763F00575640 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCodeDemandViewController.swift; sourceTree = "<group>"; };
 		88E3F61020C019D400BA6516 /* trail_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trail_loading.json; sourceTree = "<group>"; };
 		88E3F61220C1ABA600BA6516 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -140,9 +154,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DE4AFF20C7763F00575640 /* BRYXBanner.framework in Frameworks */,
+				88DE4B0120C7763F00575640 /* MaterialComponents.framework in Frameworks */,
+				88DE4B0320C7763F00575640 /* MDFInternationalization.framework in Frameworks */,
+				88DE4B1920C7765900575640 /* Pods_pinwork.framework in Frameworks */,
+				88DE4B1B20C7765900575640 /* Pods_pinworkTests.framework in Frameworks */,
+				88DE4B0720C7763F00575640 /* Pods_pinworkUITests.framework in Frameworks */,
+				88DE4B0920C7763F00575640 /* Reachability.framework in Frameworks */,
 				88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */,
 				88E3F61520C1B57600BA6516 /* Alamofire.framework in Frameworks */,
-				A2D2A062CDA955FE96655320 /* Pods_pinwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +277,7 @@
 				88B2062420BB382500C0A81D /* dem3.json */,
 				88240F5520BC7294007D6363 /* pro_trusted.png */,
 				88240F5720BC72A4007D6363 /* calculator.png */,
+				8899B0DD20C7EC2B00D1F8F1 /* login_register.png */,
 				8841B5A420C73E5500C80383 /* retry_error.png */,
 				88240F5920BC72B7007D6363 /* customer_service_icon.png */,
 				88CD084420C412410047D568 /* update_available.svg */,
@@ -272,6 +293,12 @@
 		B4A845875E96C41329632214 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88DE4AFE20C7763F00575640 /* BRYXBanner.framework */,
+				88DE4B0020C7763F00575640 /* MaterialComponents.framework */,
+				88DE4B0220C7763F00575640 /* MDFInternationalization.framework */,
+				88DE4B0420C7763F00575640 /* Pods_pinworkTests.framework */,
+				88DE4B0620C7763F00575640 /* Pods_pinworkUITests.framework */,
+				88DE4B0820C7763F00575640 /* Reachability.framework */,
 				88E3F61620C1B57D00BA6516 /* Lottie.framework */,
 				88E3F61420C1B57600BA6516 /* Alamofire.framework */,
 				0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */,
@@ -404,6 +431,7 @@
 			files = (
 				88240F4020BC0715007D6363 /* IRANSansMobile_Medium.ttf in Resources */,
 				88CD084620C413830047D568 /* update_available.png in Resources */,
+				8899B0DE20C7EC2B00D1F8F1 /* login_register.png in Resources */,
 				88240F4E20BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf in Resources */,
 				8841B5A520C73E5600C80383 /* retry_error.png in Resources */,
 				88240F3E20BC0715007D6363 /* IRANSansMobile_Bold.ttf in Resources */,
@@ -459,6 +487,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pinwork/Pods-pinwork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -467,6 +496,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYXBanner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",

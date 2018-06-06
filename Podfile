@@ -21,4 +21,6 @@ pod 'lottie-ios', '2.0.3'
 pod 'Alamofire', '~> 4.7'
 pod 'ReachabilitySwift'
 pod 'MaterialComponents/TextFields'
+pod 'BRYXBanner'
+
 end

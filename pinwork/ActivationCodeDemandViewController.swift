@@ -9,31 +9,18 @@
 import UIKit
 import Lottie
 import CoreData
+import BRYXBanner
 extension UIViewController {
     
     func showToast(message : String) {
-        var toastLabel: UILabel!
-        if #available(iOS 11.0, *) {
-            toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.safeAreaInsets.top + 40))
-        } else {
-            toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: topLayoutGuide.length + 40))
-        }
-       
-        toastLabel.backgroundColor = UIColor(red:0.02, green:0.29, blue:0.36, alpha:1.0)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center;
-        toastLabel.numberOfLines = 0
-        toastLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)
-        toastLabel.text = "\n\n\n\n\n\n" + message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 2;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 5.0, delay: 0.2, options: .curveEaseIn, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
+      
+        let banner = Banner(title: nil, subtitle: message, backgroundColor: UIColor(red:0.02, green:0.29, blue:0.36, alpha:1.0))
+        banner.dismissesOnTap = true
+        banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 18.0)
+        banner.detailLabel.textColor = UIColor.white
+        banner.detailLabel.textAlignment = .center
+        banner.titleLabel.textAlignment = .center
+        banner.show(duration: 5.0)
     } }
 class ActivationCodeDemandViewController: UIViewController{
 
@@ -63,7 +50,7 @@ class ActivationCodeDemandViewController: UIViewController{
         descriptionUILabel.isHidden = false
         count = 60
         descriptionUILabel.text = "\(count) ثانیه تا فعال شدن ارسال مجدد کد"
-          timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:(#selector(updateUI)), userInfo: nil, repeats: true)
+        timer.fire()
         resendUIButton.isHidden = true
 
     }
@@ -138,7 +125,7 @@ class ActivationCodeDemandViewController: UIViewController{
             responseObject, error in
             if responseObject != nil{
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
-            self.isPhoneNumber = !self.isPhoneNumber
+                    self.isPhoneNumber = !self.isPhoneNumber
                     self.animationView.stop()
                     self.animationView.isHidden = true
                     self.titleUILabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 14.0)
@@ -155,7 +142,9 @@ class ActivationCodeDemandViewController: UIViewController{
                 
             }
             else{
+                self.dismiss(animated: true, completion: nil)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
+                self.animationView.stop()
             }
             
         }
@@ -302,7 +291,7 @@ class ActivationCodeDemandViewController: UIViewController{
         else{
             
             timer.invalidate()
-            timer = Timer()
+            //timer = Timer()
             descriptionUILabel.isHidden = true
             resendUIButton.isHidden = false
 

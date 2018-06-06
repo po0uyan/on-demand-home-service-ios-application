@@ -106,7 +106,6 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         if !self.animationView.isAnimationPlaying{
             self.animationView.play()
         }
-        print(self.animationView.isAnimationPlaying)
         if isFirstTime(){
             APIClient.rememberTokenRequest { (respond, error) in
                 if respond != nil{
