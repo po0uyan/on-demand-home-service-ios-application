@@ -14,7 +14,6 @@ import Reachability
 class ViewController: UIViewController {
     
     let animationView = LOTAnimationView(name: "load2")
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         //APIReachability.shared.startMonitoring()
@@ -88,7 +87,12 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 case "critical":
                     self.showCriticalUpdateDialog()
                 default :
-                    self.navigateToLoginPage()
+                    if self.isLoggedIn(){
+                        self.navigateToMain()
+                    }else{
+                        self.navigateToLoginPage()
+                        
+                    }
                     
                 }
 
@@ -132,7 +136,12 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         self.present(updateController, animated: true)
         updateController.onDoneBlock = { result in
             // Do something
+            if self.isLoggedIn(){
+                self.navigateToMain()
+            }
+            else{
             self.navigateToLoginPage()
+            }
         }
         
     }
@@ -149,7 +158,12 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         self.present(updateController, animated: true)
         updateController.onDoneBlock = { result in
             // Do something
-            self.navigateToLoginPage()
+            if self.isLoggedIn(){
+                self.navigateToMain()
+            }else{
+                
+            
+                self.navigateToLoginPage()}
         }
     }
     
@@ -162,76 +176,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         self.present(loginPageView, animated: true, completion: nil)
     }
     
-    func isFirstTime()->Bool{
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest<UserData> = UserData.fetchRequest()
-        do {
-            let searchResults = try managedContext.fetch(fetchRequest)
-            if searchResults.count > 0{
-                return false
-            }
-            
-        }
-        catch {
-            print("Error with request: \(error)")
-        }
-        return true
-    }
-    func isLoggedIn()->Bool{
-        return getData(key: "isLoggedIn") as! Bool
-    }
-    func writeFirstToken(key: String , value : String){
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity =  NSEntityDescription.entity(forEntityName: "UserData", in: managedContext)
-        let transc = NSManagedObject(entity: entity!, insertInto: managedContext)
-            transc.setValue(value, forKey: key)
-            
-        
-        do {
-            try managedContext.save()
-            print("saved!")
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        } catch {
-            
-        }
-        
-    }
-    func getData(key:String)->Any{
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest<UserData> = UserData.fetchRequest()
-        do {
-            let searchResults = try managedContext.fetch(fetchRequest)
-            for trans in searchResults as [NSManagedObject] {
-                if let res = trans.value(forKey: key){
-                    return res
-                }
-            }
-        }catch{
-            print("error in getData")
-        }
-        return "Non"
-    }
-    func updataData(key:String , value:Any){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        do {
-            let results = try context.fetch(fetchRequest) as? [NSManagedObject]
-            if results?.count != 0 {
-                results![0].setValue(value , forKey: key)
-            }
-        } catch {
-            print("Fetch Failed: \(error)")
-        }
-        
-        do {
-            try context.save()
-        }
-        catch {
-            print("Saving Core Data Failed: \(error)")
-        }
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

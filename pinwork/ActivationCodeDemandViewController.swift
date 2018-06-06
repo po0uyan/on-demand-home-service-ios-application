@@ -10,20 +10,8 @@ import UIKit
 import Lottie
 import CoreData
 import BRYXBanner
-extension UIViewController {
-    
-    func showToast(message : String) {
-      
-        let banner = Banner(title: nil, subtitle: message, backgroundColor: UIColor(red:0.02, green:0.29, blue:0.36, alpha:1.0))
-        banner.dismissesOnTap = true
-        banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 18.0)
-        banner.detailLabel.textColor = UIColor.white
-        banner.detailLabel.textAlignment = .center
-        banner.titleLabel.textAlignment = .center
-        banner.show(duration: 5.0)
-    } }
 class ActivationCodeDemandViewController: UIViewController{
-
+    var onDoneBlock : ((Bool) -> Void)?
     let animationView = LOTAnimationView(name: "trail_loading")
 
     @IBOutlet weak var resendUIButton: UIButton!
@@ -93,8 +81,6 @@ class ActivationCodeDemandViewController: UIViewController{
                     if phoneCodeDemandUITextfield.text?.count == 5{
                         popUpUIView.isHidden = true
                         self.view.addSubview(animationView)
-
-                        //requestForAuthCode(action:"register")
                         codeCheckRequest(code: phoneCodeDemandUITextfield.text!)
                         phoneCodeDemandUITextfield.endEditing(true)
                         titleUILabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 14.0)
@@ -204,7 +190,8 @@ class ActivationCodeDemandViewController: UIViewController{
             self.animationView.stop()
             self.animationView.isHidden = true
             self.dismiss(animated: true, completion: nil)
-        }
+            self.onDoneBlock!(true)
+            }
             else{
                 debugPrint(error!)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
@@ -248,42 +235,8 @@ class ActivationCodeDemandViewController: UIViewController{
           cancelUIButton.layer.borderColor = cancelUIButton.currentTitleColor.cgColor
         resendUIButton.isHidden = true
     }
-    func getData(key:String)->Any{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest<UserData> = UserData.fetchRequest()
-        do {
-            let searchResults = try managedContext.fetch(fetchRequest)
-            for trans in searchResults as [NSManagedObject] {
-                if let res = trans.value(forKey: key){
-                    return res
-                }
-            }
-        }catch{
-            print("error in getData")
-        }
-        return "Non"
-    }
-    func updataData(key:String , value:Any){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        do {
-            let results = try context.fetch(fetchRequest) as? [NSManagedObject]
-            if results?.count != 0 {
-                results![0].setValue(value , forKey: key)
-            }
-        } catch {
-            print("Fetch Failed: \(error)")
-        }
-        
-        do {
-            try context.save()
-        }
-        catch {
-            print("Saving Core Data Failed: \(error)")
-        }
-    }
+
+
     @objc func updateUI() {
         if(count > 1) {
             count-=1

@@ -43,6 +43,9 @@
 		88B2062120BAE97D00C0A81D /* load2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062020BAE97D00C0A81D /* load2.json */; };
 		88B2062320BB381D00C0A81D /* load3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062220BB381D00C0A81D /* load3.json */; };
 		88B2062520BB382500C0A81D /* dem3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062420BB382500C0A81D /* dem3.json */; };
+		88B2311620C87EB90087669C /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B2311520C87EB80087669C /* menu.png */; };
+		88B2311820C885770087669C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B2311720C885770087669C /* MainViewController.swift */; };
+		88B2311A20C891630087669C /* ControllersInCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B2311920C891630087669C /* ControllersInCommon.swift */; };
 		88CD084220C412410047D568 /* update_available.svg in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084420C412410047D568 /* update_available.svg */; };
 		88CD084620C413830047D568 /* update_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084520C413830047D568 /* update_available.png */; };
 		88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD084B20C571080047D568 /* ReachabilityManager.swift */; };
@@ -126,6 +129,9 @@
 		88B2062020BAE97D00C0A81D /* load2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load2.json; sourceTree = "<group>"; };
 		88B2062220BB381D00C0A81D /* load3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load3.json; sourceTree = "<group>"; };
 		88B2062420BB382500C0A81D /* dem3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dem3.json; sourceTree = "<group>"; };
+		88B2311520C87EB80087669C /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		88B2311720C885770087669C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		88B2311920C891630087669C /* ControllersInCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersInCommon.swift; sourceTree = "<group>"; };
 		88CD084320C412410047D568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/update_available.svg; sourceTree = "<group>"; };
 		88CD084520C413830047D568 /* update_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_available.png; sourceTree = "<group>"; };
 		88CD084B20C571080047D568 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -247,6 +253,8 @@
 				88B15C3920BA705F004CE674 /* Info.plist */,
 				88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */,
 				88CD084B20C571080047D568 /* ReachabilityManager.swift */,
+				88B2311720C885770087669C /* MainViewController.swift */,
+				88B2311920C891630087669C /* ControllersInCommon.swift */,
 			);
 			path = pinwork;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				8849CAF820C6CF4200E2A5A8 /* no-wifi.png */,
 				88240F5320BC7285007D6363 /* pro_trained.png */,
 				88B2062420BB382500C0A81D /* dem3.json */,
+				88B2311520C87EB80087669C /* menu.png */,
 				88240F5520BC7294007D6363 /* pro_trusted.png */,
 				88240F5720BC72A4007D6363 /* calculator.png */,
 				8899B0DD20C7EC2B00D1F8F1 /* login_register.png */,
@@ -453,6 +462,7 @@
 				88B15C3020BA705E004CE674 /* Main.storyboard in Resources */,
 				88240F4120BC0715007D6363 /* IRANSansMobile_Black.ttf in Resources */,
 				88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */,
+				88B2311620C87EB90087669C /* menu.png in Resources */,
 				88B2062520BB382500C0A81D /* dem3.json in Resources */,
 				8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */,
 				88240F4B20BC086D007D6363 /* IRANSansMobile(NoEn)_Black.ttf in Resources */,
@@ -571,10 +581,12 @@
 				88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */,
 				88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */,
 				88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */,
+				88B2311820C885770087669C /* MainViewController.swift in Sources */,
 				88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */,
 				88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */,
 				8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */,
 				88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */,
+				88B2311A20C891630087669C /* ControllersInCommon.swift in Sources */,
 				8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */,
 				88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */,
 				88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */,

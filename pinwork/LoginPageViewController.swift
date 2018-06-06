@@ -112,9 +112,17 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         demandDialogController.modalTransitionStyle = .crossDissolve
         demandDialogController.isModalInPopover = true
         demandDialogController.modalPresentationStyle = .overCurrentContext
+        demandDialogController.onDoneBlock = { result in
+        // Do something
+            if result {
+                self.navigateToMain()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
         self.present(demandDialogController, animated: true)
         
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
