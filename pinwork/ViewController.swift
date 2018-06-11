@@ -53,8 +53,8 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         retryPopUpController.isModalInPopover = true
         retryPopUpController.modalPresentationStyle = .overCurrentContext
         retryPopUpController.onDoneBlock = { result in
-            // Do something
-        self.dologic()
+            self.animationView.play()
+            self.dologic()
         }
         self.present(retryPopUpController, animated: true)
     }
@@ -72,6 +72,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigateToMain(isCommingFromRegister: false)
         dologic()
        
         
@@ -88,7 +89,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                     self.showCriticalUpdateDialog()
                 default :
                     if self.isLoggedIn(){
-                        self.navigateToMain()
+                        self.navigateToMain(isCommingFromRegister: false)
                     }else{
                         self.navigateToLoginPage()
                         
@@ -98,6 +99,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
 
             }else{
                 print(String(describing:error))
+                self.animationView.stop()
                 self.showNetworkRetry()
             }
             
@@ -116,6 +118,11 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                     let tempRememberToken = (respond!["data"] as! NSDictionary)["remember_token"] as! String
                     self.writeFirstToken(key: "tempRememberToken", value: tempRememberToken)
                     self.checkAppVersionStatus()
+                }
+                else{
+                    self.animationView.stop()
+                    self.showNetworkRetry()
+                    print(error!)
                 }
                 
                 
@@ -137,7 +144,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         updateController.onDoneBlock = { result in
             // Do something
             if self.isLoggedIn(){
-                self.navigateToMain()
+                self.navigateToMain(isCommingFromRegister: false)
             }
             else{
             self.navigateToLoginPage()
@@ -159,7 +166,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         updateController.onDoneBlock = { result in
             // Do something
             if self.isLoggedIn(){
-                self.navigateToMain()
+                self.navigateToMain(isCommingFromRegister: false)
             }else{
                 
             

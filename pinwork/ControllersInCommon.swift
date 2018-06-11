@@ -22,14 +22,74 @@ extension UIViewController {
         banner.titleLabel.textAlignment = .center
         banner.show(duration: 5.0)
     }
+    func getPinworkColors(color numofColor: Int)->UIColor{
+        switch numofColor {
+        case 0:
+            return UIColor(red:0.02, green:0.29, blue:0.36, alpha:1.0)
+                  default:
+        return UIColor(red:55/255, green:216/255, blue:250/255, alpha:1.0)
+            
+        }
     
-    func navigateToMain(){
+    }
+    
+    func navigateToMain(isCommingFromRegister:Bool){
+        //mainViewController.delegate = self
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        mainNavigationController.modalTransitionStyle = .coverVertical
-        self.present(mainNavigationController, animated: true, completion: nil)
+        let navigationController = storyBoard.instantiateViewController(withIdentifier: "navigationController") as! MainNavigationViewController
+        let mainViewController = navigationController.viewControllers.first as? MainViewController
+        if isCommingFromRegister{
+        mainViewController?.isCommingFromRegister = true
+        }
+        
+        self.present(navigationController, animated: true, completion: nil)
         
         
+    }
+    func checkRespondStatus(respond: Int)->Bool{
+        let error: Dictionary<Int,String> = [403 : "کاربر اجازه ورود ندارد، لطفا با پشتیبانی تماس بگیرید"
+            ,404: "درخواست مورد نظر پیدا نشد "
+            ,4041:"این شماره قبلا ثبت نام شده‌است"
+            ,4042:"این شماره قبلا ثبت نام نشده است "
+            ,500:"سرور دچار مشکل شده‌است"
+            ,5002:"خطا در ایجاد پیامک"
+            ,5005:"کد وارد شده معتبر نمی‌باشد"
+            ,5007:"تاریخ استفاده از کد تخفیف به پایان رسیده‌است"
+            ,5008:"تعداد سقف کد تخیف به اتمام رسیده‌است"
+            ,5009:"سرویس‌دهنده یافت نشد"
+            ,50010:"سرویس دهنده یافت نشد"
+            ,50011:"سرویس دهنده قبلا محبوب شده‌است"
+            ,50014:"سرویس یافت نشد"
+            ,50016:"تیکت یافت نشد"
+            ,50017:"موضوع تیکت یافت نشد"
+            ,50018:"سرویس یافت نشد"
+            ,4043:"فاصله زمانی مجاز بین دریافت دو کد فعال‌سازی، رعایت نشده، لطفا بعد از یک دقیقه مجددا تلاش نمایید."
+            ,50019:"کد تخفیف یافت نشد"
+            ,50020: "این کد تخفیف قبلا استفاده شده‌است"
+            ,2001:"مبلغ خرید برای استفاده از کد تخفیف کمتر از حداقل مجاز است، کد اعمال نخواهد شد"
+            ,2002:"مبلغ خرید از سقف مجاز برای تخفیف بالاتر است، سقف تخفیف برای شما در نظر گرفته خواهد شد."
+            ,500160:"این مکالمه به پایان رسید‌ه‌است، درصورت نیاز پشتیبانی جدید ایجاد نمایید"
+            ,50021:"این سرویس قبلا به اتمام رسیده‌است"
+            ,50022:"زمان پایان غیر مجاز"
+            ,50023:"زمان شروع غیر مجاز"
+            ,50024:"زمان پایان جلوتر از ساعت فعلی"
+            ,50025:"زمان درخواست سفارش غیر مجاز"
+            ,50026:"زمان درخواست سفارش غیر مجاز"
+            ,50050:"کد اعتبارسنجی منقضی شده‌است"]
+        if let message = error[respond]{
+            showToast(message: message)
+            
+        }else{
+            if respond != 200{
+                showToast(message: "خطا، لطفا با پشتیبانی تماس بگیرید")
+                
+            }
+            else{
+                return true
+            }
+        }
+        return false
     }
     
     func isFirstTime()->Bool{

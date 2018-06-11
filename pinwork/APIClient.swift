@@ -15,8 +15,8 @@ class APIClient{
     struct APIManager {
         static let sharedManager: SessionManager = {
             let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForResource = 2
-            configuration.timeoutIntervalForRequest = 2
+            configuration.timeoutIntervalForResource = 10
+            configuration.timeoutIntervalForRequest = 10
             return Alamofire.SessionManager(configuration: configuration)
         }()
     }
@@ -75,7 +75,7 @@ class APIClient{
         
         }
     
-    static func  codeCheckForRegister(phoneNumber: String , code: String,rememberToken: String, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+    static func  checkCodeForRegister(phoneNumber: String , code: String,rememberToken: String, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let requestHeaders = ["User-Agent": "iphone"]
         let requestParameters = ["phone":phoneNumber,"code":code,"remember_token":rememberToken]
   
@@ -92,11 +92,12 @@ class APIClient{
         
       }
     
+    
     static func  requestForUserLogin(phoneNumber: String , code: String,rememberToken: String, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let requestHeaders = ["User-Agent": "iphone"]
         let requestParameters = ["phone":phoneNumber,"code":code,"remember_token":rememberToken]
         
-        APIManager.sharedManager.request(baseUrl+"postUserLogin", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+        APIManager.sharedManager.request(baseUrl+"postUserLoginCodeCheck", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
             switch response.result {
             case .success(let value):
                 completionHandler(value as? NSDictionary, nil)
@@ -107,8 +108,7 @@ class APIClient{
         }
         
         
-      }
-    
+    }
     
     
     

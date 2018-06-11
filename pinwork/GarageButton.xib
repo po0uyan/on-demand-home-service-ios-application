@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile(NoEn)_ultralight.ttf">
+            <string>IRANSansMobileNoEn-UltraLight</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IPP-CF-bd5" customClass="GarageButton" customModule="pinwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eda-0y-BOa">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="garage.png" translatesAutoresizingMaskIntoConstraints="NO" id="D2Q-It-UgQ">
+                            <rect key="frame" x="18.5" y="0.0" width="112.5" height="112.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="D2Q-It-UgQ" secondAttribute="height" multiplier="1:1" id="1Zw-1t-JGs"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uds-U1-qIj">
+                            <rect key="frame" x="0.0" y="112.5" width="150" height="37.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نظافت راه پله و پارکینگ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxf-wm-r97">
+                                    <rect key="frame" x="18.5" y="22" width="114" height="15.5"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileNoEn-UltraLight" family="IRANSansMobile(NoEn)" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Mxf-wm-r97" firstAttribute="centerX" secondItem="uds-U1-qIj" secondAttribute="centerX" id="FSv-dx-OrT"/>
+                                <constraint firstAttribute="bottom" secondItem="Mxf-wm-r97" secondAttribute="bottom" id="Y36-bA-MX8"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="D2Q-It-UgQ" firstAttribute="height" secondItem="Eda-0y-BOa" secondAttribute="height" multiplier="3:4" id="B2V-To-keP"/>
+                        <constraint firstItem="uds-U1-qIj" firstAttribute="width" secondItem="Eda-0y-BOa" secondAttribute="width" id="MJ3-vj-nSu"/>
+                        <constraint firstItem="D2Q-It-UgQ" firstAttribute="top" secondItem="Eda-0y-BOa" secondAttribute="top" id="Tnv-xw-W8E"/>
+                        <constraint firstItem="uds-U1-qIj" firstAttribute="leading" secondItem="Eda-0y-BOa" secondAttribute="leading" id="daP-Rh-kkx"/>
+                        <constraint firstAttribute="trailing" secondItem="uds-U1-qIj" secondAttribute="trailing" id="dtn-rl-xBG"/>
+                        <constraint firstItem="D2Q-It-UgQ" firstAttribute="centerX" secondItem="Eda-0y-BOa" secondAttribute="centerX" id="q56-YE-8PJ"/>
+                        <constraint firstItem="uds-U1-qIj" firstAttribute="height" secondItem="Eda-0y-BOa" secondAttribute="height" multiplier="1:4" id="vLD-O2-wFq"/>
+                        <constraint firstAttribute="bottom" secondItem="uds-U1-qIj" secondAttribute="bottom" id="zQF-qM-dNB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+            <constraints>
+                <constraint firstItem="Eda-0y-BOa" firstAttribute="leading" secondItem="uwR-2r-fD9" secondAttribute="leading" id="0oX-VO-2ri"/>
+                <constraint firstItem="Eda-0y-BOa" firstAttribute="trailing" secondItem="uwR-2r-fD9" secondAttribute="trailing" id="Nsy-cT-vf4"/>
+                <constraint firstItem="Eda-0y-BOa" firstAttribute="top" secondItem="uwR-2r-fD9" secondAttribute="top" id="aYz-DW-c6A"/>
+                <constraint firstItem="uwR-2r-fD9" firstAttribute="bottom" secondItem="Eda-0y-BOa" secondAttribute="bottom" id="hPh-18-xVi"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="uwR-2r-fD9"/>
+            <point key="canvasLocation" x="267" y="249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="garage.png" width="512" height="512"/>
+    </resources>
+</document>

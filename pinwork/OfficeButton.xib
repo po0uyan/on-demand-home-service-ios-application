@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile(NoEn)_ultralight.ttf">
+            <string>IRANSansMobileNoEn-UltraLight</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tx5-HU-emD" customClass="OfficeButton" customModule="pinwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0O6-Q3-iPo">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="office.png" translatesAutoresizingMaskIntoConstraints="NO" id="rdh-ud-cVl">
+                            <rect key="frame" x="18.5" y="0.0" width="112.5" height="112.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="rdh-ud-cVl" secondAttribute="height" multiplier="1:1" id="r9G-wB-qsL"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2V-Rw-3Oy">
+                            <rect key="frame" x="0.0" y="112.5" width="150" height="37.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نظافت دفتر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7N-vG-V8m">
+                                    <rect key="frame" x="47.5" y="22" width="55.5" height="15.5"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileNoEn-UltraLight" family="IRANSansMobile(NoEn)" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="i7N-vG-V8m" secondAttribute="bottom" id="Gbi-mW-Fhg"/>
+                                <constraint firstItem="i7N-vG-V8m" firstAttribute="centerX" secondItem="j2V-Rw-3Oy" secondAttribute="centerX" id="Qho-8N-RMP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="rdh-ud-cVl" firstAttribute="height" secondItem="0O6-Q3-iPo" secondAttribute="height" multiplier="3:4" id="Nzh-ZY-oL4"/>
+                        <constraint firstItem="j2V-Rw-3Oy" firstAttribute="height" secondItem="0O6-Q3-iPo" secondAttribute="height" multiplier="1:4" id="d62-Tt-eUT"/>
+                        <constraint firstItem="rdh-ud-cVl" firstAttribute="top" secondItem="0O6-Q3-iPo" secondAttribute="top" id="kQW-jY-q4H"/>
+                        <constraint firstItem="rdh-ud-cVl" firstAttribute="centerX" secondItem="0O6-Q3-iPo" secondAttribute="centerX" id="lNw-PD-NZ1"/>
+                        <constraint firstItem="j2V-Rw-3Oy" firstAttribute="width" secondItem="0O6-Q3-iPo" secondAttribute="width" id="lsG-6G-hwq"/>
+                        <constraint firstAttribute="bottom" secondItem="j2V-Rw-3Oy" secondAttribute="bottom" id="pxB-0Y-Lim"/>
+                        <constraint firstItem="j2V-Rw-3Oy" firstAttribute="leading" secondItem="0O6-Q3-iPo" secondAttribute="leading" id="rYS-36-Lbf"/>
+                        <constraint firstAttribute="trailing" secondItem="j2V-Rw-3Oy" secondAttribute="trailing" id="snQ-jA-uHb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+            <constraints>
+                <constraint firstItem="fhl-e2-sFG" firstAttribute="bottom" secondItem="0O6-Q3-iPo" secondAttribute="bottom" id="DWU-9M-8MJ"/>
+                <constraint firstItem="0O6-Q3-iPo" firstAttribute="leading" secondItem="fhl-e2-sFG" secondAttribute="leading" id="GaN-os-BQd"/>
+                <constraint firstItem="0O6-Q3-iPo" firstAttribute="trailing" secondItem="fhl-e2-sFG" secondAttribute="trailing" id="SgR-F4-24T"/>
+                <constraint firstItem="0O6-Q3-iPo" firstAttribute="top" secondItem="fhl-e2-sFG" secondAttribute="top" id="mJf-70-0gp"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fhl-e2-sFG"/>
+            <point key="canvasLocation" x="267" y="249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="office.png" width="512" height="512"/>
+    </resources>
+</document>

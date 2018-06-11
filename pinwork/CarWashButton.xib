@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile(NoEn)_ultralight.ttf">
+            <string>IRANSansMobileNoEn-UltraLight</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="y2u-IF-ryW" customClass="CarWashButton" customModule="pinwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yie-CE-ZA9">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carwash.png" translatesAutoresizingMaskIntoConstraints="NO" id="0lj-gB-Rw9">
+                            <rect key="frame" x="18.5" y="0.0" width="112.5" height="112.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="0lj-gB-Rw9" secondAttribute="height" multiplier="1:1" id="HGu-Af-E2f"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBM-aq-uKY">
+                            <rect key="frame" x="0.0" y="112.5" width="150" height="37.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کارواش" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYg-zk-n3T">
+                                    <rect key="frame" x="58" y="22" width="35" height="15.5"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileNoEn-UltraLight" family="IRANSansMobile(NoEn)" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="rYg-zk-n3T" secondAttribute="bottom" id="2sm-W1-YhP"/>
+                                <constraint firstItem="rYg-zk-n3T" firstAttribute="centerX" secondItem="MBM-aq-uKY" secondAttribute="centerX" id="En4-iq-Cx7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="MBM-aq-uKY" firstAttribute="leading" secondItem="Yie-CE-ZA9" secondAttribute="leading" id="34r-rc-Py4"/>
+                        <constraint firstAttribute="trailing" secondItem="MBM-aq-uKY" secondAttribute="trailing" id="4i4-hT-eJf"/>
+                        <constraint firstItem="0lj-gB-Rw9" firstAttribute="height" secondItem="Yie-CE-ZA9" secondAttribute="height" multiplier="3:4" id="Gvp-0y-goi"/>
+                        <constraint firstItem="0lj-gB-Rw9" firstAttribute="top" secondItem="Yie-CE-ZA9" secondAttribute="top" id="Vq8-ov-wtN"/>
+                        <constraint firstAttribute="bottom" secondItem="MBM-aq-uKY" secondAttribute="bottom" id="aSd-H0-JfX"/>
+                        <constraint firstItem="0lj-gB-Rw9" firstAttribute="centerX" secondItem="Yie-CE-ZA9" secondAttribute="centerX" id="jzW-1z-KJs"/>
+                        <constraint firstItem="MBM-aq-uKY" firstAttribute="height" secondItem="Yie-CE-ZA9" secondAttribute="height" multiplier="1:4" id="k5q-sa-nEs"/>
+                        <constraint firstItem="MBM-aq-uKY" firstAttribute="width" secondItem="Yie-CE-ZA9" secondAttribute="width" id="uQr-oS-9bZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+            <constraints>
+                <constraint firstItem="khS-y1-m5o" firstAttribute="bottom" secondItem="Yie-CE-ZA9" secondAttribute="bottom" id="Ey9-JH-Zbo"/>
+                <constraint firstItem="Yie-CE-ZA9" firstAttribute="leading" secondItem="khS-y1-m5o" secondAttribute="leading" id="XVN-1g-Htz"/>
+                <constraint firstItem="Yie-CE-ZA9" firstAttribute="top" secondItem="khS-y1-m5o" secondAttribute="top" id="ZUD-8A-PcG"/>
+                <constraint firstItem="Yie-CE-ZA9" firstAttribute="trailing" secondItem="khS-y1-m5o" secondAttribute="trailing" id="oSb-OR-cwa"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="khS-y1-m5o"/>
+            <point key="canvasLocation" x="267" y="249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="carwash.png" width="512" height="512"/>
+    </resources>
+</document>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IRANSansMobile(NoEn)_ultralight.ttf">
+            <string>IRANSansMobileNoEn-UltraLight</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IbS-be-MT8" customClass="HomeCleaning" customModule="pinwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Qj-hX-2JR">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homecleaning.png" translatesAutoresizingMaskIntoConstraints="NO" id="G3n-0R-ZVv">
+                            <rect key="frame" x="18.5" y="0.0" width="112.5" height="112.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="G3n-0R-ZVv" secondAttribute="height" multiplier="1:1" id="wss-HQ-Jql"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1c-b3-KPS">
+                            <rect key="frame" x="0.0" y="112.5" width="150" height="37.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نظافت داخل منزل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbs-AW-Pp1">
+                                    <rect key="frame" x="32" y="22" width="86.5" height="15.5"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileNoEn-UltraLight" family="IRANSansMobile(NoEn)" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="kbs-AW-Pp1" secondAttribute="bottom" id="U8J-vG-e2j"/>
+                                <constraint firstItem="kbs-AW-Pp1" firstAttribute="centerX" secondItem="G1c-b3-KPS" secondAttribute="centerX" id="dhm-R4-26C"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="G3n-0R-ZVv" firstAttribute="centerX" secondItem="8Qj-hX-2JR" secondAttribute="centerX" id="3nd-4c-rQe"/>
+                        <constraint firstItem="G3n-0R-ZVv" firstAttribute="height" secondItem="8Qj-hX-2JR" secondAttribute="height" multiplier="3:4" id="CnC-yB-YsE"/>
+                        <constraint firstAttribute="trailing" secondItem="G1c-b3-KPS" secondAttribute="trailing" id="TXK-E4-JZq"/>
+                        <constraint firstItem="G1c-b3-KPS" firstAttribute="height" secondItem="8Qj-hX-2JR" secondAttribute="height" multiplier="1:4" id="YUr-Gt-SfO"/>
+                        <constraint firstItem="G1c-b3-KPS" firstAttribute="width" secondItem="8Qj-hX-2JR" secondAttribute="width" id="gsm-co-DhF"/>
+                        <constraint firstItem="G1c-b3-KPS" firstAttribute="leading" secondItem="8Qj-hX-2JR" secondAttribute="leading" id="hw9-2s-SqY"/>
+                        <constraint firstAttribute="bottom" secondItem="G1c-b3-KPS" secondAttribute="bottom" id="o1a-T4-kXq"/>
+                        <constraint firstItem="G3n-0R-ZVv" firstAttribute="top" secondItem="8Qj-hX-2JR" secondAttribute="top" id="sXx-vo-pdw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+            <constraints>
+                <constraint firstItem="8Qj-hX-2JR" firstAttribute="top" secondItem="g3D-BD-Ao3" secondAttribute="top" id="699-6l-u1d"/>
+                <constraint firstItem="8Qj-hX-2JR" firstAttribute="leading" secondItem="g3D-BD-Ao3" secondAttribute="leading" id="DGa-Zp-p3q"/>
+                <constraint firstItem="g3D-BD-Ao3" firstAttribute="bottom" secondItem="8Qj-hX-2JR" secondAttribute="bottom" id="I0Z-KI-ZqU"/>
+                <constraint firstItem="8Qj-hX-2JR" firstAttribute="trailing" secondItem="g3D-BD-Ao3" secondAttribute="trailing" id="zHa-YL-XYG"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="g3D-BD-Ao3"/>
+            <point key="canvasLocation" x="267" y="249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="homecleaning.png" width="512" height="512"/>
+    </resources>
+</document>

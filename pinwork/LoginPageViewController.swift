@@ -22,11 +22,11 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         LoginScrollView.setContentOffset(CGPoint(x:CGFloat(sender.currentPage) * self.view.bounds.width, y: 0), animated: true)
     }
     @IBAction func firstOrderAndRegisteredClicked(_ sender: UIButton) {
-        showUpdatePopUp(isRegisterring: true)
+        showLoginRegisterPopUp(isRegisterring: true)
     }
     
     @IBAction func loginToAccountClicked(_ sender: UIButton) {
-        showUpdatePopUp(isRegisterring: false)
+        showLoginRegisterPopUp(isRegisterring: false)
     }
     
     
@@ -104,7 +104,7 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
 
     }
    
-    func showUpdatePopUp(isRegisterring: Bool){
+    func showLoginRegisterPopUp(isRegisterring: Bool){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         let demandDialogController = storyBoard.instantiateViewController(withIdentifier: "demandDialog") as! ActivationCodeDemandViewController
@@ -113,9 +113,13 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         demandDialogController.isModalInPopover = true
         demandDialogController.modalPresentationStyle = .overCurrentContext
         demandDialogController.onDoneBlock = { result in
-        // Do something
+        // if true mean comming from registerring if false comming from login
             if result {
-                self.navigateToMain()
+                self.navigateToMain(isCommingFromRegister: isRegisterring)
+                self.dismiss(animated: true, completion: nil)
+            }
+            else{
+                self.navigateToMain(isCommingFromRegister: isRegisterring)
                 self.dismiss(animated: true, completion: nil)
             }
         }

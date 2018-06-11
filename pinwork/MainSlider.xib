@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="JYn-Fg-UzO" customClass="MainSlider" customModule="pinwork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="624" height="370"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-al-6wu">
+                    <rect key="frame" x="0.0" y="0.0" width="657.5" height="370"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="y5U-al-6wu" secondAttribute="height" multiplier="1080:607" id="3Cw-hf-D3R"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="y5U-al-6wu" firstAttribute="leading" secondItem="JYn-Fg-UzO" secondAttribute="leading" id="M4C-Vy-v2W"/>
+                <constraint firstItem="y5U-al-6wu" firstAttribute="top" secondItem="B8a-9o-h1M" secondAttribute="top" id="vqE-F5-EVW"/>
+                <constraint firstItem="y5U-al-6wu" firstAttribute="centerY" secondItem="JYn-Fg-UzO" secondAttribute="centerY" id="xiK-kM-WTl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="B8a-9o-h1M"/>
+            <connections>
+                <outlet property="sliderImageView" destination="y5U-al-6wu" id="6kO-Au-eqt"/>
+            </connections>
+            <point key="canvasLocation" x="-657" y="927"/>
+        </view>
+    </objects>
+</document>

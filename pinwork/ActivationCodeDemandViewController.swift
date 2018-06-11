@@ -57,7 +57,8 @@ class ActivationCodeDemandViewController: UIViewController{
                     popUpUIView.isHidden = true
                     animationView.play()
                     animationView.isHidden = false
-                    requestForAuthCode(action: "register",phoneNumber: self.phoneNumber)
+                    
+                    requestForAuthCode(action: isRegisterring ? "register" : "login",phoneNumber: self.phoneNumber)
                     phoneCodeDemandUITextfield.endEditing(true)
                     
                 }
@@ -81,7 +82,7 @@ class ActivationCodeDemandViewController: UIViewController{
                     if phoneCodeDemandUITextfield.text?.count == 5{
                         popUpUIView.isHidden = true
                         self.view.addSubview(animationView)
-                        codeCheckRequest(code: phoneCodeDemandUITextfield.text!)
+                        codeCheckRequestLoginRegister(code: phoneCodeDemandUITextfield.text!)
                         phoneCodeDemandUITextfield.endEditing(true)
                         titleUILabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 14.0)
                         
@@ -136,54 +137,15 @@ class ActivationCodeDemandViewController: UIViewController{
         }
   
     }
-    func checkRespondStatus(respond: Int)->Bool{
-        let error: Dictionary<Int,String> = [403 : "کاربر اجازه ورود ندارد، لطفا با پشتیبانی تماس بگیرید"
-            ,404: "درخواست مورد نظر پیدا نشد "
-            ,4041:"این شماره قبلا ثبت نام شده‌است"
-            ,4042:"این شماره قبلا ثبت نام نشده است "
-            ,500:"سرور دچار مشکل شده‌است"
-            ,5002:"خطا در ایجاد پیامک"
-            ,5005:"کد وارد شده معتبر نمی‌باشد"
-            ,5007:"تاریخ استفاده از کد تخفیف به پایان رسیده‌است"
-            ,5008:"تعداد سقف کد تخیف به اتمام رسیده‌است"
-            ,5009:"سرویس‌دهنده یافت نشد"
-            ,50010:"سرویس دهنده یافت نشد"
-            ,50011:"سرویس دهنده قبلا محبوب شده‌است"
-            ,50014:"سرویس یافت نشد"
-            ,50016:"تیکت یافت نشد"
-            ,50017:"موضوع تیکت یافت نشد"
-            ,50018:"سرویس یافت نشد"
-            ,50019:"کد تخفیف یافت نشد"
-            ,50020: "این کد تخفیف قبلا استفاده شده‌است"
-            ,2001:"مبلغ خرید برای استفاده از کد تخفیف کمتر از حداقل مجاز است، کد اعمال نخواهد شد"
-            ,2002:"مبلغ خرید از سقف مجاز برای تخفیف بالاتر است، سقف تخفیف برای شما در نظر گرفته خواهد شد."
-            ,500160:"این مکالمه به پایان رسید‌ه‌است، درصورت نیاز پشتیبانی جدید ایجاد نمایید"
-            ,50021:"این سرویس قبلا به اتمام رسیده‌است"
-            ,50022:"زمان پایان غیر مجاز"
-            ,50023:"زمان شروع غیر مجاز"
-            ,50024:"زمان پایان جلوتر از ساعت فعلی"
-            ,50025:"زمان درخواست سفارش غیر مجاز"
-            ,50026:"زمان درخواست سفارش غیر مجاز"
-    ,50050:"کد اعتبارسنجی منقضی شده‌است"]
-        if let message = error[respond]{
-                showToast(message: message)
-            
-        }else{
-            if respond != 200{
-            showToast(message: "خطا، لطفا با پشتیبانی تماس بگیرید")
-                
-            }
-            else{
-                return true
-            }
-        }
-    return false
-    }
+
     
-    func codeCheckRequest(code: String){
-        APIClient.codeCheckForRegister(phoneNumber:phoneNumber, code:code,rememberToken: getData(key: "tempRememberToken") as! String){
+    func codeCheckRequestLoginRegister(code: String){
+        if isRegisterring{
+        APIClient.checkCodeForRegister(phoneNumber:phoneNumber, code:code,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
             if responseObject != nil{
+                if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
+
             let rememberToken = (responseObject!["data"] as! NSDictionary)["remember_token"]
             self.updataData(key: "rememberToken", value: rememberToken!)
             self.updataData(key: "isLoggedIn", value: true)
@@ -191,12 +153,54 @@ class ActivationCodeDemandViewController: UIViewController{
             self.animationView.isHidden = true
             self.dismiss(animated: true, completion: nil)
             self.onDoneBlock!(true)
+                }
+                else{
+                    self.animationView.stop()
+                    self.animationView.isHidden = true
+                    self.popUpUIView.isHidden = false
+                    self.phoneCodeDemandUITextfield.text = ""
+                    self.phoneCodeDemandUITextfield.becomeFirstResponder()
+                    
+                }
+                
             }
             else{
                 debugPrint(error!)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
             }
         }
+        }else{
+            APIClient.requestForUserLogin(phoneNumber: phoneNumber, code: code, rememberToken: getData(key: "tempRememberToken") as! String) { (response, error) in
+                if response != nil{
+                    if (self.checkRespondStatus(respond: response!["respond"] as! Int)){
+
+                        let rememberToken = ((response!["data"]! as! NSDictionary)["account"]! as! NSDictionary)["remember_token"]
+                        self.updataData(key: "rememberToken", value: rememberToken!)
+                        self.updataData(key: "isLoggedIn", value: true)
+                        self.animationView.stop()
+                        self.animationView.isHidden = true
+                        self.dismiss(animated: true, completion: nil)
+                        self.onDoneBlock!(false)
+                    }
+                    else{
+                        self.animationView.isHidden = true
+                        self.popUpUIView.isHidden = false
+                        self.phoneCodeDemandUITextfield.text = ""
+                        self.phoneCodeDemandUITextfield.becomeFirstResponder()
+                        self.animationView.stop()
+
+                        
+                    }
+                    
+                }
+                else{
+                    debugPrint(error!)
+                    self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
     }
     
     func showDialoge(){
@@ -257,15 +261,5 @@ class ActivationCodeDemandViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
