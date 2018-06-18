@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 import CoreData
 import BRYXBanner
-class ActivationCodeDemandViewController: UIViewController{
+class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
     var onDoneBlock : ((Bool) -> Void)?
     let animationView = LOTAnimationView(name: "trail_loading")
 
@@ -228,6 +228,7 @@ class ActivationCodeDemandViewController: UIViewController{
         animationView.loopAnimation = true
         self.view.addSubview(animationView)
         animationView.isHidden = true
+        phoneCodeDemandUITextfield.delegate = self
         phoneCodeDemandUITextfield.becomeFirstResponder()
         submitUIButton.layer.cornerRadius = 5
         cancelUIButton.layer.cornerRadius = 5
@@ -254,6 +255,13 @@ class ActivationCodeDemandViewController: UIViewController{
 
         }
         
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 11
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
 
     override func didReceiveMemoryWarning() {

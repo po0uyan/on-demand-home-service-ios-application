@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/ActivationCodeDemandViewController.swift"
-            timestampString = "550348336.43875"
+            timestampString = "550794498.867537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/MainViewController.swift"
-            timestampString = "550411594.113341"
+            timestampString = "550847685.367166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "loadFeatures()"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "loadSliderMenuFeatures()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,90 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/MainViewController.swift"
-            timestampString = "550411594.113772"
+            timestampString = "550847685.367648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "MainViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pinwork.MainViewController.garageButton.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;"
-                  moduleName = "pinwork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pouyan/Developer/pinwork/pinwork/MainViewController.swift"
-                  timestampString = "550053803.008427"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pinwork.MainViewController.garageButton.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIButton&gt;"
-                  moduleName = "pinwork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pouyan/Developer/pinwork/pinwork/MainViewController.swift"
-                  timestampString = "550053803.0103379"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pinwork.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; pinwork.MainViewController"
-                  moduleName = "pinwork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pouyan/Developer/pinwork/pinwork/MainViewController.swift"
-                  timestampString = "550053803.011976"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "400">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pinwork.MainViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;pinwork.MainViewController&gt;"
-                  moduleName = "pinwork"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pouyan/Developer/pinwork/pinwork/MainViewController.swift"
-                  timestampString = "550053803.013749"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "356">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pinwork/MainViewController.swift"
-            timestampString = "550411594.1140389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "loadFeatures()"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "loadSliderMenuFeatures()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/ViewController.swift"
-            timestampString = "550411594.114278"
+            timestampString = "550847685.368054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -152,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/MainViewController.swift"
-            timestampString = "550411594.114323"
+            timestampString = "550847685.368125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/ActivationCodeDemandViewController.swift"
-            timestampString = "550348336.441407"
+            timestampString = "550794498.867969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"

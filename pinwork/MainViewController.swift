@@ -17,27 +17,104 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var carButton: UIButton!
     @IBOutlet weak var garageButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
-    @IBOutlet weak var otherServicesButton: MoreServicesButton!
+    @IBOutlet weak var otherServicesButton: UIButton!
     @IBOutlet weak var pageController: UIPageControl!
     var slideMenu: UIView!
+    var reservedOrderButton : UIButton?
     var isCommingFromRegister = false
     var goForRegisterNow = false
     var isMenuShowing = false
     var pageControl : UIPageControl?
     var currentPage = 0
     @IBOutlet weak var navigateMenuConstraint: NSLayoutConstraint!
+    
+    @IBAction func officeButtonCliecked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: sender)
+
+    }
+    @IBAction func homeButtonCliecked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: sender)
+        
+    }
+    @IBAction func garageButtonCliecked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueToOrder", sender: sender)
+        
+    }
+    @IBAction func carButtonCliecked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "carWashSegue", sender: sender)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToOrder" {
+            switch (sender as! UIButton).restorationIdentifier {
+             
+            case "office":
+                if let destination = segue.destination as? OrderViewController {
+                    destination.orderType = .officeCleaning // you can pass value to destination view controller
+                    
+                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
+                }
+            case "garage":
+                if let destination = segue.destination as? OrderViewController {
+                    destination.orderType = .garageCleaning // you can pass value to destination view controller
+                    
+                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
+                }
+            
+            default:
+                print("somethin went wrong in prepare main")
+            
+            }
+        
+        }
+        else if segue.identifier == "carWashSegue"{
+          
+        }
+        else if segue.identifier == "segueToDateTimeOrder"{
+            switch (sender as! UIButton).restorationIdentifier {
+            case "home":
+                if let destination = segue.destination as? OrderDateTimeViewController {
+                    destination.orderType = .homeCleaning // you can pass value to destination view controller
+                    
+                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
+                }
+            case "office":
+                if let destination = segue.destination as? OrderViewController {
+                    destination.orderType = .officeCleaning // you can pass value to destination view controller
+                    
+                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
+                }
+            default:
+                break
+            
+        }
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        //self.navigationController?.navigationBar.isUserInteractionEnabled = false
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(recognizer:)))
+        //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(recognizer:)))
         self.view.isUserInteractionEnabled = true
-        self.view.addGestureRecognizer(tapGestureRecognizer)
+        //self.view.addGestureRecognizer(tapGestureRecognizer)
         configureMainScroll()
-        configurePageController()
-        configureSliderMenu()
+       
+        reservedOrderButton = getUIBarButtonItem(title: " سفارش‌های رزرو شده ", image: "invoice")
+        var items = [UIBarButtonItem]()
+        items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
+        items.append( UIBarButtonItem(customView: reservedOrderButton!))
+        items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
+        reservedOrderButton!.addTarget(self, action: #selector(self.reservedOrderClicked), for: .touchUpInside)
+        self.toolbarItems = items
+
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollMe),userInfo: nil , repeats: true)
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        configurePageController()
+        configureSliderMenu()
     }
     func configureMainScroll(){
         mainScrollView.delegate = self
@@ -70,7 +147,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func configurePageController(){
-          pageControl = UIPageControl(frame: CGRect(x:self.view.frame.midX - 50 ,y: mainScrollView.frame.height - 30 , width:100, height:40))
+          pageControl = UIPageControl(frame: CGRect(x:self.view.frame.midX - 50 ,y: mainScrollView.bounds.maxY - 30, width:100, height:40))
         self.pageControl!.numberOfPages = 3
         self.pageControl!.currentPage = 0
         self.pageControl!.pageIndicatorTintColor = getPinworkColors(color: 1)
@@ -91,6 +168,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         let leadingConstraint = NSLayoutConstraint(item: slideMenu, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
         self.view.addConstraints([ heightConstraint,widthConstraint,leadingConstraint])
         loadSliderMenuFeatures()
+        slideMenu.isHidden = true
     
     }
     func loadSliderMenuFeatures(){
@@ -136,18 +214,28 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         pageControl!.currentPage = currentPage - 1
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       // pageController.currentPage = currentPage - 1
+        //pageController.currentPage = scrollView. - 1
+    }
+  @objc  func reservedOrderClicked(){
+        print("reserved clicked")
     }
     @IBAction func hamButtonClicked(_ sender: UIButton) {
         let sliderConstraint = view.constraints.filter({ $0.firstAttribute == .leading && $0.firstItem as? UIView == slideMenu }).first!
         if isMenuShowing{
+
             sliderConstraint.constant = 0
             UIView.animate(withDuration: 0.3,animations: {
                 self.view.layoutIfNeeded()
+
+            }, completion: { (finished: Bool) in
+                self.slideMenu.isHidden = !self.slideMenu.isHidden
             })
         }else{
             sliderConstraint.constant = -200
-            UIView.animate(withDuration: 0.6, animations: {self.view.layoutIfNeeded()})
+            UIView.animate(withDuration: 0.6, animations: {self.view.layoutIfNeeded()
+                self.slideMenu.isHidden = !self.slideMenu.isHidden
+
+            })
         }
         isMenuShowing = !isMenuShowing
     }

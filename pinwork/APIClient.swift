@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 class APIClient{
-   static let baseUrl = "https://api.pinwork.co/api/"
+    static let baseUrl = "https://api.pinwork.co/api/"
  
 
     struct APIManager {
@@ -110,7 +110,22 @@ class APIClient{
         
     }
     
-    
+    static func  estimateCarWashPrice(defaultDate: String , carType: String, material: String ,rememberToken: String, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = ["remember_token":rememberToken, "default_start_date":defaultDate, "car_type":carType, "material":material] as [String : Any]
+        
+        APIManager.sharedManager.request(baseUrl+"postEstimatePriceCarwash", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
     
     
 }

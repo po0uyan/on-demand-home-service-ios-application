@@ -10,7 +10,49 @@ import Foundation
 import UIKit
 import BRYXBanner
 import CoreData
+extension String {
+    func convertEngNumToPersianNum()->String{
+        let format = NumberFormatter()
+        format.locale = Locale(identifier: "fa_IR")
+        let number =   format.number(from: self)
+        
+        let faNumber = format.string(from: number!)
+        return faNumber!
+        
+    }
+    func convertToPersian()-> String {
+        let numbersDictionary : Dictionary = ["0" : "۰","1" : "۱", "2" : "۲", "3" : "۳", "4" : "۴", "5" : "۵", "6" : "۶", "7" : "۷", "8" : "۸", "9" : "۹"]
+        var str : String = self
+        
+        for (key,value) in numbersDictionary {
+            str =  str.replacingOccurrences(of: key, with: value)
+        }
+        
+        return str
+    }
+    func convertToEnglish()-> String {
+        let numbersDictionary : Dictionary = ["0" : "۰","1" : "۱", "2" : "۲", "3" : "۳", "4" : "۴", "5" : "۵", "6" : "۶", "7" : "۷", "8" : "۸", "9" : "۹"]
+        var str : String = self
+        
+        for (key,value) in numbersDictionary {
+            str =  str.replacingOccurrences(of: value, with: key)
+        }
+        
+        return str
+    }
+}
+
 extension UIViewController {
+    func getProperDate(date:Date)->String{
+        var calendar = Calendar(identifier: .persian)
+        let myLocale = Locale(identifier: "fa_IR")
+        calendar.locale = myLocale
+        var datecmpts = calendar.dateComponents([.day, .month, .weekday], from: date)
+        
+        
+        return "\(calendar.weekdaySymbols[datecmpts.weekday! - 1]) \(datecmpts.day!) \(calendar.monthSymbols[datecmpts.month! - 1])".convertToPersian()
+        
+    }
     
     func showToast(message : String) {
         
@@ -22,6 +64,31 @@ extension UIViewController {
         banner.titleLabel.textAlignment = .center
         banner.show(duration: 5.0)
     }
+    
+    func getPickerViewOneComponent(attributes:Array<String> , title:String)->PopUpPickerViewController{
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let pickerController = storyBoard.instantiateViewController(withIdentifier: "pickerpopup") as! PopUpPickerViewController
+        pickerController.attribites = attributes
+        pickerController.titleString = title
+        pickerController.modalTransitionStyle = .crossDissolve
+        pickerController.isModalInPopover = true
+        pickerController.modalPresentationStyle = .overCurrentContext
+        return pickerController
+    }
+    func getUIBarButtonItem(title:String , image:String)->UIButton{
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: image)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setTitle(title, for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.titleLabel?.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 15.0)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.imageView?.tintColor = UIColor.white
+        
+        button.sizeToFit()
+       
+        return button
+    }
+    
     func getPinworkColors(color numofColor: Int)->UIColor{
         switch numofColor {
         case 0:

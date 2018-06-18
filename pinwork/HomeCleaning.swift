@@ -18,6 +18,7 @@ class HomeCleaning: UIButton {
     }
     */
     override func awakeAfter(using aDecoder: NSCoder) -> Any? {
+
         return self.loadFromNibIfEmbeddedInDifferentNib()
     }
 

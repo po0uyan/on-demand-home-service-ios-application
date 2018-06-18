@@ -7,7 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28C845949DECA80778B7DEAB /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0620C7763F00575640 /* Pods_pinworkUITests.framework */; };
 		351FA0A0831AC23E72C59CAA /* Pods_pinworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4F084297A6C73ED9ED5BEA /* Pods_pinworkTests.framework */; };
+		578D77F03A655AF9F91A92F4 /* Pods_pinworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0420C7763F00575640 /* Pods_pinworkTests.framework */; };
+		881D36E020D1054D0099839B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36DF20D1054D0099839B /* OrderViewController.swift */; };
+		881D36E220D12D4E0099839B /* CarWashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36E120D12D4E0099839B /* CarWashViewController.swift */; };
+		881D36E420D134640099839B /* femaleuser.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36E320D134630099839B /* femaleuser.png */; };
+		881D36E620D1348C0099839B /* broom.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36E520D1348C0099839B /* broom.png */; };
+		881D36E820D134D10099839B /* 039-car.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36E720D134D10099839B /* 039-car.png */; };
+		881D36EA20D154380099839B /* downarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36E920D154370099839B /* downarrow.png */; };
+		881D36EC20D16A320099839B /* PopUpPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36EB20D16A320099839B /* PopUpPickerViewController.swift */; };
+		881D36EE20D2564A0099839B /* PopUpDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36ED20D2564A0099839B /* PopUpDatePickerViewController.swift */; };
+		881D36F020D26E800099839B /* move-to-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36EF20D26E7E0099839B /* move-to-next.png */; };
+		881D36F220D273870099839B /* invoice.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36F120D273860099839B /* invoice.png */; };
+		881D36F420D286B80099839B /* CarWashOrderDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */; };
+		881D36F620D290100099839B /* time-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36F520D2900F0099839B /* time-1.png */; };
 		88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3620BC0714007D6363 /* IRANSansMobile.ttf */; };
 		88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */; };
 		88240F3E20BC0715007D6363 /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */; };
@@ -29,6 +43,7 @@
 		8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8841B5A620C743E000C80383 /* RetryViewController.swift */; };
 		8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */; };
 		8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8849CAF820C6CF4200E2A5A8 /* no-wifi.png */; };
+		8898DB3620D54AA500E522A5 /* timeintval.png in Resources */ = {isa = PBXBuildFile; fileRef = 8898DB3520D54AA400E522A5 /* timeintval.png */; };
 		8899B0DE20C7EC2B00D1F8F1 /* login_register.png in Resources */ = {isa = PBXBuildFile; fileRef = 8899B0DD20C7EC2B00D1F8F1 /* login_register.png */; };
 		889A3CCD20CDDA6700469545 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = 889A3CCC20CDDA6600469545 /* order.png */; };
 		889A3CCF20CDE4D500469545 /* smok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 889A3CCE20CDE4D500469545 /* smok.jpg */; };
@@ -47,14 +62,13 @@
 		88A8E9B220CC119300EB59CE /* GarageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8E9B120CC119300EB59CE /* GarageButton.swift */; };
 		88A8E9B420CC11AE00EB59CE /* HomeCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8E9B320CC11AE00EB59CE /* HomeCleaning.swift */; };
 		88A8E9B620CC11CA00EB59CE /* OfficeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8E9B520CC11CA00EB59CE /* OfficeButton.swift */; };
+		88AB1D1C20D55EB000E45D8B /* OrderDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */; };
 		88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2A20BA705E004CE674 /* AppDelegate.swift */; };
 		88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2C20BA705E004CE674 /* ViewController.swift */; };
 		88B15C3020BA705E004CE674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C2E20BA705E004CE674 /* Main.storyboard */; };
 		88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */; };
 		88B15C3520BA705F004CE674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3420BA705F004CE674 /* Assets.xcassets */; };
 		88B15C3820BA705F004CE674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */; };
-		88B15C4320BA705F004CE674 /* pinworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C4220BA705F004CE674 /* pinworkTests.swift */; };
-		88B15C4E20BA705F004CE674 /* pinworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C4D20BA705F004CE674 /* pinworkUITests.swift */; };
 		88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */; };
 		88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */; };
 		88B2062120BAE97D00C0A81D /* load2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062020BAE97D00C0A81D /* load2.json */; };
@@ -82,18 +96,15 @@
 		88CD084220C412410047D568 /* update_available.svg in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084420C412410047D568 /* update_available.svg */; };
 		88CD084620C413830047D568 /* update_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084520C413830047D568 /* update_available.png */; };
 		88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD084B20C571080047D568 /* ReachabilityManager.swift */; };
-		88DE4AFF20C7763F00575640 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4AFE20C7763F00575640 /* BRYXBanner.framework */; };
-		88DE4B0120C7763F00575640 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0020C7763F00575640 /* MaterialComponents.framework */; };
-		88DE4B0320C7763F00575640 /* MDFInternationalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0220C7763F00575640 /* MDFInternationalization.framework */; };
-		88DE4B0720C7763F00575640 /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0620C7763F00575640 /* Pods_pinworkUITests.framework */; };
-		88DE4B0920C7763F00575640 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0820C7763F00575640 /* Reachability.framework */; };
-		88DE4B1920C7765900575640 /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0724C91B6ED05591E8FD85FA /* Pods_pinwork.framework */; };
-		88DE4B1B20C7765900575640 /* Pods_pinworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE4B0420C7763F00575640 /* Pods_pinworkTests.framework */; };
+		88D3BC4E20D2AD8B004A315F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC4D20D2AD8B004A315F /* Alamofire.framework */; };
+		88D3BC5020D2AD8B004A315F /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC4F20D2AD8B004A315F /* BRYXBanner.framework */; };
+		88D3BC5220D2AD8B004A315F /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC5120D2AD8B004A315F /* IQKeyboardManager.framework */; };
+		88D3BC5420D2AD8B004A315F /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC5320D2AD8B004A315F /* Lottie.framework */; };
+		88D3BC5620D2AD8B004A315F /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC5520D2AD8B004A315F /* Pods_pinwork.framework */; };
+		88D3BC5820D2AD8B004A315F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC5720D2AD8B004A315F /* Reachability.framework */; };
 		88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */; };
 		88E3F61120C019D400BA6516 /* trail_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 88E3F61020C019D400BA6516 /* trail_loading.json */; };
 		88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3F61220C1ABA600BA6516 /* APIClient.swift */; };
-		88E3F61520C1B57600BA6516 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3F61420C1B57600BA6516 /* Alamofire.framework */; };
-		88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3F61620C1B57D00BA6516 /* Lottie.framework */; };
 		88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */; };
 		88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */; };
 		F1F299016B525EB22C541F8C /* Pods_pinworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C319DAB3E83ED464BE7AEB8E /* Pods_pinworkUITests.framework */; };
@@ -121,6 +132,19 @@
 		255E68992B18D5AE8CC79142 /* Pods-pinworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkTests/Pods-pinworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinwork/Pods-pinwork.release.xcconfig"; sourceTree = "<group>"; };
 		85E4AA82A9F38503ABBEEDC4 /* Pods-pinworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkUITests/Pods-pinworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		880A7C8420D2A53500A0E84E /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		881D36DF20D1054D0099839B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		881D36E120D12D4E0099839B /* CarWashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashViewController.swift; sourceTree = "<group>"; };
+		881D36E320D134630099839B /* femaleuser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = femaleuser.png; sourceTree = "<group>"; };
+		881D36E520D1348C0099839B /* broom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broom.png; sourceTree = "<group>"; };
+		881D36E720D134D10099839B /* 039-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "039-car.png"; sourceTree = "<group>"; };
+		881D36E920D154370099839B /* downarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downarrow.png; sourceTree = "<group>"; };
+		881D36EB20D16A320099839B /* PopUpPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPickerViewController.swift; sourceTree = "<group>"; };
+		881D36ED20D2564A0099839B /* PopUpDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDatePickerViewController.swift; sourceTree = "<group>"; };
+		881D36EF20D26E7E0099839B /* move-to-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "move-to-next.png"; sourceTree = "<group>"; };
+		881D36F120D273860099839B /* invoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invoice.png; sourceTree = "<group>"; };
+		881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashOrderDateTimeViewController.swift; sourceTree = "<group>"; };
+		881D36F520D2900F0099839B /* time-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time-1.png"; sourceTree = "<group>"; };
 		88240F3620BC0714007D6363 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
 		88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_UltraLight.ttf; sourceTree = "<group>"; };
 		88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Bold.ttf; sourceTree = "<group>"; };
@@ -142,6 +166,7 @@
 		8841B5A620C743E000C80383 /* RetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryViewController.swift; sourceTree = "<group>"; };
 		8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPopUpViewController.swift; sourceTree = "<group>"; };
 		8849CAF820C6CF4200E2A5A8 /* no-wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-wifi.png"; sourceTree = "<group>"; };
+		8898DB3520D54AA400E522A5 /* timeintval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeintval.png; sourceTree = "<group>"; };
 		8899B0DD20C7EC2B00D1F8F1 /* login_register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_register.png; sourceTree = "<group>"; };
 		889A3CCC20CDDA6600469545 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
 		889A3CCE20CDE4D500469545 /* smok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smok.jpg; sourceTree = "<group>"; };
@@ -160,6 +185,7 @@
 		88A8E9B120CC119300EB59CE /* GarageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageButton.swift; sourceTree = "<group>"; };
 		88A8E9B320CC11AE00EB59CE /* HomeCleaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCleaning.swift; sourceTree = "<group>"; };
 		88A8E9B520CC11CA00EB59CE /* OfficeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeButton.swift; sourceTree = "<group>"; };
+		88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDateTimeViewController.swift; sourceTree = "<group>"; };
 		88B15C2720BA705E004CE674 /* pinwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B15C2A20BA705E004CE674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B15C2C20BA705E004CE674 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,11 +195,7 @@
 		88B15C3720BA705F004CE674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B15C3920BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B15C3E20BA705F004CE674 /* pinworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88B15C4220BA705F004CE674 /* pinworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinworkTests.swift; sourceTree = "<group>"; };
-		88B15C4420BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B15C4920BA705F004CE674 /* pinworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pinworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88B15C4D20BA705F004CE674 /* pinworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinworkUITests.swift; sourceTree = "<group>"; };
-		88B15C4F20BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinwork-logo-fa.png"; sourceTree = "<group>"; };
 		88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		88B2062020BAE97D00C0A81D /* load2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load2.json; sourceTree = "<group>"; };
@@ -201,6 +223,12 @@
 		88CD084320C412410047D568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/update_available.svg; sourceTree = "<group>"; };
 		88CD084520C413830047D568 /* update_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_available.png; sourceTree = "<group>"; };
 		88CD084B20C571080047D568 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		88D3BC4D20D2AD8B004A315F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BC4F20D2AD8B004A315F /* BRYXBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BRYXBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BC5120D2AD8B004A315F /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BC5320D2AD8B004A315F /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BC5520D2AD8B004A315F /* Pods_pinwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_pinwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D3BC5720D2AD8B004A315F /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DE4AFE20C7763F00575640 /* BRYXBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BRYXBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DE4B0020C7763F00575640 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DE4B0220C7763F00575640 /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,15 +254,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88DE4AFF20C7763F00575640 /* BRYXBanner.framework in Frameworks */,
-				88DE4B0120C7763F00575640 /* MaterialComponents.framework in Frameworks */,
-				88DE4B0320C7763F00575640 /* MDFInternationalization.framework in Frameworks */,
-				88DE4B1920C7765900575640 /* Pods_pinwork.framework in Frameworks */,
-				88DE4B1B20C7765900575640 /* Pods_pinworkTests.framework in Frameworks */,
-				88DE4B0720C7763F00575640 /* Pods_pinworkUITests.framework in Frameworks */,
-				88DE4B0920C7763F00575640 /* Reachability.framework in Frameworks */,
-				88E3F61720C1B57D00BA6516 /* Lottie.framework in Frameworks */,
-				88E3F61520C1B57600BA6516 /* Alamofire.framework in Frameworks */,
+				88D3BC4E20D2AD8B004A315F /* Alamofire.framework in Frameworks */,
+				88D3BC5020D2AD8B004A315F /* BRYXBanner.framework in Frameworks */,
+				88D3BC5220D2AD8B004A315F /* IQKeyboardManager.framework in Frameworks */,
+				88D3BC5420D2AD8B004A315F /* Lottie.framework in Frameworks */,
+				88D3BC5620D2AD8B004A315F /* Pods_pinwork.framework in Frameworks */,
+				88D3BC5820D2AD8B004A315F /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				351FA0A0831AC23E72C59CAA /* Pods_pinworkTests.framework in Frameworks */,
+				578D77F03A655AF9F91A92F4 /* Pods_pinworkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F299016B525EB22C541F8C /* Pods_pinworkUITests.framework in Frameworks */,
+				28C845949DECA80778B7DEAB /* Pods_pinworkUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +327,6 @@
 				88240F4220BC0720007D6363 /* fonts */,
 				88B15C5B20BA8A12004CE674 /* Assets */,
 				88B15C2920BA705E004CE674 /* pinwork */,
-				88B15C4120BA705F004CE674 /* pinworkTests */,
-				88B15C4C20BA705F004CE674 /* pinworkUITests */,
 				88B15C2820BA705E004CE674 /* Products */,
 				CC9131704EC5296B6B097976 /* Pods */,
 				B4A845875E96C41329632214 /* Frameworks */,
@@ -345,26 +370,14 @@
 				88A8E9B820CC131900EB59CE /* CustomButtons */,
 				88BEB0FE20CD9C7F0083F05E /* SliderMenuFeaturesView.xib */,
 				88BEB10020CD9C970083F05E /* SliderMenuFeaturesView.swift */,
+				881D36DF20D1054D0099839B /* OrderViewController.swift */,
+				881D36E120D12D4E0099839B /* CarWashViewController.swift */,
+				881D36EB20D16A320099839B /* PopUpPickerViewController.swift */,
+				881D36ED20D2564A0099839B /* PopUpDatePickerViewController.swift */,
+				881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */,
+				88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */,
 			);
 			path = pinwork;
-			sourceTree = "<group>";
-		};
-		88B15C4120BA705F004CE674 /* pinworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				88B15C4220BA705F004CE674 /* pinworkTests.swift */,
-				88B15C4420BA705F004CE674 /* Info.plist */,
-			);
-			path = pinworkTests;
-			sourceTree = "<group>";
-		};
-		88B15C4C20BA705F004CE674 /* pinworkUITests */ = {
-			isa = PBXGroup;
-			children = (
-				88B15C4D20BA705F004CE674 /* pinworkUITests.swift */,
-				88B15C4F20BA705F004CE674 /* Info.plist */,
-			);
-			path = pinworkUITests;
 			sourceTree = "<group>";
 		};
 		88B15C5B20BA8A12004CE674 /* Assets */ = {
@@ -377,9 +390,17 @@
 				88B2062420BB382500C0A81D /* dem3.json */,
 				88240F5520BC7294007D6363 /* pro_trusted.png */,
 				88BEB0FC20CD48900083F05E /* notification.png */,
+				881D36E320D134630099839B /* femaleuser.png */,
+				881D36F520D2900F0099839B /* time-1.png */,
+				8898DB3520D54AA400E522A5 /* timeintval.png */,
+				881D36E920D154370099839B /* downarrow.png */,
+				881D36F120D273860099839B /* invoice.png */,
+				881D36E720D134D10099839B /* 039-car.png */,
 				88B2312820C8B3560087669C /* garage.png */,
 				88240F5720BC72A4007D6363 /* calculator.png */,
+				881D36EF20D26E7E0099839B /* move-to-next.png */,
 				889A3CCE20CDE4D500469545 /* smok.jpg */,
+				881D36E520D1348C0099839B /* broom.png */,
 				8899B0DD20C7EC2B00D1F8F1 /* login_register.png */,
 				88B2312A20C8B3840087669C /* carwash.png */,
 				88B2312C20C8B3BD0087669C /* office.png */,
@@ -417,6 +438,13 @@
 		B4A845875E96C41329632214 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88D3BC4D20D2AD8B004A315F /* Alamofire.framework */,
+				88D3BC4F20D2AD8B004A315F /* BRYXBanner.framework */,
+				88D3BC5120D2AD8B004A315F /* IQKeyboardManager.framework */,
+				88D3BC5320D2AD8B004A315F /* Lottie.framework */,
+				88D3BC5520D2AD8B004A315F /* Pods_pinwork.framework */,
+				88D3BC5720D2AD8B004A315F /* Reachability.framework */,
+				880A7C8420D2A53500A0E84E /* IQKeyboardManager.framework */,
 				88DE4AFE20C7763F00575640 /* BRYXBanner.framework */,
 				88DE4B0020C7763F00575640 /* MaterialComponents.framework */,
 				88DE4B0220C7763F00575640 /* MDFInternationalization.framework */,
@@ -517,6 +545,11 @@
 				TargetAttributes = {
 					88B15C2620BA705E004CE674 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					88B15C3D20BA705F004CE674 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -569,12 +602,14 @@
 				88E3F61120C019D400BA6516 /* trail_loading.json in Resources */,
 				88A8E9A620CA796600EB59CE /* horizontal-line.png in Resources */,
 				88B2062320BB381D00C0A81D /* load3.json in Resources */,
+				881D36E820D134D10099839B /* 039-car.png in Resources */,
 				88B15C3520BA705F004CE674 /* Assets.xcassets in Resources */,
 				88B2312B20C8B3850087669C /* carwash.png in Resources */,
 				88B2312520C8B1B80087669C /* 3.jpg in Resources */,
 				889A3CF820CE884700469545 /* information-button.png in Resources */,
 				88BEB10320CDB44E0083F05E /* user.png in Resources */,
 				88BEB0FD20CD48900083F05E /* notification.png in Resources */,
+				881D36E620D1348C0099839B /* broom.png in Resources */,
 				88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */,
 				88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */,
 				88240F5420BC7286007D6363 /* pro_trained.png in Resources */,
@@ -582,10 +617,13 @@
 				88B2312920C8B3570087669C /* garage.png in Resources */,
 				88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */,
 				88240F5620BC7294007D6363 /* pro_trusted.png in Resources */,
+				881D36F220D273870099839B /* invoice.png in Resources */,
+				881D36F020D26E800099839B /* move-to-next.png in Resources */,
 				88240F5820BC72A5007D6363 /* calculator.png in Resources */,
 				88B2062120BAE97D00C0A81D /* load2.json in Resources */,
 				88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */,
 				889A3CCF20CDE4D500469545 /* smok.jpg in Resources */,
+				881D36F620D290100099839B /* time-1.png in Resources */,
 				88B2312D20C8B3BD0087669C /* office.png in Resources */,
 				88B2312F20C8B3E90087669C /* homecleaning.png in Resources */,
 				88240F4A20BC086D007D6363 /* IRANSansMobile(NoEn)_Medium.ttf in Resources */,
@@ -597,9 +635,12 @@
 				88240F4120BC0715007D6363 /* IRANSansMobile_Black.ttf in Resources */,
 				889A3CF620CE87B100469545 /* editProf.png in Resources */,
 				88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */,
+				8898DB3620D54AA500E522A5 /* timeintval.png in Resources */,
 				88A8E9AE20CC10D300EB59CE /* HomeCleaning.xib in Resources */,
+				881D36EA20D154380099839B /* downarrow.png in Resources */,
 				889A3CF420CE854300469545 /* man-cleaner.png in Resources */,
 				88B2062520BB382500C0A81D /* dem3.json in Resources */,
+				881D36E420D134640099839B /* femaleuser.png in Resources */,
 				889A3CFA20CE896E00469545 /* support.png in Resources */,
 				889A3CCD20CDDA6700469545 /* order.png in Resources */,
 				8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */,
@@ -638,8 +679,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-pinwork/Pods-pinwork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
@@ -647,8 +687,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYXBanner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
@@ -727,7 +766,10 @@
 				88A8E9B220CC119300EB59CE /* GarageButton.swift in Sources */,
 				88A8E9AA20CBAA8500EB59CE /* CarWashButton.swift in Sources */,
 				88B2311820C885770087669C /* MainViewController.swift in Sources */,
+				881D36E020D1054D0099839B /* OrderViewController.swift in Sources */,
+				881D36F420D286B80099839B /* CarWashOrderDateTimeViewController.swift in Sources */,
 				88E3F61320C1ABA600BA6516 /* APIClient.swift in Sources */,
+				881D36EC20D16A320099839B /* PopUpPickerViewController.swift in Sources */,
 				88B2313120C8D3BC0087669C /* MoreServicesButton.swift in Sources */,
 				88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */,
 				8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */,
@@ -735,8 +777,11 @@
 				88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */,
 				88B2311A20C891630087669C /* ControllersInCommon.swift in Sources */,
 				88A8E9B420CC11AE00EB59CE /* HomeCleaning.swift in Sources */,
+				881D36E220D12D4E0099839B /* CarWashViewController.swift in Sources */,
+				88AB1D1C20D55EB000E45D8B /* OrderDateTimeViewController.swift in Sources */,
 				8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */,
 				88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */,
+				881D36EE20D2564A0099839B /* PopUpDatePickerViewController.swift in Sources */,
 				88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */,
 				88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */,
 			);
@@ -746,7 +791,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B15C4320BA705F004CE674 /* pinworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,7 +798,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B15C4E20BA705F004CE674 /* pinworkUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +963,7 @@
 			baseConfigurationReference = EAEBDFB3E6D0F6C0B674F300 /* Pods-pinwork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZD8838NNV;
 				INFOPLIST_FILE = pinwork/Info.plist;
@@ -930,6 +974,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -940,6 +985,7 @@
 			baseConfigurationReference = 6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZD8838NNV;
 				INFOPLIST_FILE = pinwork/Info.plist;
@@ -950,6 +996,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.pouyan.pinwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
