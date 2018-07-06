@@ -56,13 +56,13 @@ extension UIViewController {
     
     func showToast(message : String) {
         
-        let banner = Banner(title: nil, subtitle: message, backgroundColor: UIColor(red:0.02, green:0.29, blue:0.36, alpha:1.0))
+        let banner = Banner(title: nil, subtitle: message, backgroundColor: getPinworkColors(color: 0))
         banner.dismissesOnTap = true
-        banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 18.0)
+        banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)
         banner.detailLabel.textColor = UIColor.white
         banner.detailLabel.textAlignment = .center
         banner.titleLabel.textAlignment = .center
-        banner.show(duration: 5.0)
+        banner.show(duration: 6.0)
     }
     
     func getPickerViewOneComponent(attributes:Array<String> , title:String)->PopUpPickerViewController{

@@ -25,6 +25,7 @@ class CarWashViewController: UIViewController {
         let attributes = ["هاچ‌بک","سدان","کراس‌اُور","شاسی‌بلند"]
         let title = "انتخاب نوع خودرو"
         let pickerController = getPickerViewOneComponent(attributes: attributes, title: title)
+        pickerController.limit = attributes.count
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.chooseCarTypeButton.setTitle(attributes[result],for: .normal)
@@ -39,6 +40,7 @@ class CarWashViewController: UIViewController {
         let attributes = ["شتسشو با آب","شستشو با نانو","شستشو با بخار"]
         let title = "انتخاب نوع شستشو"
         let pickerController = getPickerViewOneComponent(attributes: attributes, title: title)
+        pickerController.limit = attributes.count
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.chooseWashTypeButton.setTitle(attributes[result],for: .normal)

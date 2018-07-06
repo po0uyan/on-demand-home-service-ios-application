@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>pinWorkLocation</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,6 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>Privacy – Location When In Use Usage Description</key>
+	<string>By accessing your location, this app can make your life easier.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>IRAN SansMobile(NoEn).ttf</string>

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import Alamofire
 import IQKeyboardManager
+import GoogleMaps
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyDgCFBPpJXD1814At7Ayl7K6SmPGbs6sIc")
+        GMSPlacesClient.provideAPIKey("AIzaSyDgCFBPpJXD1814At7Ayl7K6SmPGbs6sIc")
+
         ReachabilityManager.shared.startMonitoring()
         IQKeyboardManager.shared().isEnabled = true
 

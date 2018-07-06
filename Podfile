@@ -20,4 +20,6 @@ pod 'lottie-ios', '2.0.3'
 pod 'Alamofire', '~> 4.7'
 pod 'ReachabilitySwift'
 pod 'BRYXBanner'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
 end

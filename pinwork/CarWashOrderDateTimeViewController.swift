@@ -33,18 +33,20 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
         let popUpDateTime = storyBoard.instantiateViewController(withIdentifier: "datepickerpopup") as! PopUpDatePickerViewController
         popUpDateTime.validDates = getValidDatesForType()
         popUpDateTime.validTimes = getValidTimesForType()
+        popUpDateTime.limit = getValidTimesForType().count
         popUpDateTime.modalTransitionStyle = .crossDissolve
         popUpDateTime.isModalInPopover = true
         popUpDateTime.modalPresentationStyle = .overCurrentContext
         self.present(popUpDateTime, animated: true)
         popUpDateTime.onDoneBlock = { date , time in
+            let _startTime = self.getValidTimesForType()[time]
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = .medium
             formatter.dateFormat = "yyyy-MM-dd"
             let stringTime = formatter.string(from: date)
-            self.OrderTillNow["default_start_date"] = (stringTime + " " + time.convertToEnglish() + ":00")
-            self.dateTimePickingButton.setTitle(self.getProperDate(date: date) + " ساعت " + time, for: .normal)
+            self.OrderTillNow["default_start_date"] = (stringTime + " " + _startTime.convertToEnglish() + ":00")
+            self.dateTimePickingButton.setTitle(self.getProperDate(date: date) + " ساعت " + _startTime, for: .normal)
             print(self.OrderTillNow)
             
             
@@ -110,6 +112,8 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func nextLevelClicked(){
+        self.performSegue(withIdentifier: "MapViewSegue", sender: self)
+
         
     }
     

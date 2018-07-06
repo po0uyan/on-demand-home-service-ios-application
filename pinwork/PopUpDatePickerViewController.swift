@@ -18,12 +18,17 @@ class PopUpDatePickerViewController: UIViewController , UIPickerViewDataSource, 
     @IBOutlet weak var cancelUIButton: UIButton!
     var validDates = [Date]()
     var validTimes = [String]()
-    var onDoneBlock : ((Date,String) -> Void)?
+    var onDoneBlock : ((Date,Int) -> Void)?
+    var limit = 0
     @IBAction func submitClicked(_ sender: UIButton) {
+        if timePicker.selectedRow(inComponent: 0)>limit{
+            showToast(message: " جهت ایجاد امکان انتخاب این زمان، مدت‌زمان کار را به گونه‌ای تغییر دهید، که کار مورد نظر حداکثر تا ساعت ۲۰ تکمیل شود. ")
+        }
+        else{
         self.dismiss(animated: true, completion: nil)
-        onDoneBlock!(validDates[timePicker.selectedRow(inComponent: 1)],validTimes[timePicker.selectedRow(inComponent: 0)])
+        onDoneBlock!(validDates[timePicker.selectedRow(inComponent: 1)],timePicker.selectedRow(inComponent: 0))
     
-    }
+        }}
     @IBAction func cancelClicked(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -33,7 +38,7 @@ class PopUpDatePickerViewController: UIViewController , UIPickerViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         setting()
-        // Do any additional setup after loading the view.
+        
     }
     func setting(){
 //        datePicker.calendar = NSCalendar(identifier: .persian)! as Calendar
@@ -92,7 +97,7 @@ class PopUpDatePickerViewController: UIViewController , UIPickerViewDataSource, 
             label = v as! UILabel
         }
         label.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 15.0)
-        if row>5{
+        if row>limit{
             label.textColor = UIColor.red
         }
         label.text =  validTimes[row]

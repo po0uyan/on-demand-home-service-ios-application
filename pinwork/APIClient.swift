@@ -127,5 +127,38 @@ class APIClient{
         
     }
     
+    static func  estimateHomeOrOfficeCleaningPrice(requestArray:[String:Any], completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = requestArray
+        
+        APIManager.sharedManager.request(baseUrl+"postEstimatePriceCleaning", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+    static func  reverseAddressService(requestArray:[String:Any], completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = requestArray
+        
+        APIManager.sharedManager.request(baseUrl+"postLatLong", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
     
 }

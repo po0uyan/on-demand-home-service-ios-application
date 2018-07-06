@@ -19,10 +19,16 @@ class PopUpPickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     var titleString = ""
     var attribites = [String]()
     var onDoneBlock : ((Int) -> Void)?
-
+    var limit = 0
+ 
     @IBAction func submitClicked(_ sender: UIButton) {
+        if pickerView.selectedRow(inComponent: 0)>limit{
+            showToast(message: " جهت ایجاد امکان انتخاب این زمان، ساعت شروع کار را به گونه‌ای تغییر دهید، که کار مورد نظر حداکثر تا ساعت ۲۰ تکمیل شود. ")
+        }
+        else{
         self.dismiss(animated: true, completion: nil)
         onDoneBlock!(pickerView.selectedRow(inComponent: 0))
+        }
     }
     @IBAction func cancelClicked(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -62,16 +68,20 @@ class PopUpPickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         // using the row extract the value from your datasource (array[row])
     }
  
+
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+       
         var label = UILabel()
         if let v = view {
             label = v as! UILabel
         }
-        label.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)
+        label.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 16.0)
+        if row>limit{
+            label.textColor = UIColor.red
+        }
         label.text =  attribites[row]
         label.textAlignment = .center
         return label
-        
     }
     func pickerView(_ pickerView: UIPickerView,
                     rowHeightForComponent component: Int) -> CGFloat{

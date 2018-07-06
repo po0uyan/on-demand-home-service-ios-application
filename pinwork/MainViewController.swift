@@ -18,7 +18,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var garageButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var otherServicesButton: UIButton!
-    @IBOutlet weak var pageController: UIPageControl!
     var slideMenu: UIView!
     var reservedOrderButton : UIButton?
     var isCommingFromRegister = false
@@ -26,7 +25,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     var isMenuShowing = false
     var pageControl : UIPageControl?
     var currentPage = 0
-    @IBOutlet weak var navigateMenuConstraint: NSLayoutConstraint!
     
     @IBAction func officeButtonCliecked(_ sender: UIButton) {
         self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: sender)
@@ -37,7 +35,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
     }
     @IBAction func garageButtonCliecked(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "segueToOrder", sender: sender)
+        self.performSegue(withIdentifier: "segueToParkingOrder", sender: sender)
         
     }
     @IBAction func carButtonCliecked(_ sender: UIButton) {
@@ -48,19 +46,15 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         if segue.identifier == "segueToOrder" {
             switch (sender as! UIButton).restorationIdentifier {
              
-            case "office":
-                if let destination = segue.destination as? OrderViewController {
-                    destination.orderType = .officeCleaning // you can pass value to destination view controller
-                    
-                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
-                }
+         
+                
             case "garage":
-                if let destination = segue.destination as? OrderViewController {
-                    destination.orderType = .garageCleaning // you can pass value to destination view controller
+               // if let destination = segue.destination as? OrderViewController {
+                   // destination.orderType = .garageCleaning // you can pass value to destination view controller
                     
                     // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
-                }
-            
+               // }
+                break
             default:
                 print("somethin went wrong in prepare main")
             
@@ -79,7 +73,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
                     // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
                 }
             case "office":
-                if let destination = segue.destination as? OrderViewController {
+                if let destination = segue.destination as? OrderDateTimeViewController {
                     destination.orderType = .officeCleaning // you can pass value to destination view controller
                     
                     // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
@@ -110,11 +104,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.toolbarItems = items
 
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollMe),userInfo: nil , repeats: true)
+        configurePageController()
+
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        configurePageController()
         configureSliderMenu()
+
     }
     func configureMainScroll(){
         mainScrollView.delegate = self
@@ -147,7 +143,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func configurePageController(){
-          pageControl = UIPageControl(frame: CGRect(x:self.view.frame.midX - 50 ,y: mainScrollView.bounds.maxY - 30, width:100, height:40))
+          pageControl = UIPageControl(frame: CGRect(x:self.view.frame.midX - 50 ,y: mainScrollView.frame.height - 30, width:100, height:40))
         self.pageControl!.numberOfPages = 3
         self.pageControl!.currentPage = 0
         self.pageControl!.pageIndicatorTintColor = getPinworkColors(color: 1)

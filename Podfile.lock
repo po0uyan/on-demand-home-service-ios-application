@@ -1,6 +1,13 @@
 PODS:
   - Alamofire (4.7.2)
   - BRYXBanner (0.8.0)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
   - IQKeyboardManager (6.0.3)
   - lottie-ios (2.0.3)
   - ReachabilitySwift (4.1.0)
@@ -8,6 +15,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - BRYXBanner
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManager
   - lottie-ios (= 2.0.3)
   - ReachabilitySwift
@@ -16,6 +25,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - BRYXBanner
+    - GoogleMaps
+    - GooglePlaces
     - IQKeyboardManager
     - lottie-ios
     - ReachabilitySwift
@@ -23,10 +34,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BRYXBanner: 406c3775789136531da6f3c98058be2f16e08a34
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
   lottie-ios: 445f77c7f661f95587e49095a1ac7de43f0da896
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
 
-PODFILE CHECKSUM: 6519e4ccc8331f03216d61341ce4001a192549e5
+PODFILE CHECKSUM: d7bc39b8a9a8a03eca832621410725d463be33e4
 
 COCOAPODS: 1.5.3
