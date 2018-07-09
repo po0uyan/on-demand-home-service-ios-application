@@ -144,6 +144,26 @@ class APIClient{
         
     }
     
+    
+    static func  estimateJointsPrice(requestArray:[String:Any], completionHandler: @escaping (NSDictionary?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = requestArray
+        
+        APIManager.sharedManager.request(baseUrl+"postEstimatePriceJoints", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(value as? NSDictionary, nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
     static func  reverseAddressService(requestArray:[String:Any], completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let requestHeaders = ["User-Agent": "iphone"]
         let requestParameters = requestArray

@@ -15,14 +15,20 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
     
     @IBOutlet weak var submitButton: UIButton!
     
+    var onDoneBlock : ((Bool) -> Void)?
+    var isCommingFromNavigation = true
     @IBOutlet weak var submitButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailLoadingView: UIView!
     @IBOutlet weak var addressView: UIView!
     private let locationManager = CLLocationManager()
     @IBOutlet weak var addressLabel: UILabel!
+    var OrderTillNow:Dictionary<String,Any> = [:]
     var addressDistrict = "آدرس انتخابی"
     @IBAction func submitClicked(_ sender: UIButton) {
         
+        showAddressPopUpView()
+    }
+    @IBAction func pinButtonClicked(_ sender: UIButton) {
         showAddressPopUpView()
     }
     @IBOutlet weak var markerView: UIView!
@@ -82,6 +88,12 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
                     self.submitButtonConstraint.constant = -(self.submitButton.frame.height+8)
                     self.view.layoutIfNeeded()
                 
+            }, completion: { (finished: Bool) in
+                UIView.transition(with: self.submitButton, duration: 0.8, options: .curveEaseIn,
+                                  animations: {
+                                    // Animations
+                                    self.submitButton.isHidden = true
+                })
             })
         }
         
@@ -107,6 +119,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
 
             }
             UIView.animate(withDuration: 0.3, animations: {
+                self.submitButton.isHidden = false
                 self.submitButtonConstraint.constant = 8
                 self.view.layoutIfNeeded()
                 })
@@ -132,19 +145,15 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
         addressPopUpController.addressTextView.text = (addressLabel.text?.split(separator: "،")[1...].joined(separator: "،"))!
         
         addressPopUpController.onDoneBlock = { result in
-            // Do something
-//            if self.isLoggedIn(){
-//                self.navigateToMain(isCommingFromRegister: false)
-//            }
-//            else{
-//                self.navigateToLoginPage()
-//            }
-        
-        
+            if !self.isCommingFromNavigation{
+                self.dismiss(animated: true)
+            }
+            
+            }
         
         }
         
-    }
+    
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

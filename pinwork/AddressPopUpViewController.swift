@@ -22,6 +22,7 @@ class AddressPopUpViewController: UIViewController,UITextViewDelegate ,UITextFie
     var addressText = "آدرس انتخابی"
     @IBAction func cancelClicked(_ sender: UIButton) {
         self.dismiss(animated: true)
+        onDoneBlock!(true)
     }
     
     

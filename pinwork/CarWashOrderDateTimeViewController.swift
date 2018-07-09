@@ -113,11 +113,20 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     
     @objc func nextLevelClicked(){
         self.performSegue(withIdentifier: "MapViewSegue", sender: self)
-
+        
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MapViewController {
+            if descriptionTextView.text != "" && descriptionTextView.text != "توضیحات خود را اینجا وارد نمایید..." {
+                OrderTillNow["description"] = descriptionTextView.text
+                
+            }
+            destination.OrderTillNow = OrderTillNow
+        }
+        
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {

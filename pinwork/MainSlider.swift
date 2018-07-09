@@ -1,11 +1,3 @@
-//
-//  MainSlider.swift
-//  pinwork
-//
-//  Created by Pouyan on 6/7/18.
-//  Copyright © 2018 Pouyan. All rights reserved.
-//
-
 import UIKit
 
 class MainSlider: UIView {
