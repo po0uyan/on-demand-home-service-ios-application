@@ -19,6 +19,8 @@ class OrderDateTimeViewController: UIViewController {
     
     @IBOutlet weak var dateTimePickerButton: UIButton!
     
+    var isFailed = false
+
     
     var nextLevelButton : UIButton?
     enum action{
@@ -26,7 +28,6 @@ class OrderDateTimeViewController: UIViewController {
         case homeCleaning
         case garageCleaning
     }
-    let animationView = LOTAnimationView(name: "trail_loading")
     var orderType = action.homeCleaning
     var OrderTillNow :Dictionary<String,Any> = [:]
     var startTime = [String]()
@@ -123,13 +124,7 @@ class OrderDateTimeViewController: UIViewController {
         }
         setting()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        animationView.frame = CGRect(x: (self.view.bounds.midX - self.view.frame.width/4/4*3), y: (self.view.bounds.height - self.view.frame.height/4/4*3 - (self.navigationController?.toolbar.frame.height)!), width: self.view.frame.width/4*3/2, height: self.view.frame.height/4*3/2)
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopAnimation = true
-        animationView.isHidden = true
-        self.view.addSubview(animationView)
-    }
+  
 
     func setting(){
         dateTimePickerButton.layer.borderWidth = 1
@@ -178,13 +173,18 @@ class OrderDateTimeViewController: UIViewController {
         return true
     }
     @objc func nextLevelClicked(){
-        if isFullyFilled(){
-            self.performSegue(withIdentifier: "segueToWorkerPicker", sender: self)
+        if isFailed{
+            goForEstimate()
         }
         else{
-            showToast(message: "لطفا تمامی موراد خواسته شده را تکمیل نمایید.")
+            if isFullyFilled(){
+                self.performSegue(withIdentifier: "segueToWorkerPicker", sender: self)
+            }
+            else{
+                showToast(message: "لطفا تمامی موراد خواسته شده را تکمیل نمایید.")
+            }
+            
         }
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! WorkerPickerViewController
@@ -201,7 +201,8 @@ class OrderDateTimeViewController: UIViewController {
     
     func goForEstimate(){
         if self.isFullyFilled(){
-            self.showProgress()
+            self.showCostEstimateProgress()
+
             self.priceLabelConstraint.constant = -30
             UIView.animate(withDuration: 0.6,animations: {
                 self.view.layoutIfNeeded()
@@ -209,8 +210,10 @@ class OrderDateTimeViewController: UIViewController {
             
             prepareRequest()
             APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
-                self.animationView.stop()
-                self.animationView.isHidden = true
+                self.hideCostEstimateProgress()
+                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
+                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                 if response != nil{
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
@@ -219,9 +222,9 @@ class OrderDateTimeViewController: UIViewController {
                         self.view.layoutIfNeeded()
                     })
                 }else{
-                    //retry
-                    print(error as Any)
-                }
+                    self.isFailed = true
+                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
+                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
             })
             
             
@@ -249,11 +252,7 @@ class OrderDateTimeViewController: UIViewController {
         let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
         OrderTillNow["remember_token"] = token2
     }
-    func showProgress(){
-        
-        animationView.isHidden = false
-        animationView.play()
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

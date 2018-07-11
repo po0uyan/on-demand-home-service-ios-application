@@ -16,11 +16,12 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     var OrderTillNow :Dictionary<String,Any> = [:]
+    var timeInterval = 0.0
     var nextLevelButton : UIButton?
     var currentPrice : String?
     let myLocale = Locale(identifier: "fa_IR")
     var calendar = Calendar(identifier: .persian)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setting()
@@ -33,7 +34,11 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
         let popUpDateTime = storyBoard.instantiateViewController(withIdentifier: "datepickerpopup") as! PopUpDatePickerViewController
         popUpDateTime.validDates = getValidDatesForType()
         popUpDateTime.validTimes = getValidTimesForType()
-        popUpDateTime.limit = getValidTimesForType().count
+        popUpDateTime.limit = Int(Double(getValidTimesForType().count) - 2 * self.timeInterval)
+        print(popUpDateTime.limit)
+        
+        
+        
         popUpDateTime.modalTransitionStyle = .crossDissolve
         popUpDateTime.isModalInPopover = true
         popUpDateTime.modalPresentationStyle = .overCurrentContext
@@ -78,7 +83,7 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
         return tempDateArray
     }
     func getValidTimesForType()->[String]{
-        return ["۸:۰۰","۸:۳۰","۹:۰۰","۹:۳۰","۱۰:۰۰","۱۰:۳۰","۱۱:۰۰","۱۱:۳۰","۱۲:۰۰","۱۲:۳۰","۱۳:۰۰","۱۳:۳۰","۱۴:۰۰","۱۴:۳۰","۱۵:۰۰","۱۵:۳۰","۱۶:۰۰","۱۶:۳۰","۱۷:۰۰","۱۷:۳۰","۱۸:۰۰","۱۸:۳۰","۱۹:۰۰","۱۹:۳۰","۲۰:۰۰"]
+        return ["۹:۰۰","۹:۳۰","۱۰:۰۰","۱۰:۳۰","۱۱:۰۰","۱۱:۳۰","۱۲:۰۰","۱۲:۳۰","۱۳:۰۰","۱۳:۳۰","۱۴:۰۰","۱۴:۳۰","۱۵:۰۰","۱۵:۳۰","۱۶:۰۰","۱۶:۳۰","۱۷:۰۰","۱۷:۳۰","۱۸:۰۰","۱۸:۳۰","۱۹:۰۰","۱۹:۳۰"]
     }
     
     

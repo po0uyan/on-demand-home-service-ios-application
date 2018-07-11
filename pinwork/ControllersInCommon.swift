@@ -43,6 +43,43 @@ extension String {
 }
 
 extension UIViewController {
+    
+    
+    func getProgressStuff()->[UIBarButtonItem]{
+        var items = [UIBarButtonItem]()
+
+        let uiBusy = UIActivityIndicatorView()
+        uiBusy.color = self.getPinworkColors(color: 1)
+        uiBusy.sizeToFit()
+        
+        uiBusy.hidesWhenStopped = true
+        uiBusy.startAnimating()
+        let bb = UIBarButtonItem(customView: uiBusy)
+        let lbl = UILabel(frame: CGRect(x: 10, y: 50, width: 230, height: 25))
+        lbl.textAlignment = .center //For center alignment
+        lbl.text = " در حال برآورد هزینه... "
+        lbl.textColor = .white
+        //              lbl.backgroundColor = .lightGray
+        lbl.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 16.0)
+        lbl.numberOfLines = 0
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.sizeToFit()
+        items.append( UIBarButtonItem(customView: lbl))
+        items.append(bb)
+        return items
+    
+       
+        
+        
+    }
+    func showCostEstimateProgress(){
+        self.toolbarItems?.remove(at: 1)
+        self.toolbarItems?.insert(contentsOf: self.getProgressStuff(), at: 1)
+    }
+    func hideCostEstimateProgress(){
+        self.toolbarItems?.removeSubrange(1...2)
+        }
+    
     func getProperDate(date:Date)->String{
         var calendar = Calendar(identifier: .persian)
         let myLocale = Locale(identifier: "fa_IR")
@@ -80,12 +117,12 @@ extension UIViewController {
         button.setImage(UIImage(named: image)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(title, for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
-        button.titleLabel?.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 15.0)
+        button.titleLabel?.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 16.0)
         button.setTitleColor(UIColor.white, for: .normal)
         button.imageView?.tintColor = UIColor.white
-        
+        //button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.sizeToFit()
-       
+        
         return button
     }
     

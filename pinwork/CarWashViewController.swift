@@ -15,8 +15,10 @@ class CarWashViewController: UIViewController {
     @IBOutlet weak var chooseCarTypeButton: UIButton!
     @IBOutlet weak var chooseWashTypeButton: UIButton!
     
-    let animationView = LOTAnimationView(name: "trail_loading")
     var OrderTillNow:Dictionary<String,Any> = [:]
+    var timeInterval = 0
+    var isFailed = false
+
     var nextLevelButton : UIButton?
     let mapWashType = [0:"water",1:"nano",2:"steam"]
     let mapCarType = [0:"h_back",1:"3don",2:"cross",3:"suv"]
@@ -51,7 +53,7 @@ class CarWashViewController: UIViewController {
     }
     func goForEstimate(){
         if self.isFullyFilled(){
-            self.showProgress()
+            self.showCostEstimateProgress()
             self.priceConstraint.constant = -30
             UIView.animate(withDuration: 0.6,animations: {
                 self.view.layoutIfNeeded()
@@ -62,9 +64,13 @@ class CarWashViewController: UIViewController {
             //let token = self.getData(key: "rememberToken") as! String
             let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
             APIClient.estimateCarWashPrice(defaultDate: formatter.string(from: someDateTime!), carType: self.OrderTillNow["car_type"] as! String, material: self.OrderTillNow["material"] as! String, rememberToken: token2, completionHandler: { (response, error) in
-                self.animationView.stop()
-                self.animationView.isHidden = true
+                self.hideCostEstimateProgress()
+                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
+                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+                
                 if response != nil{
+                    self.timeInterval = (response!["data"] as! NSDictionary)["time"] as! Int
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
                     self.priceConstraint.constant = 10
@@ -73,8 +79,10 @@ class CarWashViewController: UIViewController {
                     })
                 }else{
                     //retry
-                    print(error as Any)
-                }
+                    self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
+                    self.isFailed = true
+                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
+                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
             })
             
             
@@ -88,11 +96,7 @@ class CarWashViewController: UIViewController {
         }
         return true
     }
-    func showProgress(){
-    
-        animationView.isHidden = false
-        animationView.play()
-    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         setting()
@@ -118,30 +122,33 @@ chooseCarTypeButton.layer.borderWidth = 1
    
     }
     @objc func nextLevelClicked(){
+        if isFailed{
+            goForEstimate()
+        }
+        else{
         if isFullyFilled(){
         self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: self)
         }
         else{
             showToast(message: "لطفا تمامی موراد خواسته شده را تکمیل نمایید.")
         }
+        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CarWashOrderDateTimeViewController {
             destination.currentPrice = priceLabel.text! 
             destination.OrderTillNow = OrderTillNow
+            let tempInterval = (Double(self.timeInterval)/60)
+
+            destination.timeInterval = tempInterval
             // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
         }
 
 
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        animationView.frame = CGRect(x: (self.view.bounds.midX - self.view.frame.width/4/4*3), y: (self.view.bounds.height - self.view.frame.height/4/4*3 - (self.navigationController?.toolbar.frame.height)!), width: self.view.frame.width/4*3/2, height: self.view.frame.height/4*3/2)
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopAnimation = true
-        animationView.isHidden = true
-        self.view.addSubview(animationView)
-    }
+  
 
     
     override func didReceiveMemoryWarning() {

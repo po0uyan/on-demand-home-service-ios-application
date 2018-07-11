@@ -16,6 +16,7 @@ class ParkingOrderViewController: UIViewController {
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     var nextLevelButton : UIButton?
     var timeInterval = 0
+    var isFailed = false
     @IBOutlet weak var priceLabel: UILabel!
     @IBAction func yardCleaningChanged(_ sender: UISwitch) {
         if sender.isOn{
@@ -131,6 +132,10 @@ class ParkingOrderViewController: UIViewController {
     
     
     @objc func nextLevelClicked(){
+        if isFailed{
+            goForEstimate()
+        }
+        else{
         if isFullyFilled(){
             self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: self)
         }
@@ -138,7 +143,7 @@ class ParkingOrderViewController: UIViewController {
             showToast(message: "لطفا تمامی موراد خواسته شده را تکمیل نمایید.")
         }
         
-    }
+        }}
     func prepareOrder(){
         OrderTillNow["parking_cleaning"] = 0
         OrderTillNow["roof_cleaning"] = 0
@@ -151,12 +156,14 @@ class ParkingOrderViewController: UIViewController {
         if let destination = segue.destination as? CarWashOrderDateTimeViewController {
             destination.currentPrice = priceLabel.text!
             destination.OrderTillNow = OrderTillNow
+            let tempInterval = (Double(self.timeInterval)/60)
+            destination.timeInterval = tempInterval
         }
         
     }
     func isFullyFilled()->Bool{
         for item in choosingButtons{
-            if item.titleLabel?.text == "انتخاب کنید"{
+            if item.currentTitle == "انتخاب کنید"{
                 return false
             }
         }
@@ -168,8 +175,8 @@ class ParkingOrderViewController: UIViewController {
     
     
     func goForEstimate(){
-        //self.showProgress()
         if isFullyFilled(){
+        self.showCostEstimateProgress()
         let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
         OrderTillNow["remember_token"] = token2 //shitt
         OrderTillNow["default_start_date"] = "2018-03-10 17:00:00"
@@ -179,9 +186,14 @@ class ParkingOrderViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
         APIClient.estimateJointsPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
-            //                self.animationView.stop()
-            //                self.animationView.isHidden = true
+            self.hideCostEstimateProgress()
+            self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
+            self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+
             if response != nil{
+                self.isFailed = false
+                self.nextLevelButton?.setTitle("مرحله بعد", for: .normal)
                 self.timeInterval = (response!["data"] as! NSDictionary)["time"] as! Int
                 self.priceLabel.text! = "برآورد قیمت : " +
                     String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
@@ -191,7 +203,10 @@ class ParkingOrderViewController: UIViewController {
                 })
             }else{
                 //retry
-                print(error as Any)
+                self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
+                self.isFailed = true
+                self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
+                self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
         })
         

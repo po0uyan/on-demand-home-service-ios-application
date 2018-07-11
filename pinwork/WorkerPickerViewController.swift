@@ -23,6 +23,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     var nextLevelButton : UIButton?
     var currentPrice : String?
     var workerCount = 1
+    var isFailed = false
     @IBAction func addWorkerClicked(_ sender: UIButton) {
         if workerCount == 1{
             UIView.animate(withDuration: 0.8, animations: {
@@ -196,10 +197,15 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     
     }
     @objc func nextLevelClicked(){
-
+        if isFailed{
+            goForEstimate()
+        }
+        else{
 
         performSegue(withIdentifier: "MapViewSegue", sender: self)
 
+        }
+        
     }
     
     
@@ -284,7 +290,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
             
         }
     func goForEstimate(){
-            //self.showProgress()
+            self.showCostEstimateProgress()
             self.priceLabelConstraint.constant = -30
             UIView.animate(withDuration: 0.6,animations: {
                 self.view.layoutIfNeeded()
@@ -292,8 +298,11 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
             
             prepareRequest()
             APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
-//                self.animationView.stop()
-//                self.animationView.isHidden = true
+                self.hideCostEstimateProgress()
+                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
+                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+                
                 if response != nil{
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
@@ -303,8 +312,10 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
                     })
                 }else{
                     //retry
-                    print(error as Any)
-                }
+                    self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
+                    self.isFailed = true
+                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
+                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
             })
             
             
