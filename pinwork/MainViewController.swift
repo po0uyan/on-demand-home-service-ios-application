@@ -95,7 +95,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         //self.view.addGestureRecognizer(tapGestureRecognizer)
         configureMainScroll()
        
-        reservedOrderButton = getUIBarButtonItem(title: " سفارش‌های رزرو شده ", image: "invoice")
+        reservedOrderButton = getUIBarButtonItemForNextLevel(title: " سفارش‌های رزرو شده ", image: "invoice")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         items.append( UIBarButtonItem(customView: reservedOrderButton!))

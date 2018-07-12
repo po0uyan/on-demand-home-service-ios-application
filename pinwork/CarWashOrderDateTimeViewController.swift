@@ -102,7 +102,7 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
         descriptionTextView.keyboardAppearance = .light
         descriptionTextView.text = "توضیحات خود را اینجا وارد نمایید..."
         descriptionTextView.textColor = UIColor.lightGray
-        nextLevelButton = getUIBarButtonItem(title: "مرحله بعدی", image: "move-to-next")
+        nextLevelButton = getUIBarButtonItemForNextLevel(title: "مرحله بعدی", image: "move-to-next")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         items.append( UIBarButtonItem(customView: nextLevelButton!))

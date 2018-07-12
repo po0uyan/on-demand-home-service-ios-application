@@ -21,6 +21,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     @IBOutlet weak var descriptionTextView: UITextView!
     var OrderTillNow :Dictionary<String,Any> = [:]
     var nextLevelButton : UIButton?
+    var retryButton : UIButton?
     var currentPrice : String?
     var workerCount = 1
     var isFailed = false
@@ -185,7 +186,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
         descriptionTextView.keyboardAppearance = .light
         descriptionTextView.text = "توضیحات خود را اینجا وارد نمایید..."
         descriptionTextView.textColor = UIColor.lightGray
-        nextLevelButton = getUIBarButtonItem(title: "مرحله بعدی", image: "move-to-next")
+        nextLevelButton = getUIBarButtonItemForNextLevel(title: "مرحله بعدی", image: "move-to-next")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         items.append( UIBarButtonItem(customView: nextLevelButton!))
@@ -299,11 +300,11 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
             prepareRequest()
             APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
-                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
-                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+               
                 
                 if response != nil{
+                    self.isFailed = false
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
                     self.priceLabelConstraint.constant = 10
@@ -314,8 +315,8 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
                     //retry
                     self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
                     self.isFailed = true
-                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
-                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
+                }
             })
             
             

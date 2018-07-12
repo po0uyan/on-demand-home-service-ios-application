@@ -38,6 +38,7 @@
 		88240F5820BC72A5007D6363 /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5720BC72A4007D6363 /* calculator.png */; };
 		88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5920BC72B7007D6363 /* customer_service_icon.png */; };
 		88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5B20BD9055007D6363 /* FirstScrollView.xib */; };
+		882B165220F78BBF0008CE9B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B165120F78BBF0008CE9B /* Order.swift */; };
 		8831F5E820DD15AA00F4D8D8 /* ParkingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */; };
 		8831F5EA20DD8ED200F4D8D8 /* WorkerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831F5E920DD8ED200F4D8D8 /* WorkerPickerViewController.swift */; };
 		8831F5EC20DD9BB100F4D8D8 /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = 8831F5EB20DD9BB000F4D8D8 /* male.png */; };
@@ -186,6 +187,7 @@
 		88240F5720BC72A4007D6363 /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		88240F5920BC72B7007D6363 /* customer_service_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customer_service_icon.png; sourceTree = "<group>"; };
 		88240F5B20BD9055007D6363 /* FirstScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstScrollView.xib; sourceTree = "<group>"; };
+		882B165120F78BBF0008CE9B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingOrderViewController.swift; sourceTree = "<group>"; };
 		8831F5E920DD8ED200F4D8D8 /* WorkerPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPickerViewController.swift; sourceTree = "<group>"; };
 		8831F5EB20DD9BB000F4D8D8 /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 				88E0702E20EE228800DB46AE /* AddressPopUpViewController.swift */,
 				8877732220F22D90008B7C0C /* OtherServicesViewController.swift */,
 				8877732620F2676D008B7C0C /* OtherServicesOrderViewController.swift */,
+				882B165120F78BBF0008CE9B /* Order.swift */,
 			);
 			path = pinwork;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				881D36EC20D16A320099839B /* PopUpPickerViewController.swift in Sources */,
 				8831F5EA20DD8ED200F4D8D8 /* WorkerPickerViewController.swift in Sources */,
 				88B2313120C8D3BC0087669C /* MoreServicesButton.swift in Sources */,
+				882B165220F78BBF0008CE9B /* Order.swift in Sources */,
 				88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */,
 				8877732320F22D90008B7C0C /* OtherServicesViewController.swift in Sources */,
 				8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */,

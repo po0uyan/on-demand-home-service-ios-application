@@ -112,7 +112,7 @@ extension UIViewController {
         pickerController.modalPresentationStyle = .overCurrentContext
         return pickerController
     }
-    func getUIBarButtonItem(title:String , image:String)->UIButton{
+    func getUIBarButtonItemForNextLevel(title:String , image:String)->UIButton{
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: image)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.setTitle(title, for: .normal)
@@ -122,7 +122,17 @@ extension UIViewController {
         button.imageView?.tintColor = UIColor.white
         //button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.sizeToFit()
-        
+        return button
+    }
+    func getUIBarButtonItemForRetry(title:String , image:String)->UIButton{
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: image)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setTitle(title, for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.titleLabel?.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 16.0)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.imageView?.tintColor = UIColor.white
+        button.sizeToFit()
         return button
     }
     

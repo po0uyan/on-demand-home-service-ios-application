@@ -23,6 +23,8 @@ class OrderDateTimeViewController: UIViewController {
 
     
     var nextLevelButton : UIButton?
+    var retryButton : UIButton?
+
     enum action{
         case officeCleaning
         case homeCleaning
@@ -137,12 +139,15 @@ class OrderDateTimeViewController: UIViewController {
         priceLabel.layer.cornerRadius = 8
         //priceLabel.text! = currentPrice!
         
-        nextLevelButton = getUIBarButtonItem(title: "مرحله بعدی", image: "move-to-next")
+        nextLevelButton = getUIBarButtonItemForNextLevel(title:"مرحله بعدی", image: "move-to-next")
+        retryButton = getUIBarButtonItemForRetry(title:" تلاش مجدد ", image: "refresh")
+        
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         items.append( UIBarButtonItem(customView: nextLevelButton!))
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         nextLevelButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
+        retryButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
         self.toolbarItems = items
         
     }
@@ -211,10 +216,9 @@ class OrderDateTimeViewController: UIViewController {
             prepareRequest()
             APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
-                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
-                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                 if response != nil{
+                    self.isFailed = false
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
                     self.priceLabelConstraint.constant = 10
@@ -223,8 +227,9 @@ class OrderDateTimeViewController: UIViewController {
                     })
                 }else{
                     self.isFailed = true
-                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
-                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
+
+                }
             })
             
             

@@ -15,6 +15,7 @@ class ParkingOrderViewController: UIViewController {
     
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
     var nextLevelButton : UIButton?
+    var retryButton : UIButton?
     var timeInterval = 0
     var isFailed = false
     @IBOutlet weak var priceLabel: UILabel!
@@ -118,12 +119,15 @@ class ParkingOrderViewController: UIViewController {
             priceLabel.layer.cornerRadius = 8
             
             
-            nextLevelButton = getUIBarButtonItem(title: "مرحله بعدی", image: "move-to-next")
+            nextLevelButton = getUIBarButtonItemForNextLevel(title:"مرحله بعدی", image: "move-to-next")
+            retryButton = getUIBarButtonItemForRetry(title:" تلاش مجدد ", image: "refresh")
+
             var items = [UIBarButtonItem]()
             items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
             items.append( UIBarButtonItem(customView: nextLevelButton!))
             items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
             nextLevelButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
+            retryButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
             self.toolbarItems = items
             
         }
@@ -187,13 +191,10 @@ class ParkingOrderViewController: UIViewController {
         })
         APIClient.estimateJointsPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
             self.hideCostEstimateProgress()
-            self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
-            self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
-            self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
 
             if response != nil{
                 self.isFailed = false
-                self.nextLevelButton?.setTitle("مرحله بعد", for: .normal)
+                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                 self.timeInterval = (response!["data"] as! NSDictionary)["time"] as! Int
                 self.priceLabel.text! = "برآورد قیمت : " +
                     String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
@@ -203,10 +204,9 @@ class ParkingOrderViewController: UIViewController {
                 })
             }else{
                 //retry
+                self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
                 self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
                 self.isFailed = true
-                self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
-                self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)
             }
         })
         

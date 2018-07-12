@@ -20,6 +20,7 @@ class CarWashViewController: UIViewController {
     var isFailed = false
 
     var nextLevelButton : UIButton?
+    var retryButton : UIButton?
     let mapWashType = [0:"water",1:"nano",2:"steam"]
     let mapCarType = [0:"h_back",1:"3don",2:"cross",3:"suv"]
 
@@ -65,11 +66,12 @@ class CarWashViewController: UIViewController {
             let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
             APIClient.estimateCarWashPrice(defaultDate: formatter.string(from: someDateTime!), carType: self.OrderTillNow["car_type"] as! String, material: self.OrderTillNow["material"] as! String, rememberToken: token2, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
-                self.nextLevelButton!.setTitle("مرحله بعدی", for: .normal)
-                self.nextLevelButton!.setImage(UIImage(named: "move-to-next")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+               
                 
                 if response != nil{
+                    self.isFailed = false
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
+
                     self.timeInterval = (response!["data"] as! NSDictionary)["time"] as! Int
                     self.priceLabel.text! = "برآورد قیمت : " +
                         String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
@@ -79,10 +81,10 @@ class CarWashViewController: UIViewController {
                     })
                 }else{
                     //retry
+                    self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
                     self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
                     self.isFailed = true
-                    self.nextLevelButton!.setTitle(" تلاش مجدد  ", for: .normal)
-                    self.nextLevelButton!.setImage(UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal), for: .normal)                }
+                               }
             })
             
             
@@ -112,14 +114,16 @@ chooseCarTypeButton.layer.borderWidth = 1
         chooseWashTypeButton.layer.cornerRadius = 8
         priceLabel.layer.cornerRadius = 8
       
-        nextLevelButton = getUIBarButtonItem(title: "مرحله بعدی", image: "move-to-next")
+        nextLevelButton = getUIBarButtonItemForNextLevel(title:"مرحله بعدی", image: "move-to-next")
+        retryButton = getUIBarButtonItemForRetry(title:" تلاش مجدد ", image: "refresh")
+        
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         items.append( UIBarButtonItem(customView: nextLevelButton!))
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         nextLevelButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
+        retryButton!.addTarget(self, action: #selector(self.nextLevelClicked), for: .touchUpInside)
         self.toolbarItems = items
-   
     }
     @objc func nextLevelClicked(){
         if isFailed{
