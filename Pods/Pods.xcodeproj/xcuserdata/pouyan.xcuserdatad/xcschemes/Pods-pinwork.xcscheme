@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "728E7909A5F09BCDD2A10DC6A68B78D1"
+               BlueprintIdentifier = "2A3CEE57790FF07B97E0740D5F10251D"
                BuildableName = "Pods_pinwork.framework"
                BlueprintName = "Pods-pinwork"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "728E7909A5F09BCDD2A10DC6A68B78D1"
+            BlueprintIdentifier = "2A3CEE57790FF07B97E0740D5F10251D"
             BuildableName = "Pods_pinwork.framework"
             BlueprintName = "Pods-pinwork"
             ReferencedContainer = "container:Pods.xcodeproj">

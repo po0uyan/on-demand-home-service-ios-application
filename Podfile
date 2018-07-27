@@ -6,20 +6,19 @@ target 'pinwork' do
   use_frameworks!
   # Pods for pinwork
 
-  target 'pinworkTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'pinworkUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 pod 'IQKeyboardManager'
 pod 'lottie-ios', '2.0.3'
 pod 'Alamofire', '~> 4.7'
+pod 'SwiftyJSON', '~> 4.0'
 pod 'ReachabilitySwift'
 pod 'BRYXBanner'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'HCSStarRatingView', '~> 1.5'
+post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings.delete('CODE_SIGNING_ALLOWED')
+        config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
+end
 end

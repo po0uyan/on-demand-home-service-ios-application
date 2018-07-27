@@ -19,5 +19,6 @@ class SliderMenuFeaturesView: UIView {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var aboutButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+
 }

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import BRYXBanner
 import CoreData
+import Lottie
+import SwiftyJSON
 extension String {
     func convertEngNumToPersianNum()->String{
         let format = NumberFormatter()
@@ -40,9 +42,78 @@ extension String {
         
         return str
     }
+    
+    func isEmptyOrWhitespace() -> Bool {
+        
+        if(self.isEmpty) {
+            return true
+        }
+        
+        return (self.trimmingCharacters(in: .whitespaces).isEmpty)
+    }
 }
 
 extension UIViewController {
+    
+    
+   
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    func check(_ value: JSON?) -> String {
+        if let result = value?.string {
+            return result
+        }
+        else {
+            return ""
+        }
+    }
+    
+    func showNetworkRetryPopUp()->RetryViewController{
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let retryPopUpController = storyBoard.instantiateViewController(withIdentifier: "RetryViewController") as! RetryViewController
+        retryPopUpController.modalTransitionStyle = .crossDissolve
+        retryPopUpController.isModalInPopover = true
+        retryPopUpController.modalPresentationStyle = .overCurrentContext
+        self.present(retryPopUpController, animated: true)
+        return retryPopUpController
+    }
+    
+     func displaySpinner(onView : UIView) -> UIView {
+        let ai = LOTAnimationView(name: "loading2")
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        ai.frame = CGRect(x: (onView.bounds.midX - onView.frame.width/4/2*3), y: (onView.bounds.midY - onView.frame.height/4/2*3), width: onView.frame.width/4*3, height: onView.frame.height/4*3)
+        ai.contentMode = .scaleAspectFit
+//        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+//        ai.startAnimating()
+        ai.play()
+        ai.loopAnimation = true
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        return spinnerView
+    }
+    
+     func removeSpinner(spinner :UIView) {
+        DispatchQueue.main.async {
+            spinner.removeFromSuperview()
+            
+        }
+    }
+    
+    
+    
+    
     
     
     func getProgressStuff()->[UIBarButtonItem]{
@@ -93,7 +164,7 @@ extension UIViewController {
     
     func showToast(message : String) {
         
-        let banner = Banner(title: nil, subtitle: message, backgroundColor: UIColor(red:0.35, green:0.85, blue:0.81, alpha:1.0))
+        let banner = Banner(title: nil, subtitle: message, backgroundColor: UIColor(red:1.0, green:0.437, blue:0.597, alpha:1.0))
         banner.dismissesOnTap = true
         banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)
         banner.detailLabel.textColor = UIColor.white
@@ -101,7 +172,16 @@ extension UIViewController {
         banner.titleLabel.textAlignment = .center
         banner.show(duration: 4.0)
     }
-    
+    func showInfoToast(message : String) {
+        
+        let banner = Banner(title: nil, subtitle: message, backgroundColor: getPinworkColors(color: 1))
+        banner.dismissesOnTap = true
+        banner.detailLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)
+        banner.detailLabel.textColor = UIColor.white
+        banner.detailLabel.textAlignment = .center
+        banner.titleLabel.textAlignment = .center
+        banner.show(duration: 4.0)
+    }
     func getPickerViewOneComponent(attributes:Array<String> , title:String)->PopUpPickerViewController{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let pickerController = storyBoard.instantiateViewController(withIdentifier: "pickerpopup") as! PopUpPickerViewController
@@ -152,9 +232,9 @@ extension UIViewController {
 
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationController = storyBoard.instantiateViewController(withIdentifier: "navigationController") as! MainNavigationViewController
-        let mainViewController = navigationController.viewControllers.first as? MainViewController
+        //let mainViewController = navigationController.viewControllers.first as? MainViewController
         if isCommingFromRegister{
-        mainViewController?.isCommingFromRegister = true
+        MainViewController.isCommingFromRegister = true
         }
         
         self.present(navigationController, animated: true, completion: nil)
@@ -218,7 +298,7 @@ extension UIViewController {
             
         }
         catch {
-            print("Error with request: \(error)")
+            //print("Error with request: \(error)")
         }
         return true
     }
@@ -235,9 +315,9 @@ extension UIViewController {
         
         do {
             try managedContext.save()
-            print("saved!")
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            //print("saved!")
+        } catch _ as NSError  {
+            //print("Could not save \(error), \(error.userInfo)")
         } catch {
             
         }
@@ -255,7 +335,7 @@ extension UIViewController {
                 }
             }
         }catch{
-            print("error in getData")
+            //print("error in getData")
         }
         return "Non"
     }
@@ -269,14 +349,14 @@ extension UIViewController {
                 results![0].setValue(value , forKey: key)
             }
         } catch {
-            print("Fetch Failed: \(error)")
+            //print("Fetch Failed: \(error)")
         }
         
         do {
             try context.save()
         }
         catch {
-            print("Saving Core Data Failed: \(error)")
+           // print("Saving Core Data Failed: \(error)")
         }
     }
     

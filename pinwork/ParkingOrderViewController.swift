@@ -10,7 +10,7 @@ import UIKit
 
 class ParkingOrderViewController: UIViewController {
 
-    var OrderTillNow:Dictionary<String,Any> = [:]
+    var order = Order()
     @IBOutlet var choosingButtons: [UIButton]!
     
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
@@ -21,11 +21,11 @@ class ParkingOrderViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBAction func yardCleaningChanged(_ sender: UISwitch) {
         if sender.isOn{
-            OrderTillNow["yard_cleaning"] = 1
+            self.order.orderTillNow["yard_cleaning"] = 1
 
         }
         else{
-            OrderTillNow["yard_cleaning"] = 0
+            self.order.orderTillNow["yard_cleaning"] = 0
 
         }
         self.goForEstimate()
@@ -34,11 +34,11 @@ class ParkingOrderViewController: UIViewController {
     
     @IBAction func windowCleaningChanged(_ sender: UISwitch) {
         if sender.isOn{
-            OrderTillNow["window_cleaning"] = 1
+            self.order.orderTillNow["window_cleaning"] = 1
 
         }
         else{
-            OrderTillNow["window_cleaning"] = 0
+            self.order.orderTillNow["window_cleaning"] = 0
 
         }
         self.goForEstimate()
@@ -47,10 +47,10 @@ class ParkingOrderViewController: UIViewController {
     
     @IBAction func parkingCleaningChanged(_ sender: UISwitch) {
         if sender.isOn{
-            OrderTillNow["parking_cleaning"] = 1
+            self.order.orderTillNow["parking_cleaning"] = 1
         }
         else{
-            OrderTillNow["parking_cleaning"] = 0
+            self.order.orderTillNow["parking_cleaning"] = 0
 
         }
         self.goForEstimate()
@@ -60,11 +60,11 @@ class ParkingOrderViewController: UIViewController {
 
     @IBAction func roofCleaningChanged(_ sender: UISwitch) {
         if sender.isOn{
-            OrderTillNow["roof_cleaning"] = 1
+            self.order.orderTillNow["roof_cleaning"] = 1
 
         }
         else{
-            OrderTillNow["roof_cleaning"] = 0
+            self.order.orderTillNow["roof_cleaning"] = 0
 
         }
         self.goForEstimate()
@@ -81,7 +81,7 @@ class ParkingOrderViewController: UIViewController {
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.choosingButtons[0].setTitle(attributes[result],for: .normal)
-            self.OrderTillNow["floor_count"] = result+1
+            self.self.order.orderTillNow["floor_count"] = result+1
             self.goForEstimate()
 
         }
@@ -96,7 +96,7 @@ class ParkingOrderViewController: UIViewController {
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.choosingButtons[1].setTitle(attributes[result],for: .normal)
-            self.OrderTillNow["unit_count"] = result+1
+            self.self.order.orderTillNow["unit_count"] = result+1
             self.goForEstimate()
 
         }
@@ -104,12 +104,15 @@ class ParkingOrderViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setToolbarHidden(false, animated: false)
+        order.orderType = .garageCleaning
         configureSetting()
         prepareOrder()
         // Do any additional setup after loading the view.
     }
 
     func configureSetting(){
+        self.navigationItem.title = "مشاعات"
         for item in choosingButtons{
             item.layer.borderWidth = 1
             item.layer.cornerRadius = 8
@@ -149,17 +152,17 @@ class ParkingOrderViewController: UIViewController {
         
         }}
     func prepareOrder(){
-        OrderTillNow["parking_cleaning"] = 0
-        OrderTillNow["roof_cleaning"] = 0
-        OrderTillNow["yard_cleaning"] = 0
-        OrderTillNow["window_cleaning"] = 0
+        self.order.orderTillNow["parking_cleaning"] = 0
+        self.order.orderTillNow["roof_cleaning"] = 0
+        self.order.orderTillNow["yard_cleaning"] = 0
+        self.order.orderTillNow["window_cleaning"] = 0
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CarWashOrderDateTimeViewController {
             destination.currentPrice = priceLabel.text!
-            destination.OrderTillNow = OrderTillNow
+            destination.order = self.order
             let tempInterval = (Double(self.timeInterval)/60)
             destination.timeInterval = tempInterval
         }
@@ -181,15 +184,14 @@ class ParkingOrderViewController: UIViewController {
     func goForEstimate(){
         if isFullyFilled(){
         self.showCostEstimateProgress()
-        let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
-        OrderTillNow["remember_token"] = token2 //shitt
-        OrderTillNow["default_start_date"] = "2018-03-10 17:00:00"
-        OrderTillNow["worker_count_request"] = 1
+        self.order.orderTillNow["remember_token"] = self.getData(key: "rememberToken") as! String
+        self.order.orderTillNow["default_start_date"] = "2018-03-10 17:00:00"
+        self.order.orderTillNow["worker_count_request"] = 1
         self.priceConstraint.constant = -30
         UIView.animate(withDuration: 0.6,animations: {
             self.view.layoutIfNeeded()
         })
-        APIClient.estimateJointsPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
+        APIClient.estimateJointsPrice(requestArray: self.order.orderTillNow, completionHandler: { (response, error) in
             self.hideCostEstimateProgress()
 
             if response != nil{

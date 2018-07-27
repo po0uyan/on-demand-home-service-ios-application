@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+
 class APIClient{
     static let baseUrl = "https://api.pinwork.co/api/"
  
@@ -180,5 +182,90 @@ class APIClient{
         
         
     }
+    
+    
+    static func  requestForUserProfile(rememberToken: String, completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = ["remember_token":rememberToken]
+        APIManager.sharedManager.request(baseUrl+"postSyncRequest", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    static func  requestForUserLogOut(rememberToken: String, completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = ["remember_token":rememberToken]
+        APIManager.sharedManager.request(baseUrl+"postLogout", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+    static func  requestForDoneServices(rememberToken: String, completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = ["remember_token":rememberToken]
+        APIManager.sharedManager.request(baseUrl+"getServices", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    static func  requestForProfileUpdate(rememberToken: String, requestParams:[String:String], completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        var requestParameters = requestParams
+        requestParameters["remember_token"] = rememberToken
+        APIManager.sharedManager.request(baseUrl+"postUpdateProfile", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    static func  requestForCompeleteRegister(rememberToken: String, requestParams:[String:String], completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        var requestParameters = requestParams
+        requestParameters["remember_token"] = rememberToken
+        APIManager.sharedManager.request(baseUrl+"postCompleteRegister", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
     
 }

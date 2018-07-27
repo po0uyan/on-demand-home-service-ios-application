@@ -31,7 +31,7 @@ class OrderDateTimeViewController: UIViewController {
         case garageCleaning
     }
     var orderType = action.homeCleaning
-    var OrderTillNow :Dictionary<String,Any> = [:]
+    var order = Order()
     var startTime = [String]()
     var timeInterval = [String]()
     var selectedStartTime = Int()
@@ -76,7 +76,7 @@ class OrderDateTimeViewController: UIViewController {
             formatter.timeStyle = .medium
             formatter.dateFormat = "yyyy-MM-dd"
             let stringTime = formatter.string(from: date)
-            self.OrderTillNow["default_start_date"] = (stringTime + " " + _startTime.convertToEnglish() + ":00")
+            self.order.orderTillNow["default_start_date"] = (stringTime + " " + _startTime.convertToEnglish() + ":00")
             self.dateTimePickerButton.setTitle(self.getProperDate(date: date) + " ساعت " + _startTime, for: .normal)
             self.timeIntervalLimit = self.getTimeIntervalLimit(result: time)
             self.goForEstimate()
@@ -93,6 +93,7 @@ class OrderDateTimeViewController: UIViewController {
         var tempDateArray = [Date]()
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
+        dateComponent.day = 1
         if hour == 20 && minutes >= 59{
             date = Calendar.current.date(byAdding: dateComponent, to: date)!
             
@@ -102,7 +103,6 @@ class OrderDateTimeViewController: UIViewController {
             
         }
         
-        dateComponent.day = 1
         for _ in 1...14{
             date = Calendar.current.date(byAdding: dateComponent, to: date)!
             tempDateArray.append(date)
@@ -113,15 +113,16 @@ class OrderDateTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setToolbarHidden(false, animated: false)
         switch orderType{
         case .officeCleaning:
-            print("office")
+            self.order.orderType = .officeCleaning
             prepareSetting()
         case .homeCleaning:
-            print("home")
+            self.order.orderType = .homeCleaning
             prepareSetting()
         case .garageCleaning:
-            print("garage")
+            self.order.orderType = .garageCleaning
        
         }
         setting()
@@ -194,7 +195,7 @@ class OrderDateTimeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! WorkerPickerViewController
         destination.currentPrice = priceLabel.text
-        destination.OrderTillNow = self.OrderTillNow
+        destination.order = self.order
 
     }
     func getStartTimeLimit(result: Int)-> Int{
@@ -214,7 +215,7 @@ class OrderDateTimeViewController: UIViewController {
             })
             
             prepareRequest()
-            APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
+            APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: self.order.orderTillNow, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
                 if response != nil{
                     self.isFailed = false
@@ -244,18 +245,16 @@ class OrderDateTimeViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         let stringTime = formatter.string(from: selectedStartDate)
         if selectedStartTime+2*(selectedTimeInterval+1) >= startTime.count{
-            OrderTillNow["default_end_date"] = (stringTime + " " + "20:00")
+            self.order.orderTillNow["default_end_date"] = (stringTime + " " + "20:00")
             
         }
         else{
-            OrderTillNow["default_end_date"] = (stringTime + " " + startTime[selectedStartTime+2*(selectedTimeInterval+1)].convertToEnglish() + ":00")
+            self.order.orderTillNow["default_end_date"] = (stringTime + " " + startTime[selectedStartTime+2*(selectedTimeInterval+1)].convertToEnglish() + ":00")
         }
-        OrderTillNow["worker_count_request"] = 1
-        OrderTillNow["man_count_request"] = 0
-        OrderTillNow["woman_count_request"] = 0
-        //let token = self.getData(key: "rememberToken") as! String
-        let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
-        OrderTillNow["remember_token"] = token2
+        self.order.orderTillNow["worker_count_request"] = 1
+        self.order.orderTillNow["man_count_request"] = 0
+        self.order.orderTillNow["woman_count_request"] = 0
+        self.order.orderTillNow["remember_token"] = self.getData(key: "rememberToken") as! String
     }
 
     

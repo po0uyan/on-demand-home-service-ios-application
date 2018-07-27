@@ -34,7 +34,12 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         animationView.isHidden = false
         popUpUIView.isHidden = true
         phoneCodeDemandUITextfield.endEditing(true)
+        if isRegisterring{
         requestForAuthCode(action: "register",phoneNumber:  self.phoneNumber)
+        }else{
+        requestForAuthCode(action: "login",phoneNumber:  self.phoneNumber)
+
+        }
         descriptionUILabel.isHidden = false
         count = 60
         descriptionUILabel.text = "\(count) ثانیه تا فعال شدن ارسال مجدد کد"
@@ -111,6 +116,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         APIClient.codeRequestForLoginOrRegister(phoneNumber:self.phoneNumber, action:action,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
             if responseObject != nil{
+                //print(responseObject)
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
                     self.isPhoneNumber = !self.isPhoneNumber
                     self.animationView.stop()
@@ -165,7 +171,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                 
             }
             else{
-                debugPrint(error!)
+                //debugPrint(error!)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
             }
         }
@@ -194,7 +200,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                     
                 }
                 else{
-                    debugPrint(error!)
+                    //debugPrint(error!)
                     self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
                     self.dismiss(animated: true, completion: nil)
                 }

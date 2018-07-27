@@ -14,7 +14,7 @@ class UpdatePopUpViewController: UIViewController {
     @IBOutlet weak var updateUIButton: UIButton!
     @IBOutlet weak var cancelUIButton: UIButton!
     @IBAction func upDateClicked(_ sender: UIButton) {
-        let myUrl = "itms-apps://itunes.apple.com/us/app/telegram-messenger/id686449807"
+        let myUrl = "https://pinwork.ir/downloads/ios"
         if let url = URL(string: "\(myUrl)") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }

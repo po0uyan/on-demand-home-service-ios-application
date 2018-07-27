@@ -15,7 +15,7 @@ class CarWashViewController: UIViewController {
     @IBOutlet weak var chooseCarTypeButton: UIButton!
     @IBOutlet weak var chooseWashTypeButton: UIButton!
     
-    var OrderTillNow:Dictionary<String,Any> = [:]
+    var order = Order()
     var timeInterval = 0
     var isFailed = false
 
@@ -32,7 +32,7 @@ class CarWashViewController: UIViewController {
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.chooseCarTypeButton.setTitle(attributes[result],for: .normal)
-            self.OrderTillNow ["car_type"] = self.mapCarType[result]
+            self.order.orderTillNow ["car_type"] = self.mapCarType[result]
             self.goForEstimate()
 
         }
@@ -47,7 +47,7 @@ class CarWashViewController: UIViewController {
         self.present(pickerController, animated: true)
         pickerController.onDoneBlock = { result in
             self.chooseWashTypeButton.setTitle(attributes[result],for: .normal)
-            self.OrderTillNow["material"] = self.mapWashType[result]
+            self.order.orderTillNow["material"] = self.mapWashType[result]
             self.goForEstimate()
         
         }
@@ -62,9 +62,8 @@ class CarWashViewController: UIViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let someDateTime = formatter.date(from: "2018-03-10 17:00:00")
-            //let token = self.getData(key: "rememberToken") as! String
-            let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
-            APIClient.estimateCarWashPrice(defaultDate: formatter.string(from: someDateTime!), carType: self.OrderTillNow["car_type"] as! String, material: self.OrderTillNow["material"] as! String, rememberToken: token2, completionHandler: { (response, error) in
+            let token = self.getData(key: "rememberToken") as! String
+            APIClient.estimateCarWashPrice(defaultDate: formatter.string(from: someDateTime!), carType: self.order.orderTillNow["car_type"] as! String, material: self.order.orderTillNow["material"] as! String, rememberToken: token, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
                
                 
@@ -101,11 +100,13 @@ class CarWashViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setToolbarHidden(false, animated: false)
+        order.orderType = .carWash
         setting()
         // Do any additional setup after loading the view.
     }
     func setting(){
-        self.navigationItem.title = "ثبت سفارش"
+        self.navigationItem.title = "کارواش"
 chooseCarTypeButton.layer.borderWidth = 1
         chooseCarTypeButton.layer.borderColor = getPinworkColors(color: 1).cgColor
         chooseCarTypeButton.layer.cornerRadius = 8
@@ -142,7 +143,7 @@ chooseCarTypeButton.layer.borderWidth = 1
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CarWashOrderDateTimeViewController {
             destination.currentPrice = priceLabel.text! 
-            destination.OrderTillNow = OrderTillNow
+            destination.order = self.order
             let tempInterval = (Double(self.timeInterval)/60)
 
             destination.timeInterval = tempInterval

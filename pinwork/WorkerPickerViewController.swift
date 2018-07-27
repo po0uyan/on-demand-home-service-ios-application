@@ -19,7 +19,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     
     @IBOutlet weak var addWorkerView: UIView!
     @IBOutlet weak var descriptionTextView: UITextView!
-    var OrderTillNow :Dictionary<String,Any> = [:]
+    var order : Order!
     var nextLevelButton : UIButton?
     var retryButton : UIButton?
     var currentPrice : String?
@@ -171,6 +171,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     }
 
     func setting(){
+        self.navigationItem.title = "متخصصین"
         priceLabel.clipsToBounds = true
         priceLabel.layer.cornerRadius = 8
         priceLabel.text! = currentPrice!
@@ -213,10 +214,10 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MapViewController {
             if descriptionTextView.text != "" && descriptionTextView.text != "توضیحات خود را اینجا وارد نمایید..." {
-            OrderTillNow["description"] = descriptionTextView.text
+            self.order.orderTillNow["description"] = descriptionTextView.text
                 
             }
-            destination.OrderTillNow = OrderTillNow
+            destination.order = self.order
         }
         
     }
@@ -298,7 +299,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
             })
             
             prepareRequest()
-            APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: OrderTillNow, completionHandler: { (response, error) in
+            APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: self.order.orderTillNow, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
                
                 
@@ -326,12 +327,10 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
     }
     func prepareRequest(){
       
-        OrderTillNow["worker_count_request"] = workerCount
-        OrderTillNow["man_count_request"] = getManCount()
-        OrderTillNow["woman_count_request"] = getWomanCount()
-        //let token = self.getData(key: "rememberToken") as! String
-        let token2 = "fced86ff2ba6060a396d18639974900ff425352f"
-        OrderTillNow["remember_token"] = token2
+        self.order.orderTillNow["worker_count_request"] = workerCount
+        self.order.orderTillNow["man_count_request"] = getManCount()
+        self.order.orderTillNow["woman_count_request"] = getWomanCount()
+        self.order.orderTillNow["remember_token"] = self.getData(key: "rememberToken") as! String
     }
     func getManCount()->Int{
         var tmp = 0

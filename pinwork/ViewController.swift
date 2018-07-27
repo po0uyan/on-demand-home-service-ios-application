@@ -36,12 +36,14 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
     switch reachability.connection{
     case .none:
         showNetworkError()
-        debugPrint("Network became unreachable")
+        //debugPrint("Network became unreachable")
     case .wifi:
-        debugPrint("Network became reachable wifi")
+        break
+        //debugPrint("Network became reachable wifi")
         
     case .cellular:
-        debugPrint("Network became reachable cellular")
+        break
+       // debugPrint("Network became reachable cellular")
         
     }
     
@@ -72,7 +74,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigateToMain(isCommingFromRegister: false)
+        //navigateToMain(isCommingFromRegister: false)
         dologic()
        
         
@@ -98,7 +100,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 }
 
             }else{
-                print(String(describing:error))
+                //print(String(describing:error))
                 self.animationView.stop()
                 self.showNetworkRetry()
             }
@@ -122,7 +124,7 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 else{
                     self.animationView.stop()
                     self.showNetworkRetry()
-                    print(error!)
+                    //print(error!)
                 }
                 
                 
@@ -145,9 +147,11 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
             // Do something
             if self.isLoggedIn(){
                 self.navigateToMain(isCommingFromRegister: false)
+            
             }
             else{
             self.navigateToLoginPage()
+            
             }
         }
         

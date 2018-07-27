@@ -65,12 +65,14 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         switch reachability.connection{
         case .none:
             showNetworkError()
-            debugPrint("Network became unreachable")
+            //debugPrint("Network became unreachable")
         case .wifi:
-            debugPrint("Network became reachable wifi")
+            break
+            //debugPrint("Network became reachable wifi")
             
         case .cellular:
-            debugPrint("Network became reachable cellular")
+            break
+            //debugPrint("Network became reachable cellular")
             
         }
         

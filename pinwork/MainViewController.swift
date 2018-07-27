@@ -12,15 +12,19 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var hamButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var hambutton: UIButton!
+    @IBOutlet weak var notificationButton: UIButton!
+    
     @IBOutlet weak var homecleanButton: UIButton!
     @IBOutlet weak var officeButton: UIButton!
     @IBOutlet weak var carButton: UIButton!
     @IBOutlet weak var garageButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var otherServicesButton: UIButton!
+    var animationView: UIView!
     var slideMenu: UIView!
+    var user : User?
     var reservedOrderButton : UIButton?
-    var isCommingFromRegister = false
+    static var isCommingFromRegister = false
     var goForRegisterNow = false
     var isMenuShowing = false
     var pageControl : UIPageControl?
@@ -30,7 +34,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: sender)
 
     }
-    @IBAction func homeButtonCliecked(_ sender: UIButton) {
+    @IBAction func homeButtonClicked(_ sender: UIButton) {
         self.performSegue(withIdentifier: "segueToDateTimeOrder", sender: sender)
         
     }
@@ -43,22 +47,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToOrder" {
-            switch (sender as! UIButton).restorationIdentifier {
-             
-         
-                
-            case "garage":
-               // if let destination = segue.destination as? OrderViewController {
-                   // destination.orderType = .garageCleaning // you can pass value to destination view controller
-                    
-                    // destination.nomb = arrayNombers[(sender as! UIButton).tag] // Using button Tag
-               // }
-                break
-            default:
-                print("somethin went wrong in prepare main")
-            
-            }
+        if segue.identifier == "OtherServicesSegue" {
+          //maybe something later for other Services
         
         }
         else if segue.identifier == "carWashSegue"{
@@ -83,18 +73,23 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             
         }
         }
-        
+        else if segue.identifier == "MenuSegue"{
+         if let menuInstance = segue.destination as? MenuViewController {
+            menuInstance.user = self.user
+            }
+        }
+        else if segue.identifier == "reservedOrdersSegue"{
+            if let reservedOrderInstance = segue.destination as? OrdersTableViewController{
+                reservedOrderInstance.isReservedOrder = true
+            }
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        //self.navigationController?.navigationBar.isUserInteractionEnabled = false
-
-        //let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(recognizer:)))
-        self.view.isUserInteractionEnabled = true
-        //self.view.addGestureRecognizer(tapGestureRecognizer)
-        configureMainScroll()
-       
+        hambutton.isEnabled = false
+        reservedOrderButton?.isEnabled = false
+        notificationButton.isHidden = true
         reservedOrderButton = getUIBarButtonItemForNextLevel(title: " سفارش‌های رزرو شده ", image: "invoice")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
@@ -102,15 +97,69 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
         reservedOrderButton!.addTarget(self, action: #selector(self.reservedOrderClicked), for: .touchUpInside)
         self.toolbarItems = items
-
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollMe),userInfo: nil , repeats: true)
+   
+        if !MainViewController.isCommingFromRegister{
+            navigationController?.setToolbarHidden(false, animated: false)
+            configureSliderMenu()
+            
+        }else{
+            navigationController?.setToolbarHidden(true, animated: false)
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if !MainViewController.isCommingFromRegister{
+            navigationController?.setToolbarHidden(false, animated: false)
+            
+        }else{
+            navigationController?.setToolbarHidden(true, animated: false)
+            
+        }
         configurePageController()
+        configureMainScroll()
 
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        configureSliderMenu()
+    func configureSliderMenu(){
+       
+        animationView =  displaySpinner(onView: self.view)
+        APIClient.requestForUserProfile(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
+            if response != nil {
+                let data = response!["data"]["profile"]
+                if data["name"].stringValue == "Pin" && data["lastname"].stringValue == "Work" {
+                    
+                    self.showCompeleteRegisterView()
+                    self.removeSpinner(spinner: self.animationView)
+                    return
+                }
+                self.user = User(name: data["name"].string!, lastName: data["lastname"].string!, picture: data["picture"].string!, birthDay: self.check(data["birthday"]), email: self.check(data["email"]), phone_place: data["phone_place"].string!,
+                    cellPhone: data["phone"].string!,
+                    orders_count:data["orders_count"].intValue,orders_duration: data["orders_duration"].intValue, gender: User.genderType(rawValue: data["gender"].string!)!, money: data["money"].intValue, invite_hash: self.check(data["invite_hash"]), notification_unseen_count: response!["data"]["notification_unseen_count"].intValue, messages_unseen_count: response!["data"]["messages_unseen_count"].intValue)
+                self.hambutton.isEnabled = true
+                self.reservedOrderButton?.isEnabled = true
 
+            }else{
+                let retry = self.showNetworkRetryPopUp()
+                retry.onDoneBlock = { result in
+                    self.configureSliderMenu()
+                }
+            }
+            self.removeSpinner(spinner: self.animationView)
+            
+        }
+        
+    }
+    func showCompeleteRegisterView(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let completeRegisterView = storyBoard.instantiateViewController(withIdentifier: "compeleteRegister") as! CompeleteRegisterFormViewController
+        completeRegisterView.modalTransitionStyle = .crossDissolve
+        completeRegisterView.isModalInPopover = true
+        completeRegisterView.modalPresentationStyle = .overCurrentContext
+        self.present(completeRegisterView, animated: true)
+        completeRegisterView.onDoneBlock = {result in 
+            self.configureSliderMenu()
+        }
+        
     }
     func configureMainScroll(){
         mainScrollView.delegate = self
@@ -132,7 +181,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated:Bool) {
         super.viewWillAppear(animated)
         //check if is after registration
-        if isCommingFromRegister{
+        if MainViewController.isCommingFromRegister{
                     hambutton.isHidden = true
                     self.navigationController?.setToolbarHidden(true, animated: false)
         }
@@ -151,46 +200,25 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(pageControl!)
         
     }
-    func configureSliderMenu(){
-        slideMenu = UIView(frame: CGRect(x: self.view.frame.width - CGFloat(200), y: CGFloat(0), width: CGFloat(200), height: self.view.frame.height))
-        slideMenu.backgroundColor = UIColor.white
-        slideMenu.translatesAutoresizingMaskIntoConstraints = false
-        slideMenu.layer.shadowOpacity = 1
-        slideMenu.layer.shadowRadius = 10
-        //slideMenu.layer.shadowColor = getPinworkColors(color: 0).cgColor
-        self.view.addSubview(slideMenu)
-        let heightConstraint = NSLayoutConstraint(item: slideMenu, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.height, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: slideMenu, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 200)
-        let leadingConstraint = NSLayoutConstraint(item: slideMenu, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-        self.view.addConstraints([ heightConstraint,widthConstraint,leadingConstraint])
-        loadSliderMenuFeatures()
-        slideMenu.isHidden = true
-    
-    }
-    func loadSliderMenuFeatures(){
-        if  let menuFeatures = Bundle.main.loadNibNamed("SliderMenuFeaturesView", owner: self, options: nil)?.first as? SliderMenuFeaturesView{
-            menuFeatures.frame.size.height = slideMenu.frame.height
-            slideMenu.addSubview(menuFeatures)
-            menuFeatures.previouseOrdersButton.semanticContentAttribute = .forceRightToLeft
-            menuFeatures.eminentWorkersButton.semanticContentAttribute = .forceRightToLeft
-            menuFeatures.supportButton.semanticContentAttribute = .forceRightToLeft
-            menuFeatures.shareButton.semanticContentAttribute = .forceRightToLeft
-            menuFeatures.aboutButton.semanticContentAttribute = .forceRightToLeft
-            menuFeatures.logoutButton.semanticContentAttribute = .forceRightToLeft
-             menuFeatures.editProfileButton.semanticContentAttribute = .forceRightToLeft
-
-//            featureView.featureImageView.image = UIImage(named: feature["image"]!)
-//            featureView.titleUILabel.text = feature["title"]
-//            featureView.descriptionUILabel.text = feature["description"]
-//            LoginScrollView.addSubview(featureView)
-//            featureView.frame.size.width = self.view.bounds.size.width
-//            featureView.frame.origin.x = CGFloat( index) * self.view.bounds.size.width
-        }
-        else{
-            print("err")
-        }
-    }
+ 
   
+    func showMenu(){
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let menuViewInstance = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+//        menuViewInstance.user = self.user
+//        menuViewInstance.modalTransitionStyle = .coverVertical
+//        menuViewInstance.isModalInPopover = true
+//        menuViewInstance.modalPresentationStyle = .overCurrentContext
+//
+//        //        mapViewInstance.onDoneBlock = { result in
+//        //            // Do something
+//        //
+//        //
+//        //        }
+        
+        performSegue(withIdentifier: "MenuSegue", sender: self)
+    }
     func loadFeatures(){
         let featureArray = ["1.jpg","2.jpg","3.jpg"]
         
@@ -213,26 +241,30 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         //pageController.currentPage = scrollView. - 1
     }
   @objc  func reservedOrderClicked(){
-        print("reserved clicked")
+        performSegue(withIdentifier: "reservedOrdersSegue", sender: self)
     }
     @IBAction func hamButtonClicked(_ sender: UIButton) {
-        let sliderConstraint = view.constraints.filter({ $0.firstAttribute == .leading && $0.firstItem as? UIView == slideMenu }).first!
-        if isMenuShowing{
-
-            sliderConstraint.constant = 0
-            UIView.animate(withDuration: 0.3,animations: {
-                self.view.layoutIfNeeded()
-
-            }, completion: { (finished: Bool) in
-                self.slideMenu.isHidden = !self.slideMenu.isHidden
-            })
-        }else{
-            sliderConstraint.constant = -200
-            UIView.animate(withDuration: 0.6, animations: {self.view.layoutIfNeeded()
-                self.slideMenu.isHidden = !self.slideMenu.isHidden
-
-            })
-        }
-        isMenuShowing = !isMenuShowing
+//        let sliderConstraint = view.constraints.filter({ $0.firstAttribute == .leading && $0.firstItem as? UIView == slideMenu }).first!
+//        if isMenuShowing{
+//
+//            sliderConstraint.constant = 0
+//            UIView.animate(withDuration: 0.3,animations: {
+//                self.view.layoutIfNeeded()
+//
+//            }, completion: { (finished: Bool) in
+//                self.slideMenu.isHidden = !self.slideMenu.isHidden
+//            })
+//        }else{
+//            sliderConstraint.constant = -200
+//            UIView.animate(withDuration: 0.6, animations: {self.view.layoutIfNeeded()
+//                self.slideMenu.isHidden = !self.slideMenu.isHidden
+//
+//            })
+//        }
+//        isMenuShowing = !isMenuShowing
+        
+        
+        showMenu()
+        
     }
 }

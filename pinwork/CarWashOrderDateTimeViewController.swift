@@ -15,7 +15,7 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var dateTimePickingButton: UIButton!
     
     @IBOutlet weak var descriptionTextView: UITextView!
-    var OrderTillNow :Dictionary<String,Any> = [:]
+    var order : Order!
     var timeInterval = 0.0
     var nextLevelButton : UIButton?
     var currentPrice : String?
@@ -35,7 +35,7 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
         popUpDateTime.validDates = getValidDatesForType()
         popUpDateTime.validTimes = getValidTimesForType()
         popUpDateTime.limit = Int(Double(getValidTimesForType().count) - 2 * self.timeInterval)
-        print(popUpDateTime.limit)
+        //print(popUpDateTime.limit)
         
         
         
@@ -50,9 +50,9 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
             formatter.timeStyle = .medium
             formatter.dateFormat = "yyyy-MM-dd"
             let stringTime = formatter.string(from: date)
-            self.OrderTillNow["default_start_date"] = (stringTime + " " + _startTime.convertToEnglish() + ":00")
+            self.order.orderTillNow["default_start_date"] = (stringTime + " " + _startTime.convertToEnglish() + ":00")
             self.dateTimePickingButton.setTitle(self.getProperDate(date: date) + " ساعت " + _startTime, for: .normal)
-            print(self.OrderTillNow)
+            //print(self.order.orderTillNow)
             
             
             
@@ -89,6 +89,7 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     
     
     func setting(){
+        self.navigationItem.title =  "تاریخ"
         descriptionTextView.delegate = self
         dateTimePickingButton.layer.borderWidth = 1
         dateTimePickingButton.layer.borderColor = getPinworkColors(color: 1).cgColor
@@ -117,18 +118,25 @@ class CarWashOrderDateTimeViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func nextLevelClicked(){
+        if isFullyFilled(){
         self.performSegue(withIdentifier: "MapViewSegue", sender: self)
+        }
+        else{
+            showToast(message: "لطفا ساعت شروع کار را وارد نمایید")
+        }
         
-        
+    }
+    func isFullyFilled()->Bool{
+        return !(dateTimePickingButton.currentTitle == "انتخاب کنید")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MapViewController {
             if descriptionTextView.text != "" && descriptionTextView.text != "توضیحات خود را اینجا وارد نمایید..." {
-                OrderTillNow["description"] = descriptionTextView.text
+                self.order.orderTillNow["description"] = descriptionTextView.text
                 
             }
-            destination.OrderTillNow = OrderTillNow
+            destination.order = self.order
         }
         
     }

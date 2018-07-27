@@ -1,6 +1,0 @@
-framework module Pods_pinworkUITests {
-  umbrella header "Pods-pinworkUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

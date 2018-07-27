@@ -25,7 +25,7 @@ class NoInternetPopUpViewController: UIViewController {
             let reachability = notification.object as! Reachability
             switch reachability.connection{
             case .none:
-                debugPrint("Network became unreachable")
+                //debugPrint("Network became unreachable")
                 break
             case .cellular :
                 self.dismiss(animated: true)

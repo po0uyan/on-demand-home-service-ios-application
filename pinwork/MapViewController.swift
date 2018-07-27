@@ -5,29 +5,39 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var submitButton: UIButton!
-    
+    var order : Order!
+    var isAllowedToSubmit = false
     var onDoneBlock : ((Bool) -> Void)?
     var isCommingFromNavigation = true
     @IBOutlet weak var submitButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var addressView: UIView!
     private let locationManager = CLLocationManager()
     @IBOutlet weak var addressLabel: UILabel!
-    var OrderTillNow:Dictionary<String,Any> = [:]
     var addressDistrict = "آدرس انتخابی"
     var isRequestFailed = false
-    var latestLocation = CLLocation(latitude: 35.723961, longitude: 51.410375)
-    var requestArray = ["lat":"35.723961","long":"51.410375", "remember-token": "navidnavidnavidnavidnavidnavid"]
+    var latestLocation = ""
+    var requestArray = ["lat":"35.723961","long":"51.410375", "remember-token": " "]
     @IBAction func submitClicked(_ sender: UIButton) {
+        checkAndSubmit()
+
+        
+    }
+    @IBAction func pinButtonClicked(_ sender: UIButton) {
+       checkAndSubmit()
+    }
+    func checkAndSubmit(){
         if isRequestFailed{
             requestLocation(requestArray)
         }
         else{
-        showAddressPopUpView()
+            if isAllowedToSubmit{
+                
+                showAddressPopUpView()
+            }
+            else{
+                showToast(message: "لطفا ابتدا محدوده خود را از روی نقشه به درستی انتخاب نمایید")
+            }
         }
-        
-    }
-    @IBAction func pinButtonClicked(_ sender: UIButton) {
-        showAddressPopUpView()
     }
     @IBOutlet weak var markerView: UIView!
     
@@ -97,7 +107,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
      
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-         requestArray = ["lat":position.target.latitude.description,"long":position.target.longitude.description, "remember-token": "navidnavidnavidnavidnavidnavid"] //remove this token
+         requestArray = ["lat":position.target.latitude.description,"long":position.target.longitude.description, "remember-token": getData(key: "rememberToken") as! String]
         requestLocation(requestArray)
     }
     func requestLocation(_ requestArray:[String:String]){
@@ -125,9 +135,26 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
                     self.isRequestFailed = false
                     self.submitButton.setTitle("تایید آدرس", for: .normal)
                     self.addressLabel.textColor = UIColor.black
+                    
+                    let city =  (response!["data"] as! NSDictionary )["title"] as? String
 
-                    let res =  (response!["data"] as! NSDictionary )["localAddress"] as? String
-                    self.addressLabel.text = res
+                    let address =  (response!["data"] as! NSDictionary )["localAddress"] as? String
+                    if city != nil {
+                    if city != "تهران"{
+                    self.addressLabel.text = "خارج از محدوده سرویس‌دهی!"
+                    self.addressLabel.textColor = UIColor.red
+                    }else{
+                    self.addressLabel.text = address
+                        self.latestLocation = requestArray["lat"]!+","+requestArray["long"]!
+                        self.isAllowedToSubmit = true
+                        }
+                        
+                    }
+                    else{
+                        self.addressLabel.text = "خارج از محدوده سرویس‌دهی!"
+                        self.addressLabel.textColor = UIColor.red
+                    }
+                    
                 }
                 else{
                     //debugPrint(error as Any)
@@ -162,13 +189,30 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
         addressPopUpController.modalTransitionStyle = .coverVertical
         addressPopUpController.isModalInPopover = true
         addressPopUpController.modalPresentationStyle = .overCurrentContext
+        self.order.orderTillNow["primary_address"] = String((addressLabel.text?.split(separator: "،")[0])!)
+        self.order.orderTillNow["address"] = (addressLabel.text?.split(separator: "،")[1...].joined(separator: "،"))!
+        self.order.orderTillNow["at_lat"] = latestLocation
+        self.order.orderTillNow["city"] = "tehran"
+        addressPopUpController.order = self.order
         self.present(addressPopUpController, animated: true)
-        //addressDistrict = addressLabel.text?.split(separator: "،")[0]
-        addressPopUpController.addressTextView.text = (addressLabel.text?.split(separator: "،")[1...].joined(separator: "،"))!
-        
+
         addressPopUpController.onDoneBlock = { result in
             if !self.isCommingFromNavigation{
                 self.dismiss(animated: true)
+            }
+            switch result {
+            case 0:
+                break
+            case 1 :
+                self.navigationController?.popToRootViewController(animated: true)
+            case 2:
+                let parentVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as! OtherServicesOrderViewController
+                parentVC.addressButton.setTitle(("آدرس : " + ((self.order.orderTillNow["address"]) as! String) + "\nشماره تلفن : " + ((self.order.orderTillNow["phone"]) as! String).convertToPersian()), for: .normal)
+                parentVC.addressButton.contentHorizontalAlignment = .right
+                parentVC.addressButton.contentEdgeInsets = UIEdgeInsetsMake(CGFloat((parentVC.addressButton.currentTitle?.count)!/3)+2,5,CGFloat((parentVC.addressButton.currentTitle?.count)!/3)+2,5) // for address not to get out of border
+                self.navigationController?.popViewController(animated: false)
+            default:
+                break
             }
             
             }
@@ -198,7 +242,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // 3
         guard status == .authorizedWhenInUse else {
-            print("we have to add internet location") //pop up
+            //print("we have to add internet location") //pop up
             return
         }
         // 4

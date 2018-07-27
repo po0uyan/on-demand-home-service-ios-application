@@ -68,6 +68,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tools.png" width="512" height="512"/>
+        <image name="tools.png" width="513" height="513"/>
     </resources>
 </document>
