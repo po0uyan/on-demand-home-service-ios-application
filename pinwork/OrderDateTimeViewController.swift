@@ -218,6 +218,10 @@ class OrderDateTimeViewController: UIViewController {
             APIClient.estimateHomeOrOfficeCleaningPrice(requestArray: self.order.orderTillNow, completionHandler: { (response, error) in
                 self.hideCostEstimateProgress()
                 if response != nil{
+                    if self.tokenHasExpired(response!["respond"] as! Int){
+                        self.showTokenExpiredPopUp()
+                    }
+                    else{
                     self.isFailed = false
                     self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                     self.priceLabel.text! = "برآورد قیمت : " +
@@ -226,7 +230,7 @@ class OrderDateTimeViewController: UIViewController {
                     UIView.animate(withDuration: 0.9,animations: {
                         self.view.layoutIfNeeded()
                     })
-                }else{
+                }}else{
                     self.isFailed = true
                     self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
 

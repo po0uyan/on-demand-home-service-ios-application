@@ -61,6 +61,7 @@
 		88471DF120F9097B004037F3 /* dem3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88471DF020F9097B004037F3 /* dem3.json */; };
 		8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */; };
 		8849CAF920C6CF4200E2A5A8 /* no-wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 8849CAF820C6CF4200E2A5A8 /* no-wifi.png */; };
+		8857FA08210CFB7500B42BDD /* TokenExpiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8857FA07210CFB7500B42BDD /* TokenExpiredViewController.swift */; };
 		8877730D20F0C094008B7C0C /* sprayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 8877730820F0C08E008B7C0C /* sprayer.png */; };
 		8877730E20F0C094008B7C0C /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8877730920F0C08F008B7C0C /* tree.png */; };
 		8877730F20F0C094008B7C0C /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8877730A20F0C090008B7C0C /* settings.png */; };
@@ -233,6 +234,7 @@
 		88471DF020F9097B004037F3 /* dem3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dem3.json; sourceTree = "<group>"; };
 		8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetPopUpViewController.swift; sourceTree = "<group>"; };
 		8849CAF820C6CF4200E2A5A8 /* no-wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-wifi.png"; sourceTree = "<group>"; };
+		8857FA07210CFB7500B42BDD /* TokenExpiredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExpiredViewController.swift; sourceTree = "<group>"; };
 		8877730820F0C08E008B7C0C /* sprayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprayer.png; sourceTree = "<group>"; };
 		8877730920F0C08F008B7C0C /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		8877730A20F0C090008B7C0C /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 				8807212C2107D66C0013F88D /* RegisterringDoneViewController.swift */,
 				8807212E2107EDBB0013F88D /* SureAboutLogOutViewController.swift */,
 				8807213021080D1E0013F88D /* CompeleteRegisterFormViewController.swift */,
+				8857FA07210CFB7500B42BDD /* TokenExpiredViewController.swift */,
 			);
 			path = pinwork;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				88471DD520F8C77E004037F3 /* MenuViewController.swift in Sources */,
 				88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */,
 				8803849320DFBECC00312E3A /* MapViewController.swift in Sources */,
+				8857FA08210CFB7500B42BDD /* TokenExpiredViewController.swift in Sources */,
 				88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

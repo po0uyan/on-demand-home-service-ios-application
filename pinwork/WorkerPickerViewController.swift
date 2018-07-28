@@ -304,6 +304,10 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
                
                 
                 if response != nil{
+                    if self.tokenHasExpired(response!["respond"] as! Int){
+                        self.showTokenExpiredPopUp()
+                    }
+                    else{
                     self.isFailed = false
                     self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
                     self.priceLabel.text! = "برآورد قیمت : " +
@@ -312,7 +316,7 @@ class WorkerPickerViewController: UIViewController , UITextViewDelegate {
                     UIView.animate(withDuration: 0.9,animations: {
                         self.view.layoutIfNeeded()
                     })
-                }else{
+                }}else{
                     //retry
                     self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")
                     self.isFailed = true

@@ -95,13 +95,17 @@ class MenuViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         APIClient.requestForUserLogOut(rememberToken: self.getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 self.updataData(key: "isLoggedIn", value: false)
                 self.updataData(key: "rememberToken", value: "none")
                 self.updataData(key: "tempRememberToken", value: response!["data"]["remember_token"].string!)
                 self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
                 self.navigateToLoginPage()
 
-            }else{
+            }}else{
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in
                     self.logout()

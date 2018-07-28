@@ -75,12 +75,12 @@ class EditProfileViewController: UIViewController {
             showToast(message: "لطفا شماره تلفن ثابت خود را وارد نمایید")
             return
         }else{
-            if !(primaryPhoneNumberTextField.text!.convertToEnglish().count == 8){
-                showToast(message: "شماره تلفن خود را بدون کد شهر در ۸ رقم وارد نمایید")
+            if !(primaryPhoneNumberTextField.text!.count == 8) {
+                showToast(message: "شماره تلفن خود را بدون کد شهر و در ۸ رقم وارد نمایید")
                 return
             }
             else{
-                elementsForUpdate["phone_place"] = primaryPhoneNumberTextField.text!.convertToEnglish()
+                elementsForUpdate["phone_place"] = "021" + primaryPhoneNumberTextField.text!.convertToEngNumToSend()
             }
         }
         updateProfile(elementsForUpdate)
@@ -90,13 +90,17 @@ class EditProfileViewController: UIViewController {
       animationView = self.displaySpinner(onView: self.view)
         APIClient.requestForProfileUpdate(rememberToken: getData(key: "rememberToken") as! String,requestParams: requestParams) { (response, error) in
             if response != nil{
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 let data = response!["data"]["profile"]
                 self.user?.name = data["name"].string!
                 self.user?.lastName = data["lastname"].string!
                 self.user?.orders_count = data["orders_count"].intValue
                 self.user?.money = data["money"].intValue
                 
-            }else{
+            }}else{
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in
                     self.updateProfile(requestParams)

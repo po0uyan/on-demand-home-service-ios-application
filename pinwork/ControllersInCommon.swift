@@ -22,6 +22,13 @@ extension String {
         return faNumber!
         
     }
+    func convertToEngNumToSend()->String{
+        let Formatter = NumberFormatter()
+        Formatter.numberStyle = .none
+        Formatter.minimumIntegerDigits = self.count
+        Formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        return (Formatter.number(from: self)?.stringValue)!
+    }
     func convertToPersian()-> String {
         let numbersDictionary : Dictionary = ["0" : "۰","1" : "۱", "2" : "۲", "3" : "۳", "4" : "۴", "5" : "۵", "6" : "۶", "7" : "۷", "8" : "۸", "9" : "۹"]
         var str : String = self
@@ -73,6 +80,9 @@ extension UIViewController {
             return ""
         }
     }
+    func tokenHasExpired(_ respond: Int)->Bool{
+        return respond == 4040
+    }
     
     func showNetworkRetryPopUp()->RetryViewController{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -82,6 +92,14 @@ extension UIViewController {
         retryPopUpController.modalPresentationStyle = .overCurrentContext
         self.present(retryPopUpController, animated: true)
         return retryPopUpController
+    }
+    func showTokenExpiredPopUp(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tokenExpiredPopUpController = storyBoard.instantiateViewController(withIdentifier: "tokenExpired") as! TokenExpiredViewController
+        tokenExpiredPopUpController.modalTransitionStyle = .crossDissolve
+        tokenExpiredPopUpController.isModalInPopover = true
+        tokenExpiredPopUpController.modalPresentationStyle = .overCurrentContext
+        self.present(tokenExpiredPopUpController, animated: true)
     }
     
      func displaySpinner(onView : UIView) -> UIView {

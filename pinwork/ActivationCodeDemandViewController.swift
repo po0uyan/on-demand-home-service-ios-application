@@ -12,7 +12,7 @@ import CoreData
 import BRYXBanner
 class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
     var onDoneBlock : ((Bool) -> Void)?
-    let animationView = LOTAnimationView(name: "trail_loading")
+    let animationView = LOTAnimationView(name: "loading2")
 
     @IBOutlet weak var resendUIButton: UIButton!
     
@@ -34,12 +34,8 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         animationView.isHidden = false
         popUpUIView.isHidden = true
         phoneCodeDemandUITextfield.endEditing(true)
-        if isRegisterring{
-        requestForAuthCode(action: "register",phoneNumber:  self.phoneNumber)
-        }else{
-        requestForAuthCode(action: "login",phoneNumber:  self.phoneNumber)
+        requestForAuthCode(action: isRegisterring ? "register" : "login",phoneNumber: self.phoneNumber)
 
-        }
         descriptionUILabel.isHidden = false
         count = 60
         descriptionUILabel.text = "\(count) ثانیه تا فعال شدن ارسال مجدد کد"
@@ -58,7 +54,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         if phoneCodeDemandUITextfield.text?.count != 0  {
             if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: phoneCodeDemandUITextfield.text!)) {
                 if phoneCodeDemandUITextfield.text?.count == 11{
-                    self.phoneNumber = phoneCodeDemandUITextfield.text!
+                    self.phoneNumber = "0" + phoneCodeDemandUITextfield.text!.convertToEngNumToSend()
                     popUpUIView.isHidden = true
                     animationView.play()
                     animationView.isHidden = false
@@ -87,7 +83,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                     if phoneCodeDemandUITextfield.text?.count == 5{
                         popUpUIView.isHidden = true
                         self.view.addSubview(animationView)
-                        codeCheckRequestLoginRegister(code: phoneCodeDemandUITextfield.text!)
+                        codeCheckRequestLoginRegister(code: phoneCodeDemandUITextfield.text!.convertToEngNumToSend())
                         phoneCodeDemandUITextfield.endEditing(true)
                         titleUILabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 14.0)
                         
@@ -113,10 +109,10 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         
     }
     func requestForAuthCode(action: String,phoneNumber:String){
-        APIClient.codeRequestForLoginOrRegister(phoneNumber:self.phoneNumber, action:action,rememberToken: getData(key: "tempRememberToken") as! String){
+     
+        APIClient.codeRequestForLoginOrRegister(phoneNumber: self.phoneNumber, action:action,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
             if responseObject != nil{
-                //print(responseObject)
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
                     self.isPhoneNumber = !self.isPhoneNumber
                     self.animationView.stop()
@@ -135,6 +131,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                 
             }
             else{
+                print(error)
                 self.dismiss(animated: true, completion: nil)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
                 self.animationView.stop()
@@ -146,6 +143,8 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
 
     
     func codeCheckRequestLoginRegister(code: String){
+        self.animationView.play()
+        self.animationView.isHidden = false
         if isRegisterring{
         APIClient.checkCodeForRegister(phoneNumber:phoneNumber, code:code,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
@@ -161,8 +160,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
             self.onDoneBlock!(true)
                 }
                 else{
-                    self.animationView.stop()
-                    self.animationView.isHidden = true
+                    
                     self.popUpUIView.isHidden = false
                     self.phoneCodeDemandUITextfield.text = ""
                     self.phoneCodeDemandUITextfield.becomeFirstResponder()
@@ -171,15 +169,15 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                 
             }
             else{
-                //debugPrint(error!)
+                debugPrint(error!)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
             }
+         
         }
         }else{
             APIClient.requestForUserLogin(phoneNumber: phoneNumber, code: code, rememberToken: getData(key: "tempRememberToken") as! String) { (response, error) in
                 if response != nil{
                     if (self.checkRespondStatus(respond: response!["respond"] as! Int)){
-
                         let rememberToken = ((response!["data"]! as! NSDictionary)["account"]! as! NSDictionary)["remember_token"]
                         self.updataData(key: "rememberToken", value: rememberToken!)
                         self.updataData(key: "isLoggedIn", value: true)
@@ -206,6 +204,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                 }
             }
         }
+        
         
     }
     
@@ -241,9 +240,9 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         cancelUIButton.layer.borderWidth = 1
         popUpUIView.layer.cornerRadius = 3
         phoneCodeDemandUITextfield.layer.borderWidth = 1
-    phoneCodeDemandUITextfield.layer.borderColor = cancelUIButton.currentTitleColor.cgColor
+        phoneCodeDemandUITextfield.layer.borderColor = cancelUIButton.currentTitleColor.cgColor
         submitUIButton.layer.borderColor = submitUIButton.currentTitleColor.cgColor
-          cancelUIButton.layer.borderColor = cancelUIButton.currentTitleColor.cgColor
+        cancelUIButton.layer.borderColor = cancelUIButton.currentTitleColor.cgColor
         resendUIButton.isHidden = true
     }
 
@@ -263,12 +262,17 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 11
+        var maxLength = 11
+        if !isPhoneNumber{
+            maxLength = 5
+        }
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
+        
         return newString.length <= maxLength
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

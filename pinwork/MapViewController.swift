@@ -132,6 +132,10 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
                 })
                 //self.markerView.transform = CGAffineTransform.identity
                 if response != nil {
+                    if self.tokenHasExpired(response!["respond"] as! Int){
+                        self.showTokenExpiredPopUp()
+                    }
+                    else{
                     self.isRequestFailed = false
                     self.submitButton.setTitle("تایید آدرس", for: .normal)
                     self.addressLabel.textColor = UIColor.black
@@ -145,7 +149,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
                     self.addressLabel.textColor = UIColor.red
                     }else{
                     self.addressLabel.text = address
-                        self.latestLocation = requestArray["lat"]!+","+requestArray["long"]!
+                        self.latestLocation = requestArray["lat"]!+" "+requestArray["long"]!
                         self.isAllowedToSubmit = true
                         }
                         
@@ -155,7 +159,7 @@ class MapViewController: UIViewController,GMSMapViewDelegate {
                         self.addressLabel.textColor = UIColor.red
                     }
                     
-                }
+                }}
                 else{
                     //debugPrint(error as Any)
                     self.addressLabel.text = "خطا در ارتباط "

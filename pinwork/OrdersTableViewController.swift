@@ -87,6 +87,10 @@ class OrdersTableViewController: UITableViewController {
         APIClient.requestForDoneServices(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 self.services = response!["data"]["services"].arrayValue
                 if self.services.count > 0 {
                     self.tableView.restore()
@@ -94,7 +98,7 @@ class OrdersTableViewController: UITableViewController {
                     self.tableView.setEmptyMessage()
                 }
                 self.tableView.reloadData()
-            }
+            }}
             else{
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in
@@ -110,6 +114,10 @@ class OrdersTableViewController: UITableViewController {
         APIClient.requestForUserProfile(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 self.services = response!["data"]["services"].arrayValue
                 //print(self.services)
                 if self.services.count > 0 {
@@ -119,7 +127,7 @@ class OrdersTableViewController: UITableViewController {
                 }
                 self.tableView.reloadData()
 
-            }
+            }}
             else{
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in

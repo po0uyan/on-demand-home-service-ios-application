@@ -94,7 +94,7 @@ class CompeleteRegisterFormViewController: UIViewController ,UITextFieldDelegate
             showToast(message: "لطفا شماره تلفن ثابت خود را وارد نمایید")
             return false
         }else if primaryPhoneTextField.text?.count != 8 {
-            showToast(message: "لطفا شماره تلفن ثابت خود را به طور کامل و در ۸ رقم وارد نمایید")
+            showToast(message: "لطفا شماره تلفن ثابت خود را بدون کد شهر و در ۸ رقم وارد نمایید")
             return false
         }
         
@@ -107,10 +107,14 @@ class CompeleteRegisterFormViewController: UIViewController ,UITextFieldDelegate
         loadingView = displaySpinner(onView: self.view)
         requestParams["name"] = nameTextField.text!
         requestParams["lastname"] = lastnameTextField.text!
-        requestParams["phone_place"] = primaryPhoneTextField.text!.convertToEnglish()
+        requestParams["phone_place"] = "021" +  primaryPhoneTextField.text!.convertToEngNumToSend()
         APIClient.requestForCompeleteRegister(rememberToken: getData(key: "rememberToken") as! String, requestParams: requestParams as! [String : String]) { (response, error) in
            self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 if response!["respond"].intValue == 200{
                     MainViewController.isCommingFromRegister = false
                     self.dismiss(animated: true)
@@ -118,8 +122,9 @@ class CompeleteRegisterFormViewController: UIViewController ,UITextFieldDelegate
                 }else{
                     self.showToast(message: "خطا، لطفا با پشتیبانی تماس بگیرید.")
                 }
-            }
+            }}
             else{
+                print(error)
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in
                     self.compeleteRegister()
@@ -175,7 +180,7 @@ class CompeleteRegisterFormViewController: UIViewController ,UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.restorationIdentifier == "primaryPhone"{
-        let maxLength = 8
+        let maxLength = 11
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString

@@ -44,7 +44,7 @@ class AddressPopUpViewController: UIViewController,UITextViewDelegate ,UITextFie
     @IBAction func submitButtonClikcked(_ sender: UIButton) {
         if order.orderType == .otherServices {
             if everyThingIsOK(){
-                self.order.orderTillNow["phone"] = ("021" + (phoneNumberTextField.text)!).convertToEnglish()
+                self.order.orderTillNow["phone"] = "021" + (phoneNumberTextField.text)!.convertToEngNumToSend()
                 
                 self.order.orderTillNow["address"] = addressTextView.text!
             
@@ -64,20 +64,24 @@ class AddressPopUpViewController: UIViewController,UITextViewDelegate ,UITextFie
     func goForRegisteringOrder(){
         
         if everyThingIsOK(){
-            self.order.orderTillNow["service_number"] = ("021" + (phoneNumberTextField.text)!).convertToEnglish()
+            self.order.orderTillNow["service_number"] = ("021" + (phoneNumberTextField.text)!).convertToEngNumToSend()
             
             self.order.orderTillNow["address"] = addressTextView.text!
             loadingView = displaySpinner(onView: self.view)
             self.order.registerOrder { (response, error) in
                 self.removeSpinner(spinner: self.loadingView)
                 if response != nil {
+                    if self.tokenHasExpired(response!["respond"].intValue){
+                        self.showTokenExpiredPopUp()
+                    }
+                    else{
                     if response!["respond"] == 200{
                         self.showDoneProgressAndGoBack(response!["data"]["service_code"].stringValue)
                     }
                     else{
                         self.showToast(message: "خطا، لطفا با پشتیبانی تماس بگیرید")
                     }
-                }
+                }}
                 else{
                     let retry = self.showNetworkRetryPopUp()
                     retry.onDoneBlock = { result in
@@ -163,6 +167,12 @@ class AddressPopUpViewController: UIViewController,UITextViewDelegate ,UITextFie
         phoneNumberTextField.keyboardType = .numberPad
         phoneNumberTextField.text = "تلفن ثابت"
         phoneNumberTextField.textColor = UIColor.lightGray
+        if order.orderType == .otherServices{
+            submitButton.setTitle("تایید", for: .normal)
+        }else{
+            submitButton.setTitle("ثبت سفارش", for: .normal)
+
+        }
     }
     
     

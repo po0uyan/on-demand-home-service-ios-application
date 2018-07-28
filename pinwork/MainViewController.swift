@@ -125,6 +125,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         animationView =  displaySpinner(onView: self.view)
         APIClient.requestForUserProfile(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             if response != nil {
+                if self.tokenHasExpired(response!["respond"].intValue){
+                    self.showTokenExpiredPopUp()
+                }
+                else{
                 let data = response!["data"]["profile"]
                 if data["name"].stringValue == "Pin" && data["lastname"].stringValue == "Work" {
                     
@@ -138,7 +142,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
                 self.hambutton.isEnabled = true
                 self.reservedOrderButton?.isEnabled = true
 
-            }else{
+            }}else{
                 let retry = self.showNetworkRetryPopUp()
                 retry.onDoneBlock = { result in
                     self.configureSliderMenu()

@@ -68,6 +68,10 @@ class CarWashViewController: UIViewController {
                
                 
                 if response != nil{
+                    if self.tokenHasExpired(response!["respond"] as! Int){
+                        self.showTokenExpiredPopUp()
+                    }
+                    else{
                     self.isFailed = false
                     self.toolbarItems?.insert(UIBarButtonItem(customView: self.nextLevelButton!), at: 1)
 
@@ -78,7 +82,7 @@ class CarWashViewController: UIViewController {
                     UIView.animate(withDuration: 0.9,animations: {
                         self.view.layoutIfNeeded()
                     })
-                }else{
+                }}else{
                     //retry
                     self.toolbarItems?.insert(UIBarButtonItem(customView: self.retryButton!), at: 1)
                     self.showToast(message: "خطا در ارتباط، لطفا جهت محاسبه قیمت، از پایین صفحه تلاش مجدد را انتخاب نمایید.")

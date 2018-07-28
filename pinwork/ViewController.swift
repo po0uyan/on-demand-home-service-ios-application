@@ -129,7 +129,24 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 
                 
             }
-        }else{
+        }else if !isLoggedIn() {
+            APIClient.rememberTokenRequest { (respond, error) in
+                if respond != nil{
+                    let tempRememberToken = (respond!["data"] as! NSDictionary)["remember_token"] as! String
+                    self.updataData(key: "tempRememberToken", value: tempRememberToken)
+                    self.checkAppVersionStatus()
+                }
+                else{
+                    self.animationView.stop()
+                    self.showNetworkRetry()
+                    //print(error!)
+                }
+                
+                
+            }
+        }
+        
+        else{
             self.checkAppVersionStatus()
         }
     }

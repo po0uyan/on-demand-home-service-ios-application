@@ -64,6 +64,7 @@ class APIClient{
     static func  codeRequestForLoginOrRegister(phoneNumber: String , action: String,rememberToken: String, completionHandler: @escaping (NSDictionary?, Error?) -> ()){
         let requestHeaders = ["User-Agent": "ios"]
         let requestParameters = ["phone":phoneNumber,"action":action,"remember_token":rememberToken]
+       
         APIManager.sharedManager.request(baseUrl+"postUserLogin", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
             switch response.result {
             case .success(let value):

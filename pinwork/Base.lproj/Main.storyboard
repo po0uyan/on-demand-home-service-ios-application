@@ -356,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qw-bw-COa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3503.1999999999998" y="147.78325123152709"/>
+            <point key="canvasLocation" x="3577" y="148"/>
         </scene>
         <!--No Internet Pop Up View Controller-->
         <scene sceneID="Xbe-f7-ZTA">
@@ -1217,7 +1217,7 @@
                                 <state key="normal" image="notification.png"/>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="menu@1x" width="10" style="plain" id="vlQ-s7-X50">
+                        <barButtonItem key="rightBarButtonItem" image="menu.png" width="10" style="plain" id="vlQ-s7-X50">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="124" maxY="0.0"/>
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wqo-xj-lYy">
                                 <rect key="frame" x="322" y="0.0" width="72" height="44"/>
@@ -1768,10 +1768,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rju-hh-b9E">
-                                <rect key="frame" x="10" y="128.33333333333334" width="394" height="479.33333333333326"/>
+                                <rect key="frame" x="10" y="128.66666666666666" width="394" height="479.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cny-0S-LuL">
-                                        <rect key="frame" x="20" y="429.33333333333326" width="354" height="40"/>
+                                        <rect key="frame" x="20" y="430" width="354" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2M-0F-lgV">
                                                 <rect key="frame" x="0.0" y="0.0" width="172" height="40"/>
@@ -1801,40 +1801,40 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آدرس و شماره تلفن ثابت خود را وارد نمایید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndh-Z5-RRu">
-                                        <rect key="frame" x="5" y="20" width="384" height="20.333333333333329"/>
+                                        <rect key="frame" x="5" y="20.666666666666686" width="384" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="16"/>
                                         <color key="textColor" red="0.3113499365482234" green="0.3113499365482234" blue="0.3113499365482234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.58560041243654815" green="0.58560041243654815" blue="0.58560041243654815" alpha="0.54746361301369872" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMq-St-BJC">
-                                        <rect key="frame" x="10" y="60.333333333333314" width="374" height="1"/>
+                                        <rect key="frame" x="10" y="61" width="374" height="1"/>
                                         <color key="backgroundColor" red="0.2156862745" green="0.83921568629999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="swS-Ke-IVO"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="address" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Qyu-FH-0KI">
-                                        <rect key="frame" x="20" y="81.3333333333333" width="354" height="220.66666666666663"/>
+                                        <rect key="frame" x="20" y="81.999999999999986" width="354" height="220.66666666666663"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.28047668147208127" green="0.28047668147208127" blue="0.28047668147208127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn" family="IRAN SansMobile(NoEn)" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="جستجو فقط در متخصصین محبوب من " textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7I-hw-QlA">
-                                        <rect key="frame" x="77" y="386.33333333333326" width="297" height="16.666666666666686"/>
+                                        <rect key="frame" x="77" y="387" width="297" height="16.666666666666686"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Light" family="IRANSansMobile(NoEn)" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FqY-yF-bXr">
-                                        <rect key="frame" x="20" y="378.33333333333337" width="51" height="31"/>
+                                        <rect key="frame" x="20" y="379" width="51" height="31"/>
                                         <color key="onTintColor" red="0.34901976585388184" green="0.85098040103912354" blue="0.80784326791763306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="favoritesWorkerChanged:" destination="cbQ-hH-dlL" eventType="valueChanged" id="ctR-5y-RWE"/>
                                         </connections>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fE-fZ-zLF">
-                                        <rect key="frame" x="20" y="322" width="354" height="44.333333333333314"/>
+                                        <rect key="frame" x="20" y="322.66666666666663" width="354" height="44.333333333333314"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Light" family="IRANSansMobile(NoEn)" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2829,10 +2829,10 @@
                                                 <rect key="frame" x="8" y="701" width="304" height="97.333333333333371"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-S0-GBP">
-                                                        <rect key="frame" x="8" y="-7.3333333333333712" width="47.666666666666664" height="48"/>
+                                                        <rect key="frame" x="8" y="-8" width="47.666666666666664" height="48"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money.png" translatesAutoresizingMaskIntoConstraints="NO" id="eFC-JP-UYl">
-                                                                <rect key="frame" x="2" y="2.3333333333333712" width="43" height="43"/>
+                                                                <rect key="frame" x="2" y="2.6666666666666288" width="43" height="43"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="eFC-JP-UYl" secondAttribute="height" multiplier="1:1" id="tJz-RC-YqC"/>
                                                                 </constraints>
@@ -2915,7 +2915,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="139.66666666666666"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" translatesAutoresizingMaskIntoConstraints="NO" id="S6P-8Q-7Eg">
-                                                                        <rect key="frame" x="182.33333333333334" y="13.666666666666636" width="111.66666666666666" height="111.66666666666669"/>
+                                                                        <rect key="frame" x="182.33333333333334" y="13.333333333333265" width="111.66666666666666" height="111.66666666666669"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="S6P-8Q-7Eg" secondAttribute="height" multiplier="1:1" id="LyQ-EE-tXC"/>
                                                                         </constraints>
@@ -3969,7 +3969,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOt-gb-nz6">
-                                <rect key="frame" x="15" y="206.33333333333334" width="384" height="323.66666666666663"/>
+                                <rect key="frame" x="15" y="206.66666666666666" width="384" height="323.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="انتخاب روز و ساعت شروع کار" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bc-Rv-c7v">
                                         <rect key="frame" x="0.0" y="20" width="384" height="21.666666666666671"/>
@@ -4391,7 +4391,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مهم نیست" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUi-OM-72M">
-                                                        <rect key="frame" x="39.333333333333329" y="66.666666666666686" width="47.333333333333329" height="29"/>
+                                                        <rect key="frame" x="39.666666666666657" y="66.666666666666686" width="47.333333333333343" height="29"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4417,7 +4417,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آقا" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXS-YL-wfV">
-                                                        <rect key="frame" x="57.666666666666686" y="66.666666666666686" width="11" height="29"/>
+                                                        <rect key="frame" x="58" y="66.666666666666686" width="11" height="29"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4505,7 +4505,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مهم نیست" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPQ-lI-i1u">
-                                                        <rect key="frame" x="39.333333333333329" y="66.666666666666657" width="47.333333333333329" height="28.666666666666671"/>
+                                                        <rect key="frame" x="38.666666666666657" y="66.666666666666657" width="47.333333333333343" height="28.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4531,7 +4531,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آقا" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tE-jR-CuG">
-                                                        <rect key="frame" x="57.666666666666686" y="66.666666666666657" width="11" height="28.666666666666671"/>
+                                                        <rect key="frame" x="58" y="66.666666666666657" width="11" height="28.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4647,7 +4647,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مهم نیست" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8g-BJ-wfp">
-                                                        <rect key="frame" x="39.333333333333329" y="66" width="47.333333333333329" height="29.666666666666671"/>
+                                                        <rect key="frame" x="39.666666666666657" y="66" width="47.333333333333343" height="29.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4673,7 +4673,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آقا" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOz-vZ-8C3">
-                                                        <rect key="frame" x="57.666666666666686" y="66" width="11" height="29.666666666666671"/>
+                                                        <rect key="frame" x="58" y="66" width="11" height="29.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Bold" family="IRANSansMobile(NoEn)" pointSize="11"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -5127,6 +5127,90 @@
             </objects>
             <point key="canvasLocation" x="8863" y="3525"/>
         </scene>
+        <!--Token Expired View Controller-->
+        <scene sceneID="yaV-z7-fJe">
+            <objects>
+                <viewController storyboardIdentifier="tokenExpired" id="D1b-Rw-ThS" customClass="TokenExpiredViewController" customModule="pinwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ER1-Fk-jUy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwQ-oQ-Ybu">
+                                <rect key="frame" x="8" y="284.66666666666669" width="398" height="169.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D2G-zh-SNc">
+                                        <rect key="frame" x="5" y="5.6666666666666288" width="388" height="159.33333333333334"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="retry_error.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlA-1I-sgR">
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="46.333333333333336"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="ysC-bt-Nfe">
+                                                <rect key="frame" x="0.0" y="56.333333333333371" width="388" height="46.666666666666657"/>
+                                                <string key="text">کاربر گرامی، شما در دستگاه دیگری، به حساب کاربری خود وارد شده‌اید، لطفا مجددا ورود نمایید و یا در صورت عدم تمایل از برنامه خارج شوید.</string>
+                                                <fontDescription key="fontDescription" name="IRANSansMobileNoEn-Medium" family="IRANSansMobile(NoEn)" pointSize="20"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Ne-cC-Qpe">
+                                                <rect key="frame" x="0.0" y="112.99999999999999" width="388" height="46.333333333333329"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5La-UR-zWn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="46.333333333333336"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="IRANSansMobileNoEn" family="IRAN SansMobile(NoEn)" pointSize="19"/>
+                                                        <state key="normal" title="خروج از برنامه">
+                                                            <color key="titleColor" red="0.2156862745" green="0.83921568629999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="exitClicked:" destination="D1b-Rw-ThS" eventType="touchUpInside" id="mDO-os-PZp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-fa-wKe">
+                                                        <rect key="frame" x="199" y="0.0" width="189" height="46.333333333333336"/>
+                                                        <color key="backgroundColor" red="0.2156862745" green="0.83921568629999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="IRANSansMobileNoEn" family="IRAN SansMobile(NoEn)" pointSize="20"/>
+                                                        <state key="normal" title="ورود مجدد">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.95890184860000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="loginAgainClicked:" destination="D1b-Rw-ThS" eventType="touchUpInside" id="q6u-X4-xtP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="D2G-zh-SNc" secondAttribute="trailing" constant="5" id="2eJ-VW-Lq2"/>
+                                    <constraint firstAttribute="bottom" secondItem="D2G-zh-SNc" secondAttribute="bottom" constant="5" id="A2f-9Z-E8X"/>
+                                    <constraint firstItem="tlA-1I-sgR" firstAttribute="height" secondItem="hwQ-oQ-Ybu" secondAttribute="height" multiplier="28:100" id="ig0-PF-Thg"/>
+                                    <constraint firstItem="D2G-zh-SNc" firstAttribute="leading" secondItem="hwQ-oQ-Ybu" secondAttribute="leading" constant="5" id="slV-lm-w3L"/>
+                                    <constraint firstItem="D2G-zh-SNc" firstAttribute="top" secondItem="hwQ-oQ-Ybu" secondAttribute="top" constant="5" id="yaO-Fi-zeI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59859154930000003" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hwQ-oQ-Ybu" firstAttribute="centerY" secondItem="ER1-Fk-jUy" secondAttribute="centerY" constant="1" id="3Dd-Aj-Ic1"/>
+                            <constraint firstItem="rTf-jh-Hku" firstAttribute="trailing" secondItem="hwQ-oQ-Ybu" secondAttribute="trailing" constant="8" id="FA5-Wb-wjE"/>
+                            <constraint firstItem="hwQ-oQ-Ybu" firstAttribute="centerX" secondItem="ER1-Fk-jUy" secondAttribute="centerX" id="hU6-CP-R1H"/>
+                            <constraint firstItem="hwQ-oQ-Ybu" firstAttribute="leading" secondItem="rTf-jh-Hku" secondAttribute="leading" constant="8" id="w5r-zD-5Hg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rTf-jh-Hku"/>
+                    </view>
+                    <connections>
+                        <outlet property="TokenExpiredUIView" destination="hwQ-oQ-Ybu" id="NJl-nP-rsb"/>
+                        <outlet property="exitButton" destination="5La-UR-zWn" id="Thp-9X-asU"/>
+                        <outlet property="loginAgain" destination="VP5-fa-wKe" id="P18-rl-HD8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="221-Js-LCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2613" y="990"/>
+        </scene>
     </scenes>
     <resources>
         <image name="001-rake.png" width="512" height="512"/>
@@ -5149,7 +5233,6 @@
         <image name="logout.png" width="512" height="512"/>
         <image name="maid.png" width="512" height="512"/>
         <image name="menu.png" width="22" height="22"/>
-        <image name="menu@1x" width="22" height="22"/>
         <image name="money.png" width="512" height="512"/>
         <image name="no-wifi.png" width="512" height="512"/>
         <image name="notebook.png" width="512" height="512"/>
