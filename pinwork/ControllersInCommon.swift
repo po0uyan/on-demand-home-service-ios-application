@@ -161,6 +161,8 @@ extension UIViewController {
         
         
     }
+    
+    
     func showCostEstimateProgress(){
         self.toolbarItems?.remove(at: 1)
         self.toolbarItems?.insert(contentsOf: self.getProgressStuff(), at: 1)

@@ -12,8 +12,11 @@ import Alamofire
 import IQKeyboardManager
 import GoogleMaps
 import GooglePlaces
+import Firebase
+import UserNotifications
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
 
     var window: UIWindow?
 
@@ -25,10 +28,155 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ReachabilityManager.shared.startMonitoring()
         IQKeyboardManager.shared().isEnabled = true
+        //FirebaseApp.configure()
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self 
+
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {(granted, error) in
+                    
+                    
+            })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+
+        application.registerForRemoteNotifications()
+
+        Messaging.messaging().delegate = self
+        
+        Messaging.messaging().shouldEstablishDirectChannel = true
 
         return true
     }
+    
+    func startFireBase(){
+        FirebaseApp.configure()
 
+    }
+    
+    
+  
+    func getData(key:String)->Any{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest : NSFetchRequest<UserData> = UserData.fetchRequest()
+        do {
+            let searchResults = try managedContext.fetch(fetchRequest)
+            for trans in searchResults as [NSManagedObject] {
+                if let res = trans.value(forKey: key){
+                    return res
+                }
+            }
+        }catch{
+            //print("error in getData")
+        }
+        return "Non"
+    }
+
+    func updataData(key:String , value:Any){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        do {
+            let results = try context.fetch(fetchRequest) as? [NSManagedObject]
+            if results?.count != 0 {
+                results![0].setValue(value , forKey: key)
+            }
+        } catch {
+            //print("Fetch Failed: \(error)")
+        }
+        
+        do {
+            try context.save()
+        }
+        catch {
+            // print("Saving Core Data Failed: \(error)")
+        }
+    }
+    func  tryForNotificationUpdate(_ fcmToken:String){
+        var rememberToken = ""
+        if getData(key: "isLoggedIn") as! Bool{
+             rememberToken = getData(key: "rememberToken") as! String
+            APIClient.postNotificationToken(rememberToken: rememberToken, requestParams: ["device_type":"ios", "remember_token_notification":"\(fcmToken)"], completionHandler: { (response, error) in
+                if response != nil {
+                    debugPrint(response as Any)
+                }else{
+                    debugPrint(error!)
+                    self.tryForNotificationUpdate(fcmToken)
+                }
+            })
+        }else{
+            rememberToken = getData(key: "tempRememberToken") as! String
+            APIClient.postNotificationTokenForTemp(rememberToken: rememberToken, requestParams: ["device_type":"ios", "remember_token_notification":"\(fcmToken)"], completionHandler: { (response, error) in
+                if response != nil {
+                    debugPrint(response as Any)
+                }else{
+                    debugPrint(error!)
+                    self.tryForNotificationUpdate(fcmToken)
+                }
+            })
+
+        }
+      
+    }
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        debugPrint("token in appdelgate is \(fcmToken)")
+        
+        let currentFCMToken = getData(key: "fCMToken") as! String
+        if currentFCMToken != fcmToken {
+                tryForNotificationUpdate(fcmToken)
+                updataData(key: "fCMToken", value: fcmToken)
+
+        }
+        connectToFcm()
+        
+      
+        //debugPrint(fcmToken)
+    }
+    func connectToFcm()
+    {
+        Messaging.messaging().shouldEstablishDirectChannel = true
+           
+    }
+    
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+        print("secondone")
+        if let messageID = userInfo["gcm.message_id"] {
+            print("Message ID: \(messageID)")
+        }
+
+        // Print full message.
+        print(userInfo)
+
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("in remoteMessage")
+        debugPrint(remoteMessage.appData)
+    }
+    
+    
+    
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

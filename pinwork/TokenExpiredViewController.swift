@@ -29,6 +29,8 @@ class TokenExpiredViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         self.updataData(key: "isLoggedIn", value: false)
+        self.updataData(key: "tempRememberToken", value: "none")
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

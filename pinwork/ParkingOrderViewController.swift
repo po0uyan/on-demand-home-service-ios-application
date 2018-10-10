@@ -14,6 +14,9 @@ class ParkingOrderViewController: UIViewController {
     @IBOutlet var choosingButtons: [UIButton]!
     
     @IBOutlet weak var priceConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var topConstraints: NSLayoutConstraint!
+    
     var nextLevelButton : UIButton?
     var retryButton : UIButton?
     var timeInterval = 0
@@ -187,7 +190,8 @@ class ParkingOrderViewController: UIViewController {
         self.order.orderTillNow["remember_token"] = self.getData(key: "rememberToken") as! String
         self.order.orderTillNow["default_start_date"] = "2018-03-10 17:00:00"
         self.order.orderTillNow["worker_count_request"] = 1
-        self.priceConstraint.constant = -30
+        self.priceConstraint.constant = -45
+            self.topConstraints.constant = 20
         UIView.animate(withDuration: 0.6,animations: {
             self.view.layoutIfNeeded()
         })
@@ -205,6 +209,7 @@ class ParkingOrderViewController: UIViewController {
                 self.priceLabel.text! = "برآورد قیمت : " +
                     String((response!["data"] as! NSDictionary)["price"] as! Int).convertToPersian() + " تومان "
                 self.priceConstraint.constant = 10
+                    self.topConstraints.constant = 45
                 UIView.animate(withDuration: 0.9,animations: {
                     self.view.layoutIfNeeded()
                 })

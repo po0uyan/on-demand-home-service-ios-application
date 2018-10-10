@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="UserData" representedClassName="UserData" syncable="YES" codeGenerationType="class">
+        <attribute name="fCMToken" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
         <attribute name="isLoggedIn" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="rememberToken" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tempRememberToken" optional="YES" attributeType="String" defaultValueString="&quot;non&quot;" syncable="YES"/>
+        <attribute name="rememberToken" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
+        <attribute name="tempRememberToken" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserData" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

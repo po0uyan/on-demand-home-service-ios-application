@@ -10,6 +10,7 @@ import UIKit
 import Lottie
 import Alamofire
 import Reachability
+import Firebase
 class LoginPageViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var LoginScrollView: UIScrollView!
     @IBOutlet weak var featurePageControl: UIPageControl!
@@ -116,6 +117,7 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         demandDialogController.modalPresentationStyle = .overCurrentContext
         demandDialogController.onDoneBlock = { result in
         // if true mean comming from registerring if false comming from login
+            self.updataData(key: "tempRememberToken", value: "none")
             if result {
                 self.navigateToMain(isCommingFromRegister: isRegisterring)
                 self.dismiss(animated: true, completion: nil)
@@ -129,20 +131,12 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         
     }
 
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

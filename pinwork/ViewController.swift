@@ -11,6 +11,8 @@ import Alamofire
 import Lottie
 import CoreData
 import Reachability
+import Firebase
+import SwiftyJSON
 class ViewController: UIViewController {
     
     let animationView = LOTAnimationView(name: "load2")
@@ -105,12 +107,24 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 self.showNetworkRetry()
             }
             
+            
             self.animationView.stop()
             
         }
-    }
+        self.startFireBase()
 
+    }
+    func startFireBase(){
+        if FirebaseApp.app() == nil {
+           
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.startFireBase()
+        }
+        
+    }
     func dologic(){
+    
         if !self.animationView.isAnimationPlaying{
             self.animationView.play()
         }
@@ -119,7 +133,11 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 if respond != nil{
                     let tempRememberToken = (respond!["data"] as! NSDictionary)["remember_token"] as! String
                     self.writeFirstToken(key: "tempRememberToken", value: tempRememberToken)
+                    debugPrint("temprem\(tempRememberToken)")
                     self.checkAppVersionStatus()
+
+                       
+                    
                 }
                 else{
                     self.animationView.stop()
@@ -129,26 +147,29 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
                 
                 
             }
-        }else if !isLoggedIn() {
+        }else if getData(key: "tempRememberToken") as! String == "none" && !isLoggedIn() {
             APIClient.rememberTokenRequest { (respond, error) in
                 if respond != nil{
                     let tempRememberToken = (respond!["data"] as! NSDictionary)["remember_token"] as! String
                     self.updataData(key: "tempRememberToken", value: tempRememberToken)
                     self.checkAppVersionStatus()
+
+                    
+                    
                 }
                 else{
                     self.animationView.stop()
                     self.showNetworkRetry()
-                    //print(error!)
+                    debugPrint(error!)
                 }
-                
-                
+            
             }
+            
         }
-        
         else{
+       
             self.checkAppVersionStatus()
-        }
+            }
     }
     func showNormalUpdateDialog(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -161,7 +182,6 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         updateController.modalPresentationStyle = .overCurrentContext
         self.present(updateController, animated: true)
         updateController.onDoneBlock = { result in
-            // Do something
             if self.isLoggedIn(){
                 self.navigateToMain(isCommingFromRegister: false)
             
@@ -185,7 +205,6 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
         updateController.modalPresentationStyle = .overCurrentContext
         self.present(updateController, animated: true)
         updateController.onDoneBlock = { result in
-            // Do something
             if self.isLoggedIn(){
                 self.navigateToMain(isCommingFromRegister: false)
             }else{
@@ -208,7 +227,6 @@ NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabi
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

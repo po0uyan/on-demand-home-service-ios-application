@@ -112,7 +112,8 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
      
         APIClient.codeRequestForLoginOrRegister(phoneNumber: self.phoneNumber, action:action,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
-            if responseObject != nil{
+            if responseObject != nil && !(responseObject!["respond"] is NSNull){
+                debugPrint(responseObject)
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
                     self.isPhoneNumber = !self.isPhoneNumber
                     self.animationView.stop()
@@ -151,9 +152,10 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
             if responseObject != nil{
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
 
-            let rememberToken = (responseObject!["data"] as! NSDictionary)["remember_token"]
-            self.updataData(key: "rememberToken", value: rememberToken!)
+            let rememberToken = ((responseObject!["data"] as! NSDictionary)["remember_token"]) as! String
+            self.updataData(key: "rememberToken", value: rememberToken)
             self.updataData(key: "isLoggedIn", value: true)
+            self.updateFcmToken(rememberToken)
             self.animationView.stop()
             self.animationView.isHidden = true
             self.dismiss(animated: true, completion: nil)
@@ -178,9 +180,10 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
             APIClient.requestForUserLogin(phoneNumber: phoneNumber, code: code, rememberToken: getData(key: "tempRememberToken") as! String) { (response, error) in
                 if response != nil{
                     if (self.checkRespondStatus(respond: response!["respond"] as! Int)){
-                        let rememberToken = ((response!["data"]! as! NSDictionary)["account"]! as! NSDictionary)["remember_token"]
-                        self.updataData(key: "rememberToken", value: rememberToken!)
+                        let rememberToken = ((response!["data"]! as! NSDictionary)["account"]! as! NSDictionary)["remember_token"] as! String
+                        self.updataData(key: "rememberToken", value: rememberToken)
                         self.updataData(key: "isLoggedIn", value: true)
+                        self.updateFcmToken(rememberToken)
                         self.animationView.stop()
                         self.animationView.isHidden = true
                         self.dismiss(animated: true, completion: nil)
@@ -198,7 +201,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                     
                 }
                 else{
-                    //debugPrint(error!)
+                    debugPrint(error!)
                     self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -261,6 +264,17 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         }
         
     }
+    func updateFcmToken(_ rememberToken:String){
+        let token = getData(key: "fCMToken") as! String
+        if token != "none"{
+        APIClient.postNotificationToken(rememberToken: rememberToken, requestParams: ["device_type":"ios", "remember_token_notification":"\(token)"], completionHandler: { (response, error) in
+            if response != nil {
+                debugPrint(response as Any)
+            }else{
+                self.updateFcmToken(token)
+            }
+        })
+        }}
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var maxLength = 11
         if !isPhoneNumber{

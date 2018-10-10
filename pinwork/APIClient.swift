@@ -268,5 +268,59 @@ class APIClient{
         
     }
     
+    static func  postNotificationTokenForTemp(rememberToken: String, requestParams:[String:String], completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        var requestParameters = requestParams
+        requestParameters["remember_token"] = rememberToken
+        APIManager.sharedManager.request(baseUrl+"postFreeUserRememberTokenNotification", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
     
+    static func  postNotificationToken(rememberToken: String, requestParams:[String:String], completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        var requestParameters = requestParams
+        requestParameters["remember_token"] = rememberToken
+        APIManager.sharedManager.request(baseUrl+"postUserRememberTokenNotification", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+    
+
+    static func  requestForNotifications(rememberToken: String, completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        let requestParameters = ["remember_token":rememberToken]
+        APIManager.sharedManager.request(baseUrl+"getNotifications", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
+
+
+
+
+
 }

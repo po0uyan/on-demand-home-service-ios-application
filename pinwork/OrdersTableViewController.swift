@@ -95,7 +95,7 @@ class OrdersTableViewController: UITableViewController {
                 if self.services.count > 0 {
                     self.tableView.restore()
                 }else{
-                    self.tableView.setEmptyMessage()
+                    self.tableView.setEmptyMessage("برای شما تا کنون سفارشی ثبت نشده است")
                 }
                 self.tableView.reloadData()
             }}
@@ -123,7 +123,7 @@ class OrdersTableViewController: UITableViewController {
                 if self.services.count > 0 {
                     self.tableView.restore()
                 }else{
-                    self.tableView.setEmptyMessage()
+                    self.tableView.setEmptyMessage("برای شما تا کنون سفارشی ثبت نشده است")
                 }
                 self.tableView.reloadData()
 
@@ -229,9 +229,9 @@ extension UIView {
     
 extension UITableView {
     
-    func setEmptyMessage() {
+    func setEmptyMessage(_ message:String) {
         let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        noDataLabel.text          = "برای شما تا کنون سفارشی ثبت نشده است"
+        noDataLabel.text = message
         noDataLabel.font = UIFont(name: "IRAN SansMobile(NoEn)", size: 18.0)
         noDataLabel.numberOfLines = 0
         noDataLabel.textColor     = UIColor.lightGray

@@ -7,13 +7,10 @@
 //
 
 import UIKit
-
+import ENMBadgedBarButtonItem
 class MainViewController: UIViewController, UIScrollViewDelegate {
-    @IBOutlet weak var hamButtonItem: UIBarButtonItem!
     
-    @IBOutlet weak var hambutton: UIButton!
-    @IBOutlet weak var notificationButton: UIButton!
-    
+    var leftBarButton : BadgedBarButtonItem!
     @IBOutlet weak var homecleanButton: UIButton!
     @IBOutlet weak var officeButton: UIButton!
     @IBOutlet weak var carButton: UIButton!
@@ -87,9 +84,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        hambutton.isEnabled = false
+       // hambutton.isEnabled = false
+        DispatchQueue.main.async {
+            self.setUpMenuButton()
+            self.setUpNotificationButton()
+        }
         reservedOrderButton?.isEnabled = false
-        notificationButton.isHidden = true
+        //notificationButton.isHidden = true
         reservedOrderButton = getUIBarButtonItemForNextLevel(title: " سفارش‌های رزرو شده ", image: "invoice")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
@@ -115,11 +116,71 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
             navigationController?.setToolbarHidden(true, animated: false)
             
         }
-        configurePageController()
-        configureMainScroll()
+        DispatchQueue.main.async {
+            self.configurePageController()
+            self.configureMainScroll()
+        }
+     
 
 
     }
+    func setUpMenuButton(){
+     
+        
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 24, height: 24)
+        menuBtn.setImage(UIImage(named:"menu-button"), for: .normal)
+        menuBtn.addTarget(self, action: #selector(showMenu), for: UIControlEvents.touchUpInside)
+        
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        self.navigationItem.rightBarButtonItem = menuBarItem
+        
+        
+        
+        
+    }
+    func setUpNotificationButton(){
+        let image = UIImage(imageLiteralResourceName: "notification")
+        
+        let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: 24, height: 24)
+        let barButton = BadgedBarButtonItem(
+            startingBadgeValue: 0,
+            frame: buttonFrame,
+            image: image
+        )
+        let currWidth = barButton.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = barButton.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        
+        leftBarButton = barButton
+        leftBarButton.addTarget(self, action: #selector(notifButtonTapped))
+        navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
+    func setUpReservedButton(){
+        let image = UIImage(imageLiteralResourceName: "notification")
+        
+        let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: 24, height: 24)
+        let barButton = BadgedBarButtonItem(
+            startingBadgeValue: 0,
+            frame: buttonFrame,
+            image: image
+        )
+        let currWidth = barButton.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = barButton.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        
+        leftBarButton = barButton
+        leftBarButton.addTarget(self, action: #selector(notifButtonTapped))
+        navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
     func configureSliderMenu(){
        
         animationView =  displaySpinner(onView: self.view)
@@ -139,7 +200,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
                 self.user = User(name: data["name"].string!, lastName: data["lastname"].string!, picture: data["picture"].string!, birthDay: self.check(data["birthday"]), email: self.check(data["email"]), phone_place: data["phone_place"].string!,
                     cellPhone: data["phone"].string!,
                     orders_count:data["orders_count"].intValue,orders_duration: data["orders_duration"].intValue, gender: User.genderType(rawValue: data["gender"].string!)!, money: data["money"].intValue, invite_hash: self.check(data["invite_hash"]), notification_unseen_count: response!["data"]["notification_unseen_count"].intValue, messages_unseen_count: response!["data"]["messages_unseen_count"].intValue)
-                self.hambutton.isEnabled = true
+                self.leftBarButton.badgeValue = self.user!.notification_unseen_count
+                //self.hambutton.isEnabled = true
                 self.reservedOrderButton?.isEnabled = true
 
             }}else{
@@ -186,7 +248,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         super.viewWillAppear(animated)
         //check if is after registration
         if MainViewController.isCommingFromRegister{
-                    hambutton.isHidden = true
+                    //hambutton.isHidden = true
                     self.navigationController?.setToolbarHidden(true, animated: false)
         }
 
@@ -206,25 +268,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
  
   
-    func showMenu(){
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//        let menuViewInstance = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-//        menuViewInstance.user = self.user
-//        menuViewInstance.modalTransitionStyle = .coverVertical
-//        menuViewInstance.isModalInPopover = true
-//        menuViewInstance.modalPresentationStyle = .overCurrentContext
-//
-//        //        mapViewInstance.onDoneBlock = { result in
-//        //            // Do something
-//        //
-//        //
-//        //        }
+   @objc func showMenu(){
         
         performSegue(withIdentifier: "MenuSegue", sender: self)
     }
     func loadFeatures(){
-        let featureArray = ["1.jpg","2.jpg","3.jpg"]
+        let featureArray = ["1.png","2.png","3.png"]
         
         for (index, image) in featureArray.enumerated(){
            let view = UIImageView(frame: CGRect(x: CGFloat(index)*self.view.frame.width, y: 0, width:  self.view.frame.width, height: mainScrollView.frame.height ))
@@ -247,28 +296,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
   @objc  func reservedOrderClicked(){
         performSegue(withIdentifier: "reservedOrdersSegue", sender: self)
     }
-    @IBAction func hamButtonClicked(_ sender: UIButton) {
-//        let sliderConstraint = view.constraints.filter({ $0.firstAttribute == .leading && $0.firstItem as? UIView == slideMenu }).first!
-//        if isMenuShowing{
-//
-//            sliderConstraint.constant = 0
-//            UIView.animate(withDuration: 0.3,animations: {
-//                self.view.layoutIfNeeded()
-//
-//            }, completion: { (finished: Bool) in
-//                self.slideMenu.isHidden = !self.slideMenu.isHidden
-//            })
-//        }else{
-//            sliderConstraint.constant = -200
-//            UIView.animate(withDuration: 0.6, animations: {self.view.layoutIfNeeded()
-//                self.slideMenu.isHidden = !self.slideMenu.isHidden
-//
-//            })
-//        }
-//        isMenuShowing = !isMenuShowing
-        
-        
-        showMenu()
+ 
+    @objc func notifButtonTapped(){
+        performSegue(withIdentifier: "notificationTabelViewSegue", sender: self)
         
     }
 }
