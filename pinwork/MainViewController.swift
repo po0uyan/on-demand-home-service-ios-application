@@ -109,6 +109,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
+   
         if !MainViewController.isCommingFromRegister{
             navigationController?.setToolbarHidden(false, animated: false)
             

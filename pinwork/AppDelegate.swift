@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyCnu-C8X3gH7jcJ7MiAKLI9akaCsUlcmbQ")
-        GMSPlacesClient.provideAPIKey("AIzaSyCnu-C8X3gH7jcJ7MiAKLI9akaCsUlcmbQ")
+        GMSServices.provideAPIKey("AIzaSyAmvXEljEcOD9N6uWCZai-SgsKfU-703D0")
+        GMSPlacesClient.provideAPIKey("AIzaSyAmvXEljEcOD9N6uWCZai-SgsKfU-703D0")
 
         ReachabilityManager.shared.startMonitoring()
         IQKeyboardManager.shared().isEnabled = true
