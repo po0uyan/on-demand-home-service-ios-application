@@ -84,13 +84,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       // hambutton.isEnabled = false
         DispatchQueue.main.async {
             self.setUpMenuButton()
             self.setUpNotificationButton()
         }
         reservedOrderButton?.isEnabled = false
-        //notificationButton.isHidden = true
         reservedOrderButton = getUIBarButtonItemForNextLevel(title: " سفارش‌های رزرو شده ", image: "invoice")
         var items = [UIBarButtonItem]()
         items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
@@ -116,6 +114,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         }else{
             navigationController?.setToolbarHidden(true, animated: false)
             
+            
         }
         DispatchQueue.main.async {
             self.configurePageController()
@@ -126,7 +125,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 
     }
     func setUpMenuButton(){
-     
+        if MainViewController.isCommingFromRegister{
+            leftBarButton = nil
+        }
+        else{
         
         let menuBtn = UIButton(type: .custom)
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 24, height: 24)
@@ -141,10 +143,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.rightBarButtonItem = menuBarItem
         
         
-        
+        }
         
     }
     func setUpNotificationButton(){
+        if MainViewController.isCommingFromRegister{
+            leftBarButton = nil
+        }
+        else{
         let image = UIImage(imageLiteralResourceName: "notification")
         
         let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: 24, height: 24)
@@ -161,6 +167,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         leftBarButton = barButton
         leftBarButton.addTarget(self, action: #selector(notifButtonTapped))
         navigationItem.leftBarButtonItem = leftBarButton
+        }
+        
     }
     
     func setUpReservedButton(){

@@ -80,13 +80,15 @@ class OrdersTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // performSegue(withIdentifier: "io", sender: self)
+       performSegue(withIdentifier: "io", sender: services[indexPath.row])
     }
     func fetchDoneServices(){
         loadingView = displaySpinner(onView: self.view)
         APIClient.requestForDoneServices(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                debugPrint(response)
+
                 if self.tokenHasExpired(response!["respond"].intValue){
                     self.showTokenExpiredPopUp()
                 }
@@ -114,6 +116,7 @@ class OrdersTableViewController: UITableViewController {
         APIClient.requestForUserProfile(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
+                debugPrint(response)
                 if self.tokenHasExpired(response!["respond"].intValue){
                     self.showTokenExpiredPopUp()
                 }
@@ -184,7 +187,11 @@ return orderImages["home"]!
         let date = dateFormatter.date(from: String(startDate))!
         return self.getProperDate(date: date) + " ساعت " + String(startDateValues[1]).convertToPersian()
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ServiceDetailesViewController{
+            destination.service = sender as! JSON
+        }
+    }
     
 }
 

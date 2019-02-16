@@ -20,7 +20,7 @@ class MainNavigationViewController: UINavigationController {
         self.toolbar.isTranslucent = false
         self.navigationBar.isTranslucent = false
         self.navigationBar.clipsToBounds = false
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font: UIFont(name: "IRAN SansMobile(NoEn)", size: 20.0)!]
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font: UIFont(name: "IRAN SansMobile(NoEn)", size: 17.0)!]
         self.navigationBar.titleTextAttributes = textAttributes
     }
 

@@ -150,6 +150,7 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
         APIClient.checkCodeForRegister(phoneNumber:phoneNumber, code:code,rememberToken: getData(key: "tempRememberToken") as! String){
             responseObject, error in
             if responseObject != nil{
+                debugPrint(responseObject)
                 if (self.checkRespondStatus(respond: responseObject!["respond"] as! Int)){
 
             let rememberToken = ((responseObject!["data"] as! NSDictionary)["remember_token"]) as! String
@@ -174,8 +175,10 @@ class ActivationCodeDemandViewController: UIViewController, UITextFieldDelegate{
                 debugPrint(error!)
                 self.showToast(message: "در انجام عملیات خطایی رخ داده، مجددا تلاش نمایید")
             }
-         
+            self.animationView.stop()
+            self.animationView.isHidden = true
         }
+            
         }else{
             APIClient.requestForUserLogin(phoneNumber: phoneNumber, code: code, rememberToken: getData(key: "tempRememberToken") as! String) { (response, error) in
                 if response != nil{

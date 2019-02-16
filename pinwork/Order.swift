@@ -59,6 +59,7 @@ class Order{
         
             let requestHeaders = ["User-Agent": "iphone"]
             orderTillNow["remember_token"] = getData(key: "rememberToken") as! String
+        debugPrint(orderTillNow)
         APIClient.APIManager.sharedManager.request(APIClient.baseUrl+url, method:.post, parameters:self.orderTillNow ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
                 switch response.result {
                 case .success(let value):

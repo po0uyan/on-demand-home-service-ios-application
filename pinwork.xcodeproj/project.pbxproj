@@ -24,7 +24,6 @@
 		881D36F020D26E800099839B /* move-to-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36EF20D26E7E0099839B /* move-to-next.png */; };
 		881D36F420D286B80099839B /* CarWashOrderDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */; };
 		881D36F620D290100099839B /* time-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 881D36F520D2900F0099839B /* time-1.png */; };
-		881D450F21AAE1DE006B4EC3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 881D450E21AAE1DE006B4EC3 /* GoogleService-Info.plist */; };
 		88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3620BC0714007D6363 /* IRANSansMobile.ttf */; };
 		88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */; };
 		88240F3E20BC0715007D6363 /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */; };
@@ -40,6 +39,7 @@
 		88240F5820BC72A5007D6363 /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5720BC72A4007D6363 /* calculator.png */; };
 		88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5920BC72B7007D6363 /* customer_service_icon.png */; };
 		88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5B20BD9055007D6363 /* FirstScrollView.xib */; };
+		8828EF3A21E9DEFE005BB781 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */; };
 		88291F4A2114D5E1004859A7 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */; };
 		882B165220F78BBF0008CE9B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882B165120F78BBF0008CE9B /* Order.swift */; };
 		8831F5E820DD15AA00F4D8D8 /* ParkingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */; };
@@ -219,6 +219,8 @@
 		88240F5720BC72A4007D6363 /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		88240F5920BC72B7007D6363 /* customer_service_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customer_service_icon.png; sourceTree = "<group>"; };
 		88240F5B20BD9055007D6363 /* FirstScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstScrollView.xib; sourceTree = "<group>"; };
+		8828EF3721E9DC98005BB781 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/pouyan/Developer/pinwork/pinwork/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		882B165120F78BBF0008CE9B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingOrderViewController.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */,
 				88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */,
 				88E3F61220C1ABA600BA6516 /* APIClient.swift */,
+				8828EF3721E9DC98005BB781 /* GoogleService-Info.plist */,
 				88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */,
 				8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */,
 				8841B5A620C743E000C80383 /* RetryViewController.swift */,
@@ -638,6 +641,7 @@
 				882B165120F78BBF0008CE9B /* Order.swift */,
 				88471DD420F8C77E004037F3 /* MenuViewController.swift */,
 				88471DD820F8EA14004037F3 /* MenuAttributes.swift */,
+				8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */,
 				88471DEE20F9020B004037F3 /* User.swift */,
 				88FC9BCF20FCE1F8007F43F7 /* OrdersTableViewController.swift */,
 				88FC9BEA20FE8C31007F43F7 /* EditProfileViewController.swift */,
@@ -908,9 +912,9 @@
 				88FC9BE120FD48FF007F43F7 /* work3.png in Resources */,
 				88240F4A20BC086D007D6363 /* IRANSansMobile(NoEn)_Medium.ttf in Resources */,
 				88240F4C20BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf in Resources */,
+				8828EF3A21E9DEFE005BB781 /* GoogleService-Info.plist in Resources */,
 				88CA9434210A8E77006B7D77 /* check.png in Resources */,
 				88B15C3020BA705E004CE674 /* Main.storyboard in Resources */,
-				881D450F21AAE1DE006B4EC3 /* GoogleService-Info.plist in Resources */,
 				88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */,
 				8898DB3620D54AA500E522A5 /* timeintval.png in Resources */,
 				883247ED213AD7F6005EC234 /* frame.png in Resources */,

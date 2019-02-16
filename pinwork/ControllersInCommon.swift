@@ -12,6 +12,12 @@ import BRYXBanner
 import CoreData
 import Lottie
 import SwiftyJSON
+extension UIView
+{
+    func copyView<T: UIView>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
+    }
+}
 extension String {
     func convertEngNumToPersianNum()->String{
         let format = NumberFormatter()
@@ -179,6 +185,21 @@ extension UIViewController {
         
         
         return "\(calendar.weekdaySymbols[datecmpts.weekday! - 1]) \(datecmpts.day!) \(calendar.monthSymbols[datecmpts.month! - 1])".convertToPersian()
+        
+    }
+    func getProperDate(inputStringDate:String)->String{
+            let format = "yyyy-MM-dd HH:mm:ss"
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tehran")
+            dateFormatter.locale = Locale(identifier: "fa-IR")
+            dateFormatter.calendar = Calendar(identifier: .gregorian)
+            dateFormatter.dateFormat = format
+            let date = dateFormatter.date(from: inputStringDate)
+            var calendar = Calendar(identifier: .persian )
+            let myLocale = Locale(identifier: "fa_IR")
+            calendar.locale = myLocale
+            var datecmpts = calendar.dateComponents([.day, .month, .weekday, .year], from: date!)
+        return "\(calendar.weekdaySymbols[datecmpts.weekday! - 1]) \(datecmpts.day!) \(calendar.monthSymbols[datecmpts.month! - 1]) \(datecmpts.year!)".convertToPersian()
         
     }
     
