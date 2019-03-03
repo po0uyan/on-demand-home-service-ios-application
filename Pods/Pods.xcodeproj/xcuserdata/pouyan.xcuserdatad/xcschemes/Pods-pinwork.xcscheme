@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "89DA7044B6CD02323971EA093B3DC698"
+               BlueprintIdentifier = "11F27EA7C7883B5EABD7FA3D3AB7E020"
                BuildableName = "Pods_pinwork.framework"
                BlueprintName = "Pods-pinwork"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "89DA7044B6CD02323971EA093B3DC698"
+            BlueprintIdentifier = "11F27EA7C7883B5EABD7FA3D3AB7E020"
             BuildableName = "Pods_pinwork.framework"
             BlueprintName = "Pods-pinwork"
             ReferencedContainer = "container:Pods.xcodeproj">

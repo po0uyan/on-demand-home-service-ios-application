@@ -38,6 +38,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - HCSStarRatingView (1.5)
   - IQKeyboardManager (6.1.1)
+  - Kingfisher (5.1.0)
   - lottie-ios (2.0.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - GooglePlaces
   - HCSStarRatingView (~> 1.5)
   - IQKeyboardManager
+  - Kingfisher (~> 5.0)
   - lottie-ios (= 2.0.3)
   - ReachabilitySwift
   - SwiftyJSON (~> 4.0)
@@ -77,6 +79,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - HCSStarRatingView
     - IQKeyboardManager
+    - Kingfisher
     - lottie-ios
     - nanopb
     - Protobuf
@@ -97,12 +100,13 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   lottie-ios: 445f77c7f661f95587e49095a1ac7de43f0da896
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 10df5da389664191219773a788d6278538212036
+PODFILE CHECKSUM: df4c63afe1273799100d6639505d7350da9dac74
 
 COCOAPODS: 1.5.3

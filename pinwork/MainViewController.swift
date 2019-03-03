@@ -297,10 +297,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         currentPage = currentPage % 3
         mainScrollView.setContentOffset(CGPoint(x:CGFloat(currentPage) * mainScrollView.bounds.width, y: 0), animated: true)
         currentPage += 1
-        pageControl!.currentPage = currentPage - 1
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //pageController.currentPage = scrollView. - 1
+            let page = scrollView.contentOffset.x/scrollView.frame.size.width
+       self.pageControl?.currentPage = Int(page)
+        
     }
   @objc  func reservedOrderClicked(){
         performSegue(withIdentifier: "reservedOrdersSegue", sender: self)
@@ -308,6 +309,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
  
     @objc func notifButtonTapped(){
         performSegue(withIdentifier: "notificationTabelViewSegue", sender: self)
-        
+        self.leftBarButton.badgeValue = 0
+
     }
 }

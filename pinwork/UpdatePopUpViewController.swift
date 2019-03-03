@@ -14,7 +14,7 @@ class UpdatePopUpViewController: UIViewController {
     @IBOutlet weak var updateUIButton: UIButton!
     @IBOutlet weak var cancelUIButton: UIButton!
     @IBAction func upDateClicked(_ sender: UIButton) {
-        let myUrl = "https://new.sibapp.com/applications/pinwork"
+        let myUrl = "https://pinwork.ir/ios"
         if let url = URL(string: "\(myUrl)") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }

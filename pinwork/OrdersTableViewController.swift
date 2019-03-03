@@ -28,15 +28,6 @@ class OrdersTableViewController: UITableViewController {
 
         self.fetchDoneServices()
         }
-        
-        
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
   
@@ -80,15 +71,19 @@ class OrdersTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       performSegue(withIdentifier: "io", sender: services[indexPath.row])
+        if self.isReservedOrder{
+            performSegue(withIdentifier: "ReservedServiceDetailesWorkerSegue", sender: services[indexPath.row])
+            
+        }else{
+            performSegue(withIdentifier: "DoneServiceDetailesWorkerSegue", sender: services[indexPath.row])
+
+        }
     }
     func fetchDoneServices(){
         loadingView = displaySpinner(onView: self.view)
         APIClient.requestForDoneServices(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
-                debugPrint(response)
-
                 if self.tokenHasExpired(response!["respond"].intValue){
                     self.showTokenExpiredPopUp()
                 }
@@ -116,7 +111,6 @@ class OrdersTableViewController: UITableViewController {
         APIClient.requestForUserProfile(rememberToken: getData(key: "rememberToken") as! String) { (response, error) in
             self.removeSpinner(spinner: self.loadingView)
             if response != nil{
-                debugPrint(response)
                 if self.tokenHasExpired(response!["respond"].intValue){
                     self.showTokenExpiredPopUp()
                 }
@@ -143,12 +137,9 @@ class OrdersTableViewController: UITableViewController {
     func getProperImageName(for service:JSON)->String{
         switch service["service_type"] {
         case "cleaning_work": //means just cleaning not cleaning work office
-            if service["cleaning_type"] == "work"{
-                return orderImages["office"]!
-            }
-            else{
-                return orderImages["home"]!
-            }
+            return orderImages["office"]!
+        case "cleaning_house":
+            return orderImages["home"]!
         case "carwash":
             return orderImages["carwash"]!
         case "joints":
@@ -162,12 +153,9 @@ return orderImages["home"]!
     func getProperOrderLabel(for service:JSON)->String{
         switch service["service_type"] {
         case "cleaning_work": //means just cleaning not cleaning work office
-            if service["cleaning_type"] == "work"{
-                return "سرویس نظافت دفتر کار"
-            }
-            else{
-                return "سرویس نظافت منزل"
-            }
+             return "سرویس نظافت دفتر کار"
+        case "cleaning_house":
+            return "سرویس نظافت منزل"
         case "carwash":
             return "سرویس کارواش"
         case "joints":
@@ -188,9 +176,20 @@ return orderImages["home"]!
         return self.getProperDate(date: date) + " ساعت " + String(startDateValues[1]).convertToPersian()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ServiceDetailesViewController{
-            destination.service = sender as! JSON
+
+        switch segue.identifier {
+        case "DoneServiceDetailesWorkerSegue":
+
+            if let destination = segue.destination as? DoneServiceDetailesViewController{
+                destination.service = sender as! JSON
+            }
+        default:
+
+            if let destination = segue.destination as? ReservedServiceDetailesViewController{
+                destination.service = sender as! JSON
+            }
         }
+      
     }
     
 }

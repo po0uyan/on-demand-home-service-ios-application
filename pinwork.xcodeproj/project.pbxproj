@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88003D05221EE9B900A9D125 /* AssuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88003D04221EE9B900A9D125 /* AssuranceViewController.swift */; };
+		88003D07221EEC6000A9D125 /* assurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 88003D06221EEC5D00A9D125 /* assurance.png */; };
+		88003D092222CBCA00A9D125 /* InformUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88003D082222CBCA00A9D125 /* InformUserViewController.swift */; };
+		88003D0D2222F15600A9D125 /* newmessage.json in Resources */ = {isa = PBXBuildFile; fileRef = 88003D0C2222F15600A9D125 /* newmessage.json */; };
 		8803849320DFBECC00312E3A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8803849220DFBECC00312E3A /* MapViewController.swift */; };
 		8807212B2107D6390013F88D /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = 8807212A2107D6390013F88D /* done.json */; };
 		8807212D2107D66C0013F88D /* RegisterringDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8807212C2107D66C0013F88D /* RegisterringDoneViewController.swift */; };
@@ -34,10 +38,6 @@
 		88240F4C20BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4620BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf */; };
 		88240F4D20BC086D007D6363 /* IRAN SansMobile(NoEn).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4720BC086D007D6363 /* IRAN SansMobile(NoEn).ttf */; };
 		88240F4E20BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88240F4820BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf */; };
-		88240F5420BC7286007D6363 /* pro_trained.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5320BC7285007D6363 /* pro_trained.png */; };
-		88240F5620BC7294007D6363 /* pro_trusted.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5520BC7294007D6363 /* pro_trusted.png */; };
-		88240F5820BC72A5007D6363 /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5720BC72A4007D6363 /* calculator.png */; };
-		88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5920BC72B7007D6363 /* customer_service_icon.png */; };
 		88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88240F5B20BD9055007D6363 /* FirstScrollView.xib */; };
 		8828EF3A21E9DEFE005BB781 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */; };
 		88291F4A2114D5E1004859A7 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */; };
@@ -93,6 +93,9 @@
 		8877733C20F65527008B7C0C /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8877733B20F65525008B7C0C /* refresh.png */; };
 		88806D6D2116E26100C4F34F /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 88806D6C2116E26100C4F34F /* notification.png */; };
 		88806D6F2116E44A00C4F34F /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 88806D6E2116E44A00C4F34F /* menu-button.png */; };
+		88936B7522183C2C004EBEF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88936B7422183C2C004EBEF6 /* GoogleService-Info.plist */; };
+		88936B772218732E004EBEF6 /* ReservedServiceDetaileWorkerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88936B762218732E004EBEF6 /* ReservedServiceDetaileWorkerViewCell.swift */; };
+		88951DBF221D8DC8000E03FC /* search-app.json in Resources */ = {isa = PBXBuildFile; fileRef = 88951DBE221D8DC8000E03FC /* search-app.json */; };
 		88973D1921089DB400599B47 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88973D1821089DB400599B47 /* Lottie.framework */; };
 		88973D1B21089E1200599B47 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88973D1A21089E1200599B47 /* BRYXBanner.framework */; };
 		88973D1D21089E3100599B47 /* HCSStarRatingView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88973D1C21089E3100599B47 /* HCSStarRatingView.framework */; };
@@ -111,13 +114,20 @@
 		88A8E9B420CC11AE00EB59CE /* HomeCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8E9B320CC11AE00EB59CE /* HomeCleaning.swift */; };
 		88A8E9B620CC11CA00EB59CE /* OfficeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8E9B520CC11CA00EB59CE /* OfficeButton.swift */; };
 		88AB1D1C20D55EB000E45D8B /* OrderDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */; };
+		88AC8AFE222A6DA500AC601A /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8AFD222A6DA200AC601A /* app-icon.png */; };
+		88AC8B00222A6E5800AC601A /* pinwork-logo-fa.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8AFF222A6E5600AC601A /* pinwork-logo-fa.png */; };
+		88AC8B02222A717E00AC601A /* poshtibani.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8B01222A717D00AC601A /* poshtibani.png */; };
+		88AC8B04222A764A00AC601A /* gheymat-shafaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8B03222A764800AC601A /* gheymat-shafaf.png */; };
+		88AC8B06222A766900AC601A /* niroo-amoozesh-dide.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8B05222A766700AC601A /* niroo-amoozesh-dide.png */; };
+		88AC8B08222A767F00AC601A /* niru-ghabele-etemad.png in Resources */ = {isa = PBXBuildFile; fileRef = 88AC8B07222A767D00AC601A /* niru-ghabele-etemad.png */; };
+		88AC8B0A222A9D1400AC601A /* DoneServiceDetaileWorkerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC8B09222A9D1400AC601A /* DoneServiceDetaileWorkerViewCell.swift */; };
+		88AC8B0C222AA25500AC601A /* DoneServiceDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC8B0B222AA25500AC601A /* DoneServiceDetailesViewController.swift */; };
 		88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2A20BA705E004CE674 /* AppDelegate.swift */; };
 		88B15C2D20BA705E004CE674 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C2C20BA705E004CE674 /* ViewController.swift */; };
 		88B15C3020BA705E004CE674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C2E20BA705E004CE674 /* Main.storyboard */; };
 		88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */; };
 		88B15C3520BA705F004CE674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3420BA705F004CE674 /* Assets.xcassets */; };
 		88B15C3820BA705F004CE674 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */; };
-		88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */; };
 		88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */; };
 		88B2062120BAE97D00C0A81D /* load2.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062020BAE97D00C0A81D /* load2.json */; };
 		88B2062320BB381D00C0A81D /* load3.json in Resources */ = {isa = PBXBuildFile; fileRef = 88B2062220BB381D00C0A81D /* load3.json */; };
@@ -128,7 +138,6 @@
 		88B2312020C8B04D0087669C /* MainSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B2311F20C8B04D0087669C /* MainSlider.swift */; };
 		88B2313120C8D3BC0087669C /* MoreServicesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B2313020C8D3BC0087669C /* MoreServicesButton.swift */; };
 		88B2313320C8DD0D0087669C /* MoreServicesButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B2313220C8DD0D0087669C /* MoreServicesButton.xib */; };
-		88BEB10120CD9C970083F05E /* SliderMenuFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BEB10020CD9C970083F05E /* SliderMenuFeaturesView.swift */; };
 		88BEB10320CDB44E0083F05E /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 88BEB10220CDB44D0083F05E /* user.png */; };
 		88CA9434210A8E77006B7D77 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CA9433210A8E77006B7D77 /* check.png */; };
 		88CD084620C413830047D568 /* update_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 88CD084520C413830047D568 /* update_available.png */; };
@@ -160,7 +169,7 @@
 		88FC9BF621007E81007F43F7 /* AboutUsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC9BF521007E81007F43F7 /* AboutUsWebViewController.swift */; };
 		88FC9BF8210296B1007F43F7 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FC9BF7210296AE007F43F7 /* clock.png */; };
 		88FC9BFA210299E4007F43F7 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FC9BF9210299E1007F43F7 /* money.png */; };
-		88FC9BFC21048853007F43F7 /* ServiceDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC9BFB21048853007F43F7 /* ServiceDetailesViewController.swift */; };
+		88FC9BFC21048853007F43F7 /* ReservedServiceDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC9BFB21048853007F43F7 /* ReservedServiceDetailesViewController.swift */; };
 		88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */; };
 		88FE191220C32B9B00ECA9C9 /* UpdatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */; };
 		B99746ECA67371005F5846AD /* Pods_pinwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D3BC5520D2AD8B004A315F /* Pods_pinwork.framework */; };
@@ -184,6 +193,10 @@
 		255E68992B18D5AE8CC79142 /* Pods-pinworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkTests/Pods-pinworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BFE0D4AC1B50D19D10C40B1 /* Pods-pinwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinwork/Pods-pinwork.release.xcconfig"; sourceTree = "<group>"; };
 		85E4AA82A9F38503ABBEEDC4 /* Pods-pinworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkUITests/Pods-pinworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88003D04221EE9B900A9D125 /* AssuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssuranceViewController.swift; sourceTree = "<group>"; };
+		88003D06221EEC5D00A9D125 /* assurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assurance.png; sourceTree = "<group>"; };
+		88003D082222CBCA00A9D125 /* InformUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformUserViewController.swift; sourceTree = "<group>"; };
+		88003D0C2222F15600A9D125 /* newmessage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newmessage.json; sourceTree = "<group>"; };
 		8803849220DFBECC00312E3A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8807212A2107D6390013F88D /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		8807212C2107D66C0013F88D /* RegisterringDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterringDoneViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +216,6 @@
 		881D36EF20D26E7E0099839B /* move-to-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "move-to-next.png"; sourceTree = "<group>"; };
 		881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashOrderDateTimeViewController.swift; sourceTree = "<group>"; };
 		881D36F520D2900F0099839B /* time-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time-1.png"; sourceTree = "<group>"; };
-		881D450E21AAE1DE006B4EC3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88240F3620BC0714007D6363 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
 		88240F3720BC0714007D6363 /* IRANSansMobile_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_UltraLight.ttf; sourceTree = "<group>"; };
 		88240F3820BC0714007D6363 /* IRANSansMobile_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Bold.ttf; sourceTree = "<group>"; };
@@ -214,12 +226,7 @@
 		88240F4620BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_ultralight.ttf"; sourceTree = "<group>"; };
 		88240F4720BC086D007D6363 /* IRAN SansMobile(NoEn).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRAN SansMobile(NoEn).ttf"; sourceTree = "<group>"; };
 		88240F4820BC086D007D6363 /* IRANSansMobile(NoEn)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(NoEn)_Light.ttf"; sourceTree = "<group>"; };
-		88240F5320BC7285007D6363 /* pro_trained.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro_trained.png; sourceTree = "<group>"; };
-		88240F5520BC7294007D6363 /* pro_trusted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pro_trusted.png; sourceTree = "<group>"; };
-		88240F5720BC72A4007D6363 /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
-		88240F5920BC72B7007D6363 /* customer_service_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customer_service_icon.png; sourceTree = "<group>"; };
 		88240F5B20BD9055007D6363 /* FirstScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstScrollView.xib; sourceTree = "<group>"; };
-		8828EF3721E9DC98005BB781 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/pouyan/Developer/pinwork/pinwork/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		882B165120F78BBF0008CE9B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -276,6 +283,9 @@
 		8877733B20F65525008B7C0C /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		88806D6C2116E26100C4F34F /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		88806D6E2116E44A00C4F34F /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		88936B7422183C2C004EBEF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		88936B762218732E004EBEF6 /* ReservedServiceDetaileWorkerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedServiceDetaileWorkerViewCell.swift; sourceTree = "<group>"; };
+		88951DBE221D8DC8000E03FC /* search-app.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-app.json"; sourceTree = "<group>"; };
 		88973D1821089DB400599B47 /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88973D1A21089E1200599B47 /* BRYXBanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BRYXBanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88973D1C21089E3100599B47 /* HCSStarRatingView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HCSStarRatingView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +304,14 @@
 		88A8E9B320CC11AE00EB59CE /* HomeCleaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCleaning.swift; sourceTree = "<group>"; };
 		88A8E9B520CC11CA00EB59CE /* OfficeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeButton.swift; sourceTree = "<group>"; };
 		88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDateTimeViewController.swift; sourceTree = "<group>"; };
+		88AC8AFD222A6DA200AC601A /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
+		88AC8AFF222A6E5600AC601A /* pinwork-logo-fa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinwork-logo-fa.png"; sourceTree = "<group>"; };
+		88AC8B01222A717D00AC601A /* poshtibani.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poshtibani.png; sourceTree = "<group>"; };
+		88AC8B03222A764800AC601A /* gheymat-shafaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gheymat-shafaf.png"; sourceTree = "<group>"; };
+		88AC8B05222A766700AC601A /* niroo-amoozesh-dide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "niroo-amoozesh-dide.png"; sourceTree = "<group>"; };
+		88AC8B07222A767D00AC601A /* niru-ghabele-etemad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "niru-ghabele-etemad.png"; sourceTree = "<group>"; };
+		88AC8B09222A9D1400AC601A /* DoneServiceDetaileWorkerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneServiceDetaileWorkerViewCell.swift; sourceTree = "<group>"; };
+		88AC8B0B222AA25500AC601A /* DoneServiceDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneServiceDetailesViewController.swift; sourceTree = "<group>"; };
 		88B15C2720BA705E004CE674 /* pinwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B15C2A20BA705E004CE674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B15C2C20BA705E004CE674 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +320,6 @@
 		88B15C3420BA705F004CE674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88B15C3720BA705F004CE674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B15C3920BA705F004CE674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinwork-logo-fa.png"; sourceTree = "<group>"; };
 		88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		88B2062020BAE97D00C0A81D /* load2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load2.json; sourceTree = "<group>"; };
 		88B2062220BB381D00C0A81D /* load3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load3.json; sourceTree = "<group>"; };
@@ -313,7 +330,6 @@
 		88B2311F20C8B04D0087669C /* MainSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSlider.swift; sourceTree = "<group>"; };
 		88B2313020C8D3BC0087669C /* MoreServicesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreServicesButton.swift; sourceTree = "<group>"; };
 		88B2313220C8DD0D0087669C /* MoreServicesButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreServicesButton.xib; sourceTree = "<group>"; };
-		88BEB10020CD9C970083F05E /* SliderMenuFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderMenuFeaturesView.swift; sourceTree = "<group>"; };
 		88BEB10220CDB44D0083F05E /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		88CA9433210A8E77006B7D77 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		88CD084520C413830047D568 /* update_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = update_available.png; sourceTree = "<group>"; };
@@ -360,7 +376,7 @@
 		88FC9BF521007E81007F43F7 /* AboutUsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsWebViewController.swift; sourceTree = "<group>"; };
 		88FC9BF7210296AE007F43F7 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		88FC9BF9210299E1007F43F7 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money.png; sourceTree = "<group>"; };
-		88FC9BFB21048853007F43F7 /* ServiceDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailesViewController.swift; sourceTree = "<group>"; };
+		88FC9BFB21048853007F43F7 /* ReservedServiceDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedServiceDetailesViewController.swift; sourceTree = "<group>"; };
 		88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScrollView.swift; sourceTree = "<group>"; };
 		88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePopUpViewController.swift; sourceTree = "<group>"; };
 		90F22CC510F451E15FA5B30A /* Pods-pinworkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pinworkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pinworkUITests/Pods-pinworkUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -417,8 +433,10 @@
 		885D30C520F00EBB00D2980F /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				88003D0C2222F15600A9D125 /* newmessage.json */,
 				88E3F61020C019D400BA6516 /* trail_loading.json */,
 				8807212A2107D6390013F88D /* done.json */,
+				88951DBE221D8DC8000E03FC /* search-app.json */,
 				88B2062220BB381D00C0A81D /* load3.json */,
 				88471DF020F9097B004037F3 /* dem3.json */,
 				88FC9BBB20F92672007F43F7 /* loading2.json */,
@@ -455,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				8899B0DD20C7EC2B00D1F8F1 /* login_register.png */,
+				88003D06221EEC5D00A9D125 /* assurance.png */,
 				88CD084520C413830047D568 /* update_available.png */,
 				8841B5A420C73E5500C80383 /* retry_error.png */,
 				8849CAF820C6CF4200E2A5A8 /* no-wifi.png */,
@@ -465,10 +484,10 @@
 		885D30C920F00F3700D2980F /* IntroSliderIcons */ = {
 			isa = PBXGroup;
 			children = (
-				88240F5720BC72A4007D6363 /* calculator.png */,
-				88240F5520BC7294007D6363 /* pro_trusted.png */,
-				88240F5920BC72B7007D6363 /* customer_service_icon.png */,
-				88240F5320BC7285007D6363 /* pro_trained.png */,
+				88AC8B03222A764800AC601A /* gheymat-shafaf.png */,
+				88AC8B05222A766700AC601A /* niroo-amoozesh-dide.png */,
+				88AC8B07222A767D00AC601A /* niru-ghabele-etemad.png */,
+				88AC8B01222A717D00AC601A /* poshtibani.png */,
 			);
 			path = IntroSliderIcons;
 			sourceTree = "<group>";
@@ -515,7 +534,7 @@
 		885D30CD20F0112100D2980F /* StartUpLogo */ = {
 			isa = PBXGroup;
 			children = (
-				88B15C5C20BA8A4F004CE674 /* pinwork-logo-fa.png */,
+				88AC8AFF222A6E5600AC601A /* pinwork-logo-fa.png */,
 			);
 			path = StartUpLogo;
 			sourceTree = "<group>";
@@ -560,7 +579,7 @@
 			path = ParkingCleaningStufs;
 			sourceTree = "<group>";
 		};
-		88A8E9B820CC131900EB59CE /* CustomButtons */ = {
+		88A8E9B820CC131900EB59CE /* ButtonGroups */ = {
 			isa = PBXGroup;
 			children = (
 				88A8E9AB20CC105300EB59CE /* GarageButton.xib */,
@@ -574,7 +593,106 @@
 				88A8E9B320CC11AE00EB59CE /* HomeCleaning.swift */,
 				88A8E9B520CC11CA00EB59CE /* OfficeButton.swift */,
 			);
-			name = CustomButtons;
+			name = ButtonGroups;
+			sourceTree = "<group>";
+		};
+		88AC8B0D222AA78600AC601A /* TabelViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				88471DD620F8E691004037F3 /* MenuTableViewCell.swift */,
+				88936B762218732E004EBEF6 /* ReservedServiceDetaileWorkerViewCell.swift */,
+				88AC8B09222A9D1400AC601A /* DoneServiceDetaileWorkerViewCell.swift */,
+			);
+			name = TabelViewCells;
+			sourceTree = "<group>";
+		};
+		88AC8B0E222AA7EC00AC601A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88B15C2C20BA705E004CE674 /* ViewController.swift */,
+				88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */,
+				88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */,
+				88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */,
+				8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */,
+				8841B5A620C743E000C80383 /* RetryViewController.swift */,
+				88B2311720C885770087669C /* MainViewController.swift */,
+				88B2311B20C8A0F00087669C /* MainNavigationViewController.swift */,
+				881D36E120D12D4E0099839B /* CarWashViewController.swift */,
+				881D36EB20D16A320099839B /* PopUpPickerViewController.swift */,
+				881D36ED20D2564A0099839B /* PopUpDatePickerViewController.swift */,
+				881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */,
+				88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */,
+				8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */,
+				8831F5E920DD8ED200F4D8D8 /* WorkerPickerViewController.swift */,
+				8803849220DFBECC00312E3A /* MapViewController.swift */,
+				88E0702E20EE228800DB46AE /* AddressPopUpViewController.swift */,
+				8877732220F22D90008B7C0C /* OtherServicesViewController.swift */,
+				8877732620F2676D008B7C0C /* OtherServicesOrderViewController.swift */,
+				88471DD420F8C77E004037F3 /* MenuViewController.swift */,
+				88FC9BCF20FCE1F8007F43F7 /* OrdersTableViewController.swift */,
+				88FC9BEA20FE8C31007F43F7 /* EditProfileViewController.swift */,
+				88FC9BF521007E81007F43F7 /* AboutUsWebViewController.swift */,
+				88FC9BFB21048853007F43F7 /* ReservedServiceDetailesViewController.swift */,
+				8807212C2107D66C0013F88D /* RegisterringDoneViewController.swift */,
+				8807212E2107EDBB0013F88D /* SureAboutLogOutViewController.swift */,
+				8807213021080D1E0013F88D /* CompeleteRegisterFormViewController.swift */,
+				8857FA07210CFB7500B42BDD /* TokenExpiredViewController.swift */,
+				88E116D82114958D005496EC /* WorkerProfileViewController.swift */,
+				88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */,
+				88003D04221EE9B900A9D125 /* AssuranceViewController.swift */,
+				88003D082222CBCA00A9D125 /* InformUserViewController.swift */,
+				88AC8B0B222AA25500AC601A /* DoneServiceDetailesViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		88AC8B0F222AA89F00AC601A /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */,
+				88707F9B21106CC100F0250C /* pinwork.entitlements */,
+				88936B7422183C2C004EBEF6 /* GoogleService-Info.plist */,
+				88B15C3420BA705F004CE674 /* Assets.xcassets */,
+				88B15C3920BA705F004CE674 /* Info.plist */,
+				88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
+		88AC8B10222AA90A00AC601A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				882B165120F78BBF0008CE9B /* Order.swift */,
+				88471DD820F8EA14004037F3 /* MenuAttributes.swift */,
+				88471DEE20F9020B004037F3 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		88AC8B11222AA92D00AC601A /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				88E3F61220C1ABA600BA6516 /* APIClient.swift */,
+			);
+			name = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		88AC8B12222AA94D00AC601A /* IntroView */ = {
+			isa = PBXGroup;
+			children = (
+				88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */,
+				88240F5B20BD9055007D6363 /* FirstScrollView.xib */,
+			);
+			name = IntroView;
+			sourceTree = "<group>";
+		};
+		88AC8B13222AA9A900AC601A /* MainPageSlider */ = {
+			isa = PBXGroup;
+			children = (
+				88B2311D20C8AF720087669C /* MainSlider.xib */,
+				88B2311F20C8B04D0087669C /* MainSlider.swift */,
+			);
+			name = MainPageSlider;
 			sourceTree = "<group>";
 		};
 		88B15C1E20BA705E004CE674 = {
@@ -600,59 +718,19 @@
 		88B15C2920BA705E004CE674 /* pinwork */ = {
 			isa = PBXGroup;
 			children = (
-				88707F9B21106CC100F0250C /* pinwork.entitlements */,
-				88471DD620F8E691004037F3 /* MenuTableViewCell.swift */,
 				88B15C2A20BA705E004CE674 /* AppDelegate.swift */,
-				88B15C2C20BA705E004CE674 /* ViewController.swift */,
-				88FE191120C32B9B00ECA9C9 /* UpdatePopUpViewController.swift */,
-				88B15C5E20BAA0B3004CE674 /* LoginPageViewController.swift */,
-				88E3F60E20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift */,
-				88E3F61220C1ABA600BA6516 /* APIClient.swift */,
-				8828EF3721E9DC98005BB781 /* GoogleService-Info.plist */,
-				88FE190F20C328B700ECA9C9 /* FirstScrollView.swift */,
-				8849CAF620C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift */,
-				8841B5A620C743E000C80383 /* RetryViewController.swift */,
-				88240F5B20BD9055007D6363 /* FirstScrollView.xib */,
 				88B15C2E20BA705E004CE674 /* Main.storyboard */,
-				88B15C3420BA705F004CE674 /* Assets.xcassets */,
-				88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */,
-				881D450E21AAE1DE006B4EC3 /* GoogleService-Info.plist */,
-				88B15C3920BA705F004CE674 /* Info.plist */,
-				88B15C3120BA705E004CE674 /* pinwork.xcdatamodeld */,
+				88AC8B0E222AA7EC00AC601A /* ViewControllers */,
+				88AC8B10222AA90A00AC601A /* Models */,
+				88AC8B0D222AA78600AC601A /* TabelViewCells */,
+				88AC8B0F222AA89F00AC601A /* Extras */,
+				88AC8B11222AA92D00AC601A /* NetworkLayer */,
+				88AC8B12222AA94D00AC601A /* IntroView */,
+				88AC8B13222AA9A900AC601A /* MainPageSlider */,
+				88A8E9B820CC131900EB59CE /* ButtonGroups */,
 				88CD084B20C571080047D568 /* ReachabilityManager.swift */,
-				88B2311720C885770087669C /* MainViewController.swift */,
 				88B2311920C891630087669C /* ControllersInCommon.swift */,
-				88B2311B20C8A0F00087669C /* MainNavigationViewController.swift */,
-				88B2311D20C8AF720087669C /* MainSlider.xib */,
-				88B2311F20C8B04D0087669C /* MainSlider.swift */,
-				88A8E9B820CC131900EB59CE /* CustomButtons */,
-				88BEB10020CD9C970083F05E /* SliderMenuFeaturesView.swift */,
-				881D36E120D12D4E0099839B /* CarWashViewController.swift */,
-				881D36EB20D16A320099839B /* PopUpPickerViewController.swift */,
-				881D36ED20D2564A0099839B /* PopUpDatePickerViewController.swift */,
-				881D36F320D286B80099839B /* CarWashOrderDateTimeViewController.swift */,
-				88AB1D1B20D55EB000E45D8B /* OrderDateTimeViewController.swift */,
-				8831F5E720DD15AA00F4D8D8 /* ParkingOrderViewController.swift */,
-				8831F5E920DD8ED200F4D8D8 /* WorkerPickerViewController.swift */,
-				8803849220DFBECC00312E3A /* MapViewController.swift */,
-				88E0702E20EE228800DB46AE /* AddressPopUpViewController.swift */,
-				8877732220F22D90008B7C0C /* OtherServicesViewController.swift */,
-				8877732620F2676D008B7C0C /* OtherServicesOrderViewController.swift */,
-				882B165120F78BBF0008CE9B /* Order.swift */,
-				88471DD420F8C77E004037F3 /* MenuViewController.swift */,
-				88471DD820F8EA14004037F3 /* MenuAttributes.swift */,
-				8828EF3921E9DEFE005BB781 /* GoogleService-Info.plist */,
-				88471DEE20F9020B004037F3 /* User.swift */,
-				88FC9BCF20FCE1F8007F43F7 /* OrdersTableViewController.swift */,
-				88FC9BEA20FE8C31007F43F7 /* EditProfileViewController.swift */,
-				88FC9BF521007E81007F43F7 /* AboutUsWebViewController.swift */,
-				88FC9BFB21048853007F43F7 /* ServiceDetailesViewController.swift */,
-				8807212C2107D66C0013F88D /* RegisterringDoneViewController.swift */,
-				8807212E2107EDBB0013F88D /* SureAboutLogOutViewController.swift */,
-				8807213021080D1E0013F88D /* CompeleteRegisterFormViewController.swift */,
-				8857FA07210CFB7500B42BDD /* TokenExpiredViewController.swift */,
-				88E116D82114958D005496EC /* WorkerProfileViewController.swift */,
-				88291F492114D5E1004859A7 /* NotificationsTableViewController.swift */,
+				88B15C3620BA705F004CE674 /* LaunchScreen.storyboard */,
 			);
 			path = pinwork;
 			sourceTree = "<group>";
@@ -660,6 +738,7 @@
 		88B15C5B20BA8A12004CE674 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				88AC8AFD222A6DA200AC601A /* app-icon.png */,
 				88FC9BEC20FE90C2007F43F7 /* editProfileContents */,
 				88FC9BD920FD47D2007F43F7 /* ordersItem */,
 				8877732A20F35D78008B7C0C /* ParkingCleaningStufs */,
@@ -835,6 +914,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AC8B02222A717E00AC601A /* poshtibani.png in Resources */,
 				88FC9BEE20FE90DE007F43F7 /* smartphone.png in Resources */,
 				88471DE520F8FA61004037F3 /* logout.png in Resources */,
 				88240F4020BC0715007D6363 /* IRANSansMobile_Medium.ttf in Resources */,
@@ -864,6 +944,7 @@
 				8877733220F3733F008B7C0C /* 001-rake.png in Resources */,
 				88471DEB20F8FB40004037F3 /* maid.png in Resources */,
 				88B2062320BB381D00C0A81D /* load3.json in Resources */,
+				88003D07221EEC6000A9D125 /* assurance.png in Resources */,
 				88471DE720F8FA90004037F3 /* support.png in Resources */,
 				8831F5F020DD9BD100F4D8D8 /* female.png in Resources */,
 				88E0702920EBB2DB00DB46AE /* search-address.png in Resources */,
@@ -879,29 +960,26 @@
 				8877732D20F35D9C008B7C0C /* stairs.png in Resources */,
 				8877731320F0D194008B7C0C /* leftArrow.png in Resources */,
 				88698E6B2164DB5800153C10 /* office.png in Resources */,
-				88240F5A20BC72B7007D6363 /* customer_service_icon.png in Resources */,
 				88240F3D20BC0715007D6363 /* IRANSansMobile_UltraLight.ttf in Resources */,
 				8877733A20F6519D008B7C0C /* invoice.png in Resources */,
-				88240F5420BC7286007D6363 /* pro_trained.png in Resources */,
 				88FC9BF8210296B1007F43F7 /* clock.png in Resources */,
 				88FC9BDD20FD48BC007F43F7 /* carwash2.png in Resources */,
 				883247F1213AD833005EC234 /* sprayer.png in Resources */,
 				8877732E20F35D9C008B7C0C /* unit.png in Resources */,
 				883247EF213AD818005EC234 /* settings.png in Resources */,
 				88E0702D20ED0D6B00DB46AE /* homepin.png in Resources */,
-				88B15C5D20BA8A4F004CE674 /* pinwork-logo-fa.png in Resources */,
-				88240F5620BC7294007D6363 /* pro_trusted.png in Resources */,
 				8831F5EC20DD9BB100F4D8D8 /* male.png in Resources */,
 				8807213321081A8E0013F88D /* lname.png in Resources */,
 				880A76B92175E44B00995CCA /* editProf.png in Resources */,
 				88FC9BFA210299E4007F43F7 /* money.png in Resources */,
 				881D36F020D26E800099839B /* move-to-next.png in Resources */,
-				88240F5820BC72A5007D6363 /* calculator.png in Resources */,
+				88AC8B08222A767F00AC601A /* niru-ghabele-etemad.png in Resources */,
 				88B2062120BAE97D00C0A81D /* load2.json in Resources */,
 				88698E5D2164CC0500153C10 /* 1.png in Resources */,
 				88240F3C20BC0715007D6363 /* IRANSansMobile.ttf in Resources */,
 				88FC9BF220FE91C2007F43F7 /* female_and_male.png in Resources */,
 				8877732120F1E279008B7C0C /* icons-05 (2).png in Resources */,
+				88AC8AFE222A6DA500AC601A /* app-icon.png in Resources */,
 				8877732920F26A65008B7C0C /* notebook.png in Resources */,
 				88FC9BDB20FD47E7007F43F7 /* ocalendar.png in Resources */,
 				88698E672164DAED00153C10 /* homecleaning.png in Resources */,
@@ -910,14 +988,19 @@
 				8877733620F37459008B7C0C /* roof.png in Resources */,
 				88698E692164DB1400153C10 /* carwash.png in Resources */,
 				88FC9BE120FD48FF007F43F7 /* work3.png in Resources */,
+				88951DBF221D8DC8000E03FC /* search-app.json in Resources */,
 				88240F4A20BC086D007D6363 /* IRANSansMobile(NoEn)_Medium.ttf in Resources */,
 				88240F4C20BC086D007D6363 /* IRANSansMobile(NoEn)_ultralight.ttf in Resources */,
 				8828EF3A21E9DEFE005BB781 /* GoogleService-Info.plist in Resources */,
 				88CA9434210A8E77006B7D77 /* check.png in Resources */,
 				88B15C3020BA705E004CE674 /* Main.storyboard in Resources */,
+				88AC8B06222A766900AC601A /* niroo-amoozesh-dide.png in Resources */,
+				88936B7522183C2C004EBEF6 /* GoogleService-Info.plist in Resources */,
 				88240F4920BC086D007D6363 /* IRANSansMobile(NoEn)_Bold.ttf in Resources */,
+				88AC8B04222A764A00AC601A /* gheymat-shafaf.png in Resources */,
 				8898DB3620D54AA500E522A5 /* timeintval.png in Resources */,
 				883247ED213AD7F6005EC234 /* frame.png in Resources */,
+				88003D0D2222F15600A9D125 /* newmessage.json in Resources */,
 				88FC9BE720FDD35E007F43F7 /* tools.png in Resources */,
 				88A8E9AE20CC10D300EB59CE /* HomeCleaning.xib in Resources */,
 				881D36EA20D154380099839B /* downarrow.png in Resources */,
@@ -932,6 +1015,7 @@
 				88698E6D2164DB7800153C10 /* garage.png in Resources */,
 				88240F5C20BD9055007D6363 /* FirstScrollView.xib in Resources */,
 				88240F4D20BC086D007D6363 /* IRAN SansMobile(NoEn).ttf in Resources */,
+				88AC8B00222A6E5800AC601A /* pinwork-logo-fa.png in Resources */,
 				88FC9BE320FDB166007F43F7 /* pinworkPattern.png in Resources */,
 				883247EB213AD7CD005EC234 /* air-conditioner.png in Resources */,
 				88B2313320C8DD0D0087669C /* MoreServicesButton.xib in Resources */,
@@ -954,6 +1038,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HCSStarRatingView/HCSStarRatingView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -968,6 +1053,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HCSStarRatingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1029,12 +1115,12 @@
 				8877732720F2676D008B7C0C /* OtherServicesOrderViewController.swift in Sources */,
 				88E3F60F20BE01DE00BA6516 /* ActivationCodeDemandViewController.swift in Sources */,
 				88FC9BD020FCE1F8007F43F7 /* OrdersTableViewController.swift in Sources */,
-				88BEB10120CD9C970083F05E /* SliderMenuFeaturesView.swift in Sources */,
 				88471DD920F8EA14004037F3 /* MenuAttributes.swift in Sources */,
 				88CD084C20C571080047D568 /* ReachabilityManager.swift in Sources */,
 				88B2312020C8B04D0087669C /* MainSlider.swift in Sources */,
 				8807212F2107EDBB0013F88D /* SureAboutLogOutViewController.swift in Sources */,
 				88A8E9B220CC119300EB59CE /* GarageButton.swift in Sources */,
+				88AC8B0C222AA25500AC601A /* DoneServiceDetailesViewController.swift in Sources */,
 				88A8E9AA20CBAA8500EB59CE /* CarWashButton.swift in Sources */,
 				88B2311820C885770087669C /* MainViewController.swift in Sources */,
 				881D36F420D286B80099839B /* CarWashOrderDateTimeViewController.swift in Sources */,
@@ -1048,19 +1134,22 @@
 				8877732320F22D90008B7C0C /* OtherServicesViewController.swift in Sources */,
 				8849CAF720C6C94E00E2A5A8 /* NoInternetPopUpViewController.swift in Sources */,
 				88B2311C20C8A0F00087669C /* MainNavigationViewController.swift in Sources */,
-				88FC9BFC21048853007F43F7 /* ServiceDetailesViewController.swift in Sources */,
+				88AC8B0A222A9D1400AC601A /* DoneServiceDetaileWorkerViewCell.swift in Sources */,
+				88FC9BFC21048853007F43F7 /* ReservedServiceDetailesViewController.swift in Sources */,
 				88B15C5F20BAA0B3004CE674 /* LoginPageViewController.swift in Sources */,
 				8807213121080D1E0013F88D /* CompeleteRegisterFormViewController.swift in Sources */,
 				8807212D2107D66C0013F88D /* RegisterringDoneViewController.swift in Sources */,
 				88471DEF20F9020B004037F3 /* User.swift in Sources */,
 				88FC9BF621007E81007F43F7 /* AboutUsWebViewController.swift in Sources */,
 				88B2311A20C891630087669C /* ControllersInCommon.swift in Sources */,
+				88936B772218732E004EBEF6 /* ReservedServiceDetaileWorkerViewCell.swift in Sources */,
 				88FC9BEB20FE8C31007F43F7 /* EditProfileViewController.swift in Sources */,
 				88A8E9B420CC11AE00EB59CE /* HomeCleaning.swift in Sources */,
 				881D36E220D12D4E0099839B /* CarWashViewController.swift in Sources */,
 				88AB1D1C20D55EB000E45D8B /* OrderDateTimeViewController.swift in Sources */,
 				8841B5A720C743E000C80383 /* RetryViewController.swift in Sources */,
 				88B15C2B20BA705E004CE674 /* AppDelegate.swift in Sources */,
+				88003D092222CBCA00A9D125 /* InformUserViewController.swift in Sources */,
 				8831F5E820DD15AA00F4D8D8 /* ParkingOrderViewController.swift in Sources */,
 				88E116D92114958D005496EC /* WorkerProfileViewController.swift in Sources */,
 				881D36EE20D2564A0099839B /* PopUpDatePickerViewController.swift in Sources */,
@@ -1068,6 +1157,7 @@
 				88471DD520F8C77E004037F3 /* MenuViewController.swift in Sources */,
 				88FE191020C328B800ECA9C9 /* FirstScrollView.swift in Sources */,
 				8803849320DFBECC00312E3A /* MapViewController.swift in Sources */,
+				88003D05221EE9B900A9D125 /* AssuranceViewController.swift in Sources */,
 				8857FA08210CFB7500B42BDD /* TokenExpiredViewController.swift in Sources */,
 				88291F4A2114D5E1004859A7 /* NotificationsTableViewController.swift in Sources */,
 				88B15C3320BA705E004CE674 /* pinwork.xcdatamodeld in Sources */,

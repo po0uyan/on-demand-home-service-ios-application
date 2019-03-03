@@ -31,10 +31,10 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
     }
     
     
-    let feature1 = ["title":"حرفه‌ای‌های قابل اعتماد","description":"حرفه‌ای‌های فعال در سیستم پین ورک، تست‌های اخلاقی، امنیتی و حرفه‌ای را گذرانده‌‌اند تا صلاحیت همکاری با مجموعه را پیدا کنند.","image":"pro_trusted.png"]
-    let feature2 = ["title":"حرفه‌ای‌های آموزش‌دیده","description":"حرفه‌ای های فعال در سیستم پین ورک، دوره‌های آموزشی بسیاری را گذرانده‌اند تا بهترین خدمات را به شما بدهند.","image":"pro_trained.png"]
-    let feature3 = ["title":"سفارش آسان و شفافی‌ قیمت","description":"در کمتر از یک دقیقه می‌توانید سفارش خود را ثبت کنید تا کارشناسان پین ورک در سریع‌ترین زمان ممکن، بهترین حرفه‌ای را به شما اختصاص دهند.","image":"calculator.png"]
-    let feature4 = ["title":"پشتیبانی و پیگیری","description":"کارشناسان پین ورک در تمامی مراحل در خدمت شما هستند تا شما با خیالی آسوده از نظافت منزل یا محل کار خود لذت ببرید.","image":"customer_service_icon.png"]
+    let feature1 = ["title":"حرفه‌ای‌های قابل اعتماد","description":"پین ورک برای حفظ امنیت سفارشات، فیلترهای متعدد و سخت گیرانه‌ی امنیتی اعمال می کند.","image":"niru-ghabele-etemad.png"]
+    let feature2 = ["title":"حرفه ای های آموزش دیده پین ورک","description":"پین ورک به حرفه ای ها خود، آموزش های اخلاقی و حرفه ای می دهد تا صلاحیت ارائه خدمت به شما را کسب کنند.","image":"niroo-amoozesh-dide.png"]
+    let feature3 = ["title":"قیمت شفاف و سهولت در سفارش","description":"در کمتر از یک دقیقه سفارش خود را با قیمت شفاف، ثبت کنید تا بهترین حرفه ای به شما اختصاص داده شود.","image":"gheymat-shafaf.png"]
+    let feature4 = ["title":"پشتیبانی و پیگیری دائمی","description":"کارشناسان پین ورک در تمامی مراحل در خدمت شما هستند تا با خیالی آسوده از خدمت ارائه شده لذت ببرید.","image":"poshtibani.png"]
     
     var featureArray = [Dictionary<String,String>]()
     
@@ -55,6 +55,7 @@ class LoginPageViewController: UIViewController, UIScrollViewDelegate{
         LoginScrollView.contentSize = CGSize(width: self.view.bounds.width * CGFloat(featureArray.count), height: 230)
         LoginScrollView.showsHorizontalScrollIndicator = false
         LoginScrollView.showsVerticalScrollIndicator = false
+        LoginScrollView.isScrollEnabled = true
         loadFeatures()
     }
     override func viewDidDisappear(_ animated: Bool) {

@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/MainViewController.swift"
-            timestampString = "565534077.7014019"
+            timestampString = "573254080.868547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -438,13 +438,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/OrdersTableViewController.swift"
-            timestampString = "566857626.167573"
+            timestampString = "573254080.868803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "tableView(_:heightForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -502,12 +502,200 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pinwork/ServiceDetailesViewController.swift"
-            timestampString = "566857626.1677361"
+            timestampString = "573209188.407428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "preFillContents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pinwork/ServiceDetailWorkerViewCell.swift"
+            timestampString = "573209188.407899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "setSelected(_:animated:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pinwork/ServiceDetailWorkerViewCell.swift"
+            timestampString = "573209188.40859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "ServiceDetailWorkerViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.workerFullNameLabel.getter : weak Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572703502.381816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.workerFullNameLabel.setter : weak Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572703502.3837529"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; pinwork.ServiceDetailWorkerViewCell"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572703502.3858171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "285">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;pinwork.ServiceDetailWorkerViewCell&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572703502.388768"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pinwork/ServiceDetailWorkerViewCell.swift"
+            timestampString = "573209188.409094"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ServiceDetailWorkerViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.workerImage.getter : weak Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572354455.122458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.workerImage.setter : weak Swift.Optional&lt;__C.UIImageView&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572354455.124351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; pinwork.ServiceDetailWorkerViewCell"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572354455.126135"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pinwork.ServiceDetailWorkerViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;pinwork.ServiceDetailWorkerViewCell&gt;"
+                  moduleName = "pinwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouyan/Development/pinwork/ios/pin_ios_customer/pinwork/ServiceDetailWorkerViewCell.swift"
+                  timestampString = "572354455.12791"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pinwork/EditProfileViewController.swift"
+            timestampString = "573254080.868945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "submitButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

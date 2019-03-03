@@ -54,8 +54,9 @@ class NotificationsTableViewController: UITableViewController {
                 if self.notifications.count != 0 {
                    
                     cell.summaryLabel.text = self.notifications[indexPath.row]["summary"].stringValue
-                    cell.dateLabel.text = String( self.notifications[indexPath.row]["persian_created_at"].stringValue.split(separator: " ")[0]).convertToPersian()
-                    cell.timeLabel.text = String( self.notifications[indexPath.row]["persian_created_at"].stringValue.split(separator: " ")[1]).convertToPersian()
+                    let completePersianDate = self.getProperDate(inputStringDate: self.notifications[indexPath.row]["created_at"].stringValue).convertToPersian()
+                    cell.dateLabel.text = completePersianDate
+                    cell.timeLabel.text = String( self.notifications[indexPath.row]["created_at"].stringValue.split(separator: " ")[1]).convertToPersian()
                     cell.contentLabel.text = self.notifications[indexPath.row]["content"].stringValue
                 }
         }

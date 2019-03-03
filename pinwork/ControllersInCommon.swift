@@ -69,7 +69,13 @@ extension String {
 extension UIViewController {
     
     
-   
+    func popViewControllers(popViews: Int, animated: Bool = true) {
+        if self.navigationController!.viewControllers.count > popViews
+        {
+            let vc = self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - popViews - 1]
+            self.navigationController?.popToViewController(vc, animated: animated)
+        }
+    }
     
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -98,6 +104,26 @@ extension UIViewController {
         retryPopUpController.modalPresentationStyle = .overCurrentContext
         self.present(retryPopUpController, animated: true)
         return retryPopUpController
+    }
+    func showAssurancePopUp(toshow message: String)->AssuranceViewController{
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let assurancePopUpController = storyBoard.instantiateViewController(withIdentifier: "AssuranceViewController") as! AssuranceViewController
+        assurancePopUpController.message = message
+        assurancePopUpController.modalTransitionStyle = .crossDissolve
+        assurancePopUpController.isModalInPopover = true
+        assurancePopUpController.modalPresentationStyle = .overCurrentContext
+        self.present(assurancePopUpController, animated: true)
+        return assurancePopUpController
+    }
+    func showInformUserPopUp(toshow message: String)->InformUserViewController{
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let InformUserView = storyBoard.instantiateViewController(withIdentifier: "InformUserViewController") as! InformUserViewController
+        InformUserView.message = message
+        InformUserView.modalTransitionStyle = .crossDissolve
+        InformUserView.isModalInPopover = true
+        InformUserView.modalPresentationStyle = .overCurrentContext
+        self.present(InformUserView, animated: true)
+        return InformUserView
     }
     func showTokenExpiredPopUp(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -287,7 +313,7 @@ extension UIViewController {
             ,404: "درخواست مورد نظر پیدا نشد "
             ,4041:"این شماره قبلا ثبت نام شده‌است"
             ,4042:"این شماره قبلا ثبت نام نشده است "
-            ,500:"سرور دچار مشکل شده‌است"
+            ,500:"سرور با خطا مواجه شده"
             ,5002:"خطا در ایجاد پیامک"
             ,5005:"کد وارد شده معتبر نمی‌باشد"
             ,5007:"تاریخ استفاده از کد تخفیف به پایان رسیده‌است"
@@ -311,7 +337,8 @@ extension UIViewController {
             ,50024:"زمان پایان جلوتر از ساعت فعلی"
             ,50025:"زمان درخواست سفارش غیر مجاز"
             ,50026:"زمان درخواست سفارش غیر مجاز"
-            ,50050:"کد اعتبارسنجی منقضی شده‌است"]
+,50050:"کد اعتبارسنجی منقضی شده‌است"
+            ,50028:"امکان لغو این سفارش در این زمان میسر نیست"]
         if let message = error[respond]{
             showToast(message: message)
             

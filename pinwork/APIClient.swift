@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class APIClient{
-    static let baseUrl = "https://testapi.pinwork.co/api/"
+    static let baseUrl = "https://api.pinwork.co/api/"
  
 
     struct APIManager {
@@ -337,7 +337,23 @@ class APIClient{
         
     }
 
-
+    static func  cancelService(rememberToken: String, requestParams:[String:String], completionHandler: @escaping (JSON?, Error?) -> ()){
+        let requestHeaders = ["User-Agent": "iphone"]
+        var requestParameters = requestParams
+        requestParameters["remember_token"] = rememberToken
+        debugPrint(requestParams)
+        APIManager.sharedManager.request(baseUrl+"postCancelServiceRequest", method:.post, parameters:requestParameters ,encoding: JSONEncoding.default, headers: requestHeaders).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                completionHandler(JSON(value), nil)
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+            
+        }
+        
+        
+    }
 
 
 }
